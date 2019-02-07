@@ -1,33 +1,30 @@
-<h1>Inscrivez vous</h1>
-<form class="example-form">
-  <table class="example-full-width" cellspacing="0"><tr>
-    <td><mat-form-field class="example-full-width">
-      <input matInput placeholder="Nom">
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width">
-      <input matInput placeholder="Long Last Name That Will Be Truncated">
-    </mat-form-field></td>
-  </tr></table>
+<mat-card>
+  <mat-card-content>
+    <h1>Inscrivez vous</h1>
 
-  <p>
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Address 2"></textarea>
-    </mat-form-field>
-  </p>
+      <table class="example-full-width" cellspacing="30"><tr>
+        <td><mat-form-field class="example-full-width">
+          <input [(ngModel)]="lastname" matInput placeholder="Votre nom">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <input [(ngModel)]="firstname" matInput placeholder="Votre prénom">
+        </mat-form-field></td>
+      </tr>
 
-  <table class="example-full-width" cellspacing="0"><tr>
-    <td><mat-form-field class="example-full-width">
-      <input matInput placeholder="City">
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width">
-      <input matInput placeholder="State">
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width">
-      <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-    </mat-form-field></td>
-  </tr></table>
-</form>
+        <tr>
+          <td>
+            <img class="avatar" src="/assets/img/avatar.jpg">
+          </td>
+          <td>
+            <button mat-raised-button>Modifier la photo</button>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+      <app-car-picker (onclick)="selcar($event)"></app-car-picker>
+
+
+    <button mat-raised-button (click)="sendUser()">Enregistrer</button>
+  </mat-card-content>
+</mat-card>

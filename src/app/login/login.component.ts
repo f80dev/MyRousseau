@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   constructor(public api:ApiService,public router:Router) { }
 
   ngOnInit() {
+    this.email=localStorage.getItem("email") || "";
   }
 
   login() {
@@ -34,14 +35,14 @@ export class LoginComponent implements OnInit {
     this.api.login(this.email,this.password).subscribe((r:any)=>{
       if(!this.showPassword){
         if(r==null){
-          this.router.navigate(['/newuser']);
+          this.router.navigate(['/newuser'],{ queryParams: { email: this.email} });
         }
         else
           this.showPassword=true;
       } else {
         if(r!=null){
           localStorage.setItem("password",this.password);
-          this.router.navigate(["/main"]);
+          document.location.reload();
         } else {
           this.message="Mot de passe incorrect";
         }

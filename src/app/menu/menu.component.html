@@ -1,3 +1,17 @@
+<mat-toolbar *ngIf="userService.user.email!=null"
+             color="primary">
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()"
+    *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span class="fill-remaining-space"></span>
+  <button mat-raised-button color="primary" (click)="logout()">Déconnecter</button>
+</mat-toolbar>
+
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     *ngIf="userService.user.email!=null"
@@ -11,27 +25,19 @@
       <img class="main-logo" src="assets/img/logo-rousseau.png">
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/main">Dashboard</a>
-      <a mat-list-item routerLink="/schedule">Rendez-vous</a>
-      <a mat-list-item routerLink="/gift">Récompenses</a>
-      <a mat-list-item routerLink="/catalogue">Catalogue</a>
-      <a mat-list-item routerLink="/admin">Admin</a>
+      <a mat-list-item routerLink="/main"><mat-icon>dns</mat-icon>&nbsp;&nbsp;Dashboard</a>
+      <a mat-list-item routerLink="/schedule"><mat-icon>schedule</mat-icon>&nbsp;&nbsp;Rendez-vous</a>
+      <a mat-list-item routerLink="/gift"><mat-icon>card_giftcard</mat-icon>&nbsp;&nbsp;Récompenses</a>
+      <a mat-list-item routerLink="/catalogue"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Catalogue</a>
+      <a mat-list-item routerLink="/admin"><mat-icon>build</mat-icon>&nbsp;&nbsp;Admin</a>
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
-    <mat-toolbar *ngIf="userService.user.email!=null"
-                 color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span class="fill-remaining-space"></span>
-      <button mat-raised-button color="primary" (click)="logout()">Déconnecter</button>
-    </mat-toolbar>
+
+
     <router-outlet></router-outlet>
+
   </mat-sidenav-content>
+
 </mat-sidenav-container>

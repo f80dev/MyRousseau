@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material';
 
@@ -49,6 +49,8 @@ interface ExampleFlatNode {
 })
 export class CarPickerComponent implements OnInit {
 
+  @Output('onclick') onclick: EventEmitter<any>=new EventEmitter();
+
   private transformer = (node: carNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
@@ -74,4 +76,7 @@ export class CarPickerComponent implements OnInit {
   ngOnInit() {
   }
 
+  selcar(node) {
+    this.onclick.emit({car:node.name});
+  }
 }

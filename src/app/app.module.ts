@@ -19,7 +19,7 @@ import {
   MatCardModule,
   MatGridListModule,
   MatMenuModule,
-  MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTreeModule
+  MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTreeModule, MatChipsModule
 } from '@angular/material';
 import { ContactComponent } from './contact/contact.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -38,6 +38,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { CarPickerComponent } from './car-picker/car-picker.component';
 import { NextAppointmentComponent } from './next-appointment/next-appointment.component';
 import { LightProfilComponent } from './light-profil/light-profil.component';
+import { TimerComponent } from './timer/timer.component';
 
 
 @NgModule({
@@ -56,10 +57,12 @@ import { LightProfilComponent } from './light-profil/light-profil.component';
     ProfilComponent,
     CarPickerComponent,
     NextAppointmentComponent,
-    LightProfilComponent
+    LightProfilComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
+    MatChipsModule,
     MatDatepickerModule,
     BrowserAnimationsModule,
     LayoutModule,

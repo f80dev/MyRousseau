@@ -1,20 +1,36 @@
-<mat-card class="identity-card app-card">
+<mat-card class="app-card">
   <mat-card-header>
-    <div mat-card-avatar class="header-photo"></div>
-    <mat-card-title>{{userService.user.firstname}} {{userService.user.lastname}}</mat-card-title>
-    <mat-card-subtitle>Ma {{userService.user.cars[0].modele}}</mat-card-subtitle>
+
+    <table style="width:100%;margin-bottom: 5vh;">
+      <tr style="vertical-align: middle;">
+      <td style="text-align: left;width:20%;">
+        <img class="avatar" src="{{userService.user.photo}}">
+      </td>
+      <td style="text-align: left;padding:0px;margin:0px;">
+        <div *ngIf="userService.user.cars!=null">
+          <strong>Ma {{userService.user.cars[0].modele}}</strong><br>
+          {{userService.user.firstname}} {{userService.user.lastname}}
+        </div>
+      </td>
+      <td style="text-align:right;font-size: 4.5vw;">
+        {{userService.user.pts}}
+        <span style="font-size: 2.5vw;">pts</span>&nbsp;
+      </td>
+    </tr></table>
+
   </mat-card-header>
-  <img mat-card-image src="{{userService.user.cars[0].photo}}" alt="My Car">
-  <mat-card-content>
+
+  <mat-card-content style="text-align: center;">
+    <img mat-card-image
+         *ngIf="userService.user.cars!=null"
+         style="max-width:700px;"
+         class="image-photo fadein"
+         src="{{userService.user.cars[0].photo}}"
+         alt="My Car">
     <p>
       {{userService.user.message}}
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>PHOTO</button>
   </mat-card-actions>
-  <mat-card-footer>
-    Points de fidélité
-    <mat-icon>star_rate</mat-icon>
-  </mat-card-footer>
 </mat-card>

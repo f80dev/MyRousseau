@@ -10,15 +10,36 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-selection-list #sel_gift>
-      <mat-list-option  *ngFor="let gift of userService.user.gifts">
-        <img mat-list-avatar src="{{gift.picture}}">
+
+    <div *ngIf="!icon_view" fxLayout="row wrap">
+        <div class="flip-card" *ngFor="let gift of gifts" style="margin:20px;position:relative;height:400px;width:100%;overflow: hidden;">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="{{gift.picture}}" style="position:absolute;left:0;top:0;object-fit: cover;">
+              <div [ngStyle]="{'position':'absolute','text-align':'center','left':'20%','top':'15%','width':'60%','font-size':'2.5vw','color':gift.messageColor}">
+                {{gift.message}}
+              </div>
+              <button mat-raised-button style="position:absolute;left:40%;top:70%;width:20%;" (click)="useGift($event)">J'en profite</button>
+              <div [ngStyle]="{'position':'absolute','text-align':'center','left':'45%','top':'82%','width':'10%','font-size':'1vw','color':gift.messageColor}">
+                <app-timer [end]="gift.dtEnd"></app-timer>
+              </div>
+            </div>
+            <div class="flip-card-back" style="vertical-align: middle;text-align: center;">
+              {{gift.manual}}
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+    <mat-selection-list #sel_gift *ngIf="icon_view">
+      <mat-list-option  *ngFor="let gift of gifts">
+        <img mat-list-avatar src="{{gift.icon}}">
         <span mat-line>{{gift.message}}</span>
       </mat-list-option>
     </mat-selection-list>
 
     <mat-card-actions>
-
     </mat-card-actions>
   </mat-card-content>
 </mat-card>

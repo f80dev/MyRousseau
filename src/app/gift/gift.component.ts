@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
 import {UserService} from '../user.service';
 
@@ -10,11 +10,37 @@ import {UserService} from '../user.service';
 export class GiftComponent implements OnInit {
 
   gifts:any[]=[];
+  @Input() dtStart=0;
+  @Input() dtEnd=0;
+  @Input() userFilter="";
+  @Input() icon_view: boolean=false;
 
-  constructor(public userService:UserService) { }
+  constructor(public api:ApiService,public userService:UserService) { }
 
   ngOnInit() {
-    this.userService.init();
+    this.api.getgifts(this.userFilter).subscribe((r:any)=>{
+      this.gifts=[];
+      r.items.forEach((i)=>{
+        if((i.dtStart>=this.dtStart || this.dtStart==0) && (i.dtEnd>=this.dtEnd || this.dtEnd==0))
+          this.gifts.push(i);
+      });
+    })
   }
 
+  useGift(evt) {
+    var elt=evt.target;
+    elt.parentElement.parentElement.parentElement.parentElement.className="flip-card_hover";
+
+    elt.parentElement.parentElement.parentElement.addEventListener("mouseleave",()=>{
+      elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
+    });
+
+    elt.parentElement.parentElement.parentElement.parentElement.addEventListener("tap",()=>{
+      elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
+    });
+
+    setTimeout(()=>{
+      elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
+    },6000);
+  }
 }

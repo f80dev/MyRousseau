@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  public add(user:string,firstname:string,lastname:string){
+  public add(user:string,firstname:string,lastname:string,modele:string=""){
     return this.http.get(api("adduser","email="+user+"&firstname="+firstname+"&lastname="+lastname))
   }
 
@@ -32,5 +32,10 @@ export class ApiService {
 
   public addgift(user:string,gift:any){
     return this.http.post(api("addgift","email="+user),gift);
+  }
+
+  getgifts(email:string) {
+    if(email==null)email="null";
+    return this.http.get(api("getgifts","email="+email));
   }
 }

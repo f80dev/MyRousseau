@@ -2,8 +2,8 @@
   <br><br>
   <img src="assets/img/logo-rousseau.png">
   <mat-card class="app-card">
-    <mat-card-header>Login</mat-card-header>
     <mat-card-content>
+      <h1>S'identifier</h1>
           <br>
       <mat-form-field class="example-form-field">
         <input matInput type="email" placeholder="Votre email" [(ngModel)]="email">
@@ -20,7 +20,7 @@
       </mat-form-field>
 
       <br><br>
-      <button mat-raised-button (click)="login()">Login</button>
+      <button *ngIf="email.length>0" mat-raised-button (click)="login()">Login</button>
 
     </mat-card-content>
 

@@ -18,8 +18,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   margin:2%;
   vertical-align: text-top;
   display: flex;
-  padding:10px;
-  max-width: 500px;
+  padding:0px;
 }
 
 .fill-remaining-space {
@@ -28,5 +27,74 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 .fill {
   flex: 1;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display:inline-block;
+}
+
+.fadein {
+  opacity:1.0;
+  transition: opacity 2s 10s;
+}
+
+.fadeout {
+  opacity:0.0;
+  transition: opacity 2s;
+}
+
+.image-photo {
+  box-shadow: 3px 3px 5px #aaa;
+  margin: 5px;
+  border: 1px #bfbec4 solid;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card_hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: white;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
 }
 

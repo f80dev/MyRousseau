@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +12,7 @@ export class AdminComponent implements OnInit {
   users:any[]=[];
   gifts:any[]=[];
 
-  constructor(public api:ApiService) { }
+  constructor(public api:ApiService,public rooter:Router) { }
 
   ngOnInit() {
     this.api.getusers().subscribe((l:any)=>{
@@ -30,4 +31,7 @@ export class AdminComponent implements OnInit {
     this.api.raz();
   }
 
+  admin() {
+    document.location.href="http://localhost:8080/_ah/admin";
+  }
 }
