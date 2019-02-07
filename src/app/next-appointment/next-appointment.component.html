@@ -1,0 +1,17 @@
+<mat-card class="app-card">
+  <mat-card-header>
+    Prochain rendez-vous
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="appointments.length>0">
+      {{appointments[0].description}}
+      <button mat-button>Annuler</button>
+    </div>
+    <div *ngIf="appointments.length==0">
+      Aucun rendez-vous
+    </div>
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

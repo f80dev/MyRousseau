@@ -1,0 +1,57 @@
+<button mat-raised-button color="warm" (click)="raz()">RAZ</button>
+
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Rendez-vous
+    </mat-panel-title>
+    <mat-panel-description>
+      Liste des demandes de rendez-vous
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Utilisateurs
+    </mat-panel-title>
+    <mat-panel-description>
+      Liste des utilisateurs
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-selection-list #sel_users>
+    <mat-list-option *ngFor="let user of users">
+      <mat-icon mat-list-icon>people</mat-icon>
+      {{user.email}} - {{user.fidelity}}
+    </mat-list-option>
+  </mat-selection-list>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Cadeaux
+    </mat-panel-title>
+    <mat-panel-description>
+      Liste des cadeaux attribuables
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+
+    <mat-selection-list #sel_gift>
+      <mat-list-option  *ngFor="let gift of gifts">
+        <img mat-list-avatar src="{{gift.picture}}">
+        <span mat-line>{{gift.message}}</span>
+      </mat-list-option>
+    </mat-selection-list>
+
+</mat-expansion-panel>
+
+<br><br>
+<button mat-raised-button color="primary">Attribuer cadeaux</button>
+
+

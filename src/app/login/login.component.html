@@ -1,0 +1,30 @@
+<div style="text-align: center">
+  <br><br>
+  <img src="assets/img/logo-rousseau.png">
+  <mat-card class="app-card">
+    <mat-card-header>Login</mat-card-header>
+    <mat-card-content>
+          <br>
+      <mat-form-field class="example-form-field">
+        <input matInput type="email" placeholder="Votre email" [(ngModel)]="email">
+        <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="clearEmail()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <br><br>
+      <mat-form-field *ngIf="showPassword && email.length>0" class="example-form-field">
+        <input name="password" placeholder="votre code à 4 chiffres" [(ngModel)]="password" matInput type="password" [maxlength]="4">
+        <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <br><br>
+      <button mat-raised-button (click)="login()">Login</button>
+
+    </mat-card-content>
+
+  </mat-card>
+
+
+</div>

@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-header>Demander un rendez-vous</mat-card-header>
+  <mat-form-field class="example-full-width">
+    <input matInput [matDatepicker]="picker" placeholder="Choisir une date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>&nbsp;&nbsp;
+  <input class="time-picker" atp-time-picker value="19:00"/>&nbsp;&nbsp;
+  <button mat-raised-button color="primary" (click)="askForAppointment()">Demander</button>
+</mat-card>

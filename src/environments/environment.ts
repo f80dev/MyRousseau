@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  root_api:"http://localhost:8080/_ah/api/rousseau/v1"
 };
 
 /*

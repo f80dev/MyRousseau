@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+.time-picker {
+  border: none;
+  font-size: large;
+  color:gray;
+}
+
+.text-left {
+  text-align: left;
+  width:100%;
+}
+
+.app-card {
+  margin:2%;
+  vertical-align: text-top;
+  display: flex;
+  padding:10px;
+  max-width: 500px;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.fill {
+  flex: 1;
+}
+

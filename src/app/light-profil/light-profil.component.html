@@ -1,0 +1,20 @@
+<mat-card class="identity-card app-card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-photo"></div>
+    <mat-card-title>{{userService.user.firstname}} {{userService.user.lastname}}</mat-card-title>
+    <mat-card-subtitle>Ma {{userService.user.cars[0].modele}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{userService.user.cars[0].photo}}" alt="My Car">
+  <mat-card-content>
+    <p>
+      {{userService.user.message}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>PHOTO</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    Points de fidélité
+    <mat-icon>star_rate</mat-icon>
+  </mat-card-footer>
+</mat-card>

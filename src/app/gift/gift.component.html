@@ -1,0 +1,25 @@
+<mat-card class="app-card">
+  <mat-card-header>
+      <div>Récompenses</div>
+      <div class="fill"></div>
+      <div>
+        <button mat-icon-button class="more-button" aria-label="Toggle menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-selection-list #sel_gift>
+      <mat-list-option  *ngFor="let gift of userService.user.gifts">
+        <img mat-list-avatar src="{{gift.picture}}">
+        <span mat-line>{{gift.message}}</span>
+      </mat-list-option>
+    </mat-selection-list>
+
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+
