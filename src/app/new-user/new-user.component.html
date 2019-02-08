@@ -47,6 +47,9 @@
         </tr>
       </table>
 
+      <div style="display:inline;" *ngIf="message!=''">
+        <p>{{message}}</p>
+      </div>
 
     <button mat-raised-button
             *ngIf="firstname!=null && lastname!=null && firstname.length>0 && lastname.length>0"

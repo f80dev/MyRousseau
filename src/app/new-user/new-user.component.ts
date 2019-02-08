@@ -15,6 +15,7 @@ export class NewUserComponent implements OnInit {
   lastname: any;
   firstname:any;
   carPicture:string="";
+  message: string = '';
 
   constructor(public api:ApiService,public route:ActivatedRoute,public router:Router) { }
 
@@ -37,7 +38,12 @@ export class NewUserComponent implements OnInit {
   sendUser() {
     this.api.add(this.email,this.firstname,this.lastname,this.modele).subscribe((r)=>{
       localStorage.setItem("email",this.email);
-      this.router.navigate(["start"]);
+
+      this.message="Votre code d'accès vient d'être envoyé sur votre mail. Vérifier votre boite pour pouvoir vous reconnecter."
+      setTimeout(()=>{
+        this.router.navigate(["start"]);
+      },3000);
+
     });
   }
 }
