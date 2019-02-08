@@ -37,7 +37,7 @@ export class NewUserComponent implements OnInit {
   sendUser() {
     this.api.add(this.email,this.firstname,this.lastname,this.modele).subscribe((r)=>{
       localStorage.setItem("email",this.email);
-      this.router.navigate(["main"]);
+      this.router.navigate(["start"]);
     });
   }
 }

@@ -5,5 +5,12 @@
 }
 
 .example-full-width {
+  display:inline-block;
   width: 100%;
+}
+
+.button-identity-provider {
+  margin:15px;
+  width:150px;
+  background-color:lightgrey;
 }

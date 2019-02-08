@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       } else {
         if(r!=null){
           localStorage.setItem("password",this.password);
-          this.router.navigate(["main"]);
+          this.router.navigate(["start"]);
         } else {
           this.message="Mot de passe incorrect";
         }

@@ -7,6 +7,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AdminComponent} from './admin/admin.component';
 import {LoginComponent} from './login/login.component';
 import {NewUserComponent} from './new-user/new-user.component';
+import {AppComponent} from './app.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'admin',component: AdminComponent},
   { path: 'login',component: LoginComponent},
   { path: 'newuser',component: NewUserComponent},
+  { path: 'start',component: AppComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

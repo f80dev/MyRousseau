@@ -198,12 +198,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _new_user_new_user_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./new-user/new-user.component */ "./src/app/new-user/new-user.component.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -220,6 +222,7 @@ var routes = [
     { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_6__["AdminComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"] },
     { path: 'newuser', component: _new_user_new_user_component__WEBPACK_IMPORTED_MODULE_8__["NewUserComponent"] },
+    { path: 'start', component: _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"] },
     { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -896,7 +899,7 @@ var LightProfilComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  display:inline-block;\r\n  width: 100%;\r\n}\r\n\r\n.button-identity-provider {\r\n  margin:15px;\r\n  width:150px;\r\n  background-color:lightgrey;\r\n}\r\n"
 
 /***/ }),
 
@@ -907,7 +910,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"text-align: center\">\n  <br><br>\n  <img src=\"assets/img/logo-rousseau.png\">\n  <mat-card class=\"app-card\">\n    <mat-card-content>\n      <h1>S'identifier</h1>\n          <br>\n      <mat-form-field class=\"example-form-field\">\n        <input matInput type=\"email\" placeholder=\"Votre email\" [(ngModel)]=\"email\">\n        <button mat-button *ngIf=\"email\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"clearEmail()\">\n          <mat-icon>close</mat-icon>\n        </button>\n      </mat-form-field>\n      <br><br>\n      <mat-form-field *ngIf=\"showPassword && email.length>0\" class=\"example-form-field\">\n        <input name=\"password\" placeholder=\"votre code à 4 chiffres\" [(ngModel)]=\"password\" matInput type=\"password\" [maxlength]=\"4\">\n        <button mat-button *ngIf=\"password\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"password=''\">\n          <mat-icon>close</mat-icon>\n        </button>\n      </mat-form-field>\n\n      <br><br>\n      <button *ngIf=\"email.length>0\" mat-raised-button (click)=\"login()\">Login</button>\n\n    </mat-card-content>\n\n  </mat-card>\n\n\n</div>\n"
+module.exports = "<div style=\"text-align: center\">\n  <br><br>\n  <img src=\"assets/img/logo-rousseau.png\">\n  <mat-card class=\"app-card\">\n    <mat-card-content>\n      <h1>S'identifier</h1>\n          <br>\n      <button class=\"button-identity-provider\" mat-raised-button >Facebook</button><br>\n      <button class=\"button-identity-provider\"  mat-raised-button>Google</button><br>\n      <button  class=\"button-identity-provider\" mat-raised-button>Linkedin</button><br>\n\n      <br><br>\n      <mat-form-field class=\"example-form-field\">\n        <input matInput type=\"email\" placeholder=\"Votre email\" [(ngModel)]=\"email\">\n        <button mat-button *ngIf=\"email\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"clearEmail()\">\n          <mat-icon>close</mat-icon>\n        </button>\n      </mat-form-field>\n      <br><br>\n      <mat-form-field *ngIf=\"showPassword && email.length>0\" class=\"example-form-field\">\n        <input name=\"password\" placeholder=\"votre code à 4 chiffres\" [(ngModel)]=\"password\" matInput type=\"password\" [maxlength]=\"4\">\n        <button mat-button *ngIf=\"password\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"password=''\">\n          <mat-icon>close</mat-icon>\n        </button>\n      </mat-form-field>\n\n      <br><br>\n      <button *ngIf=\"email.length>0 && email.split('@').length>1\" mat-raised-button (click)=\"login()\">Login</button>\n\n    </mat-card-content>\n\n  </mat-card>\n\n\n</div>\n"
 
 /***/ }),
 
@@ -974,7 +977,7 @@ var LoginComponent = /** @class */ (function () {
             else {
                 if (r != null) {
                     localStorage.setItem("password", _this.password);
-                    _this.router.navigate(["main"]);
+                    _this.router.navigate(["start"]);
                 }
                 else {
                     _this.message = "Mot de passe incorrect";
@@ -1019,7 +1022,7 @@ module.exports = ".header-photo {\r\n  background-image: url('https://material.a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div *ngIf=\"bigScreen\">\n  <table style=\"width: 100%;\">\n    <tr style=\"vertical-align: top;\">\n    <td style=\"width:50%\">\n      <app-light-profil></app-light-profil><br>\n      <app-next-appointment></app-next-appointment>\n    </td>\n      <td>\n        <app-gift></app-gift>\n      </td>\n    </tr>\n  </table>\n</div>\n\n<div *ngIf=\"!bigScreen\">\n  <app-next-appointment></app-next-appointment>\n  <app-light-profil></app-light-profil><br>\n  <app-gift></app-gift>\n</div>\n\n\n\n\n"
+module.exports = "\n\n<div *ngIf=\"bigScreen\">\n  <table style=\"width: 100%;\">\n    <tr style=\"vertical-align: top;\">\n    <td style=\"width:50%\">\n      <app-light-profil></app-light-profil><br>\n      <app-next-appointment></app-next-appointment>\n    </td>\n      <td>\n        <app-gift></app-gift>\n      </td>\n    </tr>\n  </table>\n</div>\n\n<div *ngIf=\"!bigScreen\">\n  <app-next-appointment></app-next-appointment>\n  <app-light-profil></app-light-profil><br>\n  <app-gift></app-gift>\n</div>\n\n\n\n\n"
 
 /***/ }),
 
@@ -1277,7 +1280,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"text-align: center\">\n  <br><br>\n  <img src=\"assets/img/logo-rousseau.png\">\n  <mat-card class=\"app-card\" style=\"max-width: 700px;\">\n    <mat-card-content>\n    <h1>Inscrivez vous</h1>\n\n      <table class=\"example-full-width\" cellspacing=\"30\"><tr>\n        <td><mat-form-field class=\"example-full-width\">\n          <input [(ngModel)]=\"lastname\" matInput placeholder=\"Votre nom\">\n        </mat-form-field></td>\n        <td><mat-form-field class=\"example-full-width\">\n          <input [(ngModel)]=\"firstname\" matInput placeholder=\"Votre prénom\">\n        </mat-form-field></td>\n      </tr>\n\n        <tr>\n          <td>\n            <img class=\"avatar\" src=\"/assets/img/avatar.jpg\">\n          </td>\n          <td>\n            <button mat-raised-button>Modifier la photo</button>\n          </td>\n        </tr>\n\n        <tr>\n          <td><app-car-picker (onclick)=\"selcar($event)\"></app-car-picker></td>\n          <td>\n            <img class=\"image-photo\"\n                 *ngIf=\"carPicture.length>0\"\n                 src=\"{{carPicture}}\"\n                 style=\"width:50vw;max-width: 400px\">\n          </td>\n        </tr>\n      </table>\n\n\n    <button mat-raised-button\n            *ngIf=\"firstname!=null && lastname!=null && firstname.length>0 && lastname.length>0\"\n            (click)=\"sendUser()\">\n      Enregistrer\n    </button>\n\n  </mat-card-content>\n</mat-card>\n"
+module.exports = "<div style=\"text-align: center;width:100%;\">\n  <br><br>\n  <img style=\"display: inline-block\" src=\"assets/img/logo-rousseau.png\"><br><br>\n\n  <mat-card style=\"display:inline-block;max-width: 700px;\">\n    <mat-card-content>\n    <h1>Inscrivez vous</h1>\n\n      <table class=\"example-full-width\" cellspacing=\"30\">\n        <tr>\n          <td>\n            <mat-form-field class=\"example-full-width\">\n              <input [(ngModel)]=\"email\" matInput placeholder=\"Votre email\">\n            </mat-form-field>\n          </td>\n        </tr>\n\n        <tr>\n        <td>\n          <mat-form-field class=\"example-full-width\">\n          <input [(ngModel)]=\"firstname\" matInput placeholder=\"Votre prénom\">\n        </mat-form-field></td>\n        <td><mat-form-field class=\"example-full-width\">\n          <input [(ngModel)]=\"lastname\" matInput placeholder=\"Votre nom\">\n        </mat-form-field></td>\n      </tr>\n\n        <tr>\n          <td>\n            <img class=\"avatar\" src=\"/assets/img/avatar.jpg\">\n          </td>\n          <td>\n            <button mat-raised-button>Modifier la photo</button>\n          </td>\n        </tr>\n\n        <tr>\n          <td>\n            <br><br>\n            <app-car-picker (onclick)=\"selcar($event)\"></app-car-picker></td>\n          <td>\n            <img class=\"image-photo\"\n                 *ngIf=\"carPicture.length>0\"\n                 src=\"{{carPicture}}\"\n                 style=\"width:50vw;max-width: 400px\">\n          </td>\n        </tr>\n      </table>\n\n\n    <button mat-raised-button\n            *ngIf=\"firstname!=null && lastname!=null && firstname.length>0 && lastname.length>0\"\n            (click)=\"sendUser()\">\n      Enregistrer\n    </button>\n\n  </mat-card-content>\n</mat-card>\n"
 
 /***/ }),
 
@@ -1335,7 +1338,7 @@ var NewUserComponent = /** @class */ (function () {
         var _this = this;
         this.api.add(this.email, this.firstname, this.lastname, this.modele).subscribe(function (r) {
             localStorage.setItem("email", _this.email);
-            _this.router.navigate(["main"]);
+            _this.router.navigate(["start"]);
         });
     };
     __decorate([
