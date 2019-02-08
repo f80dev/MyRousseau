@@ -31,13 +31,13 @@ export class NewUserComponent implements OnInit {
     this.api.getcar(this.modele).subscribe((c:any)=>{
       if(c!=null)
         this.carPicture=c.photo;
-    })
+    });
   }
 
   sendUser() {
     this.api.add(this.email,this.firstname,this.lastname,this.modele).subscribe((r)=>{
       localStorage.setItem("email",this.email);
       this.router.navigate(["main"]);
-    })
+    });
   }
 }
