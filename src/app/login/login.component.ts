@@ -55,4 +55,9 @@ export class LoginComponent implements OnInit {
     this.email="";
     this.showPassword=false;
   }
+
+  keypress($event) {
+    if($event.keyCode==13)
+      this.login();
+  }
 }

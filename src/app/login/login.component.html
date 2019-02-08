@@ -11,7 +11,7 @@
 
       <br><br>
       <mat-form-field class="example-form-field">
-        <input matInput type="email" placeholder="Votre email" [(ngModel)]="email">
+        <input matInput type="email" placeholder="Votre email" [(ngModel)]="email" (keypress)="keypress($event)">
         <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="clearEmail()">
           <mat-icon>close</mat-icon>
         </button>
