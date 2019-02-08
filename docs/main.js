@@ -199,12 +199,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _new_user_new_user_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./new-user/new-user.component */ "./src/app/new-user/new-user.component.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _catalogue_catalogue_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./catalogue/catalogue.component */ "./src/app/catalogue/catalogue.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -222,6 +224,7 @@ var routes = [
     { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_6__["AdminComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"] },
     { path: 'newuser', component: _new_user_new_user_component__WEBPACK_IMPORTED_MODULE_8__["NewUserComponent"] },
+    { path: 'catalogue', component: _catalogue_catalogue_component__WEBPACK_IMPORTED_MODULE_10__["CatalogueComponent"] },
     { path: 'start', component: _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"] },
     { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
 ];
@@ -359,12 +362,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _next_appointment_next_appointment_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./next-appointment/next-appointment.component */ "./src/app/next-appointment/next-appointment.component.ts");
 /* harmony import */ var _light_profil_light_profil_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./light-profil/light-profil.component */ "./src/app/light-profil/light-profil.component.ts");
 /* harmony import */ var _timer_timer_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./timer/timer.component */ "./src/app/timer/timer.component.ts");
+/* harmony import */ var _catalogue_catalogue_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./catalogue/catalogue.component */ "./src/app/catalogue/catalogue.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -413,7 +418,8 @@ var AppModule = /** @class */ (function () {
                 _car_picker_car_picker_component__WEBPACK_IMPORTED_MODULE_23__["CarPickerComponent"],
                 _next_appointment_next_appointment_component__WEBPACK_IMPORTED_MODULE_24__["NextAppointmentComponent"],
                 _light_profil_light_profil_component__WEBPACK_IMPORTED_MODULE_25__["LightProfilComponent"],
-                _timer_timer_component__WEBPACK_IMPORTED_MODULE_26__["TimerComponent"]
+                _timer_timer_component__WEBPACK_IMPORTED_MODULE_26__["TimerComponent"],
+                _catalogue_catalogue_component__WEBPACK_IMPORTED_MODULE_27__["CatalogueComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -559,6 +565,69 @@ var CarPickerComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], CarPickerComponent);
     return CarPickerComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/catalogue/catalogue.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/catalogue/catalogue.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/catalogue/catalogue.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/catalogue/catalogue.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  catalogue works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/catalogue/catalogue.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/catalogue/catalogue.component.ts ***!
+  \**************************************************/
+/*! exports provided: CatalogueComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CatalogueComponent", function() { return CatalogueComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CatalogueComponent = /** @class */ (function () {
+    function CatalogueComponent() {
+    }
+    CatalogueComponent.prototype.ngOnInit = function () {
+    };
+    CatalogueComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-catalogue',
+            template: __webpack_require__(/*! ./catalogue.component.html */ "./src/app/catalogue/catalogue.component.html"),
+            styles: [__webpack_require__(/*! ./catalogue.component.css */ "./src/app/catalogue/catalogue.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CatalogueComponent);
+    return CatalogueComponent;
 }());
 
 
@@ -844,7 +913,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"app-card\">\n  <mat-card-header>\n\n    <table style=\"width:100%;margin-bottom: 5vh;\">\n      <tr style=\"vertical-align: middle;\">\n      <td style=\"text-align: left;width:20%;\">\n        <img class=\"avatar\" src=\"{{userService.user.photo}}\">\n      </td>\n      <td style=\"text-align: left;padding:0px;margin:0px;\">\n        <div *ngIf=\"userService.user.cars!=null\">\n          <strong>Ma {{userService.user.cars[0].modele}}</strong><br>\n          {{userService.user.firstname}} {{userService.user.lastname}}\n        </div>\n      </td>\n      <td style=\"text-align:right;font-size: 4.5vw;\">\n        {{userService.user.pts}}\n        <span style=\"font-size: 2.5vw;\">pts</span>&nbsp;\n      </td>\n    </tr></table>\n\n  </mat-card-header>\n\n  <mat-card-content style=\"text-align: center;overflow: hidden;\">\n    <img mat-card-image\n         *ngIf=\"userService.user.cars!=null\"\n         style=\"max-width:700px;\"\n         class=\"image-photo fadein\"\n         src=\"{{userService.user.cars[0].photo}}\"\n         alt=\"My Car\">\n    <p>\n      {{userService.user.message}}\n    </p>\n  </mat-card-content>\n  <mat-card-actions>\n  </mat-card-actions>\n</mat-card>\n"
+module.exports = "<mat-card class=\"app-card\">\n  <mat-card-header>\n\n    <table style=\"width:100%;margin-bottom: 5vh;\">\n      <tr style=\"vertical-align: middle;\">\n      <td style=\"text-align: left;width:20%;\">\n        <img class=\"avatar\" src=\"{{userService.user.photo}}\">\n      </td>\n      <td style=\"text-align: left;padding:0px;margin:0px;\">\n        <div *ngIf=\"userService.user.cars!=null\">\n          <strong>Ma {{userService.user.cars[0].modele}}</strong><br>\n          {{userService.user.firstname}} {{userService.user.lastname}}\n        </div>\n      </td>\n      <td style=\"text-align:right;font-size: 4.5vw;\">\n        {{userService.user.pts}}\n        <span style=\"font-size: 2.5vw;\">pts</span>&nbsp;\n      </td>\n    </tr></table>\n\n  </mat-card-header>\n\n  <mat-card-content style=\"text-align: center;overflow: hidden;\">\n    <img mat-card-image\n         *ngIf=\"userService.user.cars!=null\"\n         style=\"max-width:700px;\"\n         src=\"{{userService.user.cars[0].photo}}\"\n         alt=\"My Car\">\n    <p>\n      {{userService.user.message}}\n    </p>\n  </mat-card-content>\n  <mat-card-actions>\n  </mat-card-actions>\n</mat-card>\n"
 
 /***/ }),
 
@@ -1108,7 +1177,7 @@ module.exports = ".sidenav-container {\n  height: 100%;\n}\n\n.sidenav {\n  widt
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar *ngIf=\"userService.user.email!=null\"\n             color=\"primary\">\n  <button\n    type=\"button\"\n    aria-label=\"Toggle sidenav\"\n    mat-icon-button\n    (click)=\"drawer.toggle()\"\n    *ngIf=\"isHandset$ | async\">\n    <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n  </button>\n  <span class=\"fill-remaining-space\"></span>\n  <button mat-raised-button color=\"primary\" (click)=\"logout()\">Déconnecter</button>\n</mat-toolbar>\n\n<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav\n    *ngIf=\"userService.user.email!=null\"\n    #drawer\n    class=\"sidenav\"\n    fixedInViewport=\"true\"\n    [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n    [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\n    [opened]=\"!(isHandset$ | async)\">\n    <mat-toolbar color=\"primary\">\n      <img class=\"main-logo\" src=\"assets/img/logo-rousseau.png\">\n    </mat-toolbar>\n    <mat-nav-list>\n      <a mat-list-item routerLink=\"/main\"><mat-icon>dns</mat-icon>&nbsp;&nbsp;Dashboard</a>\n      <a mat-list-item routerLink=\"/schedule\"><mat-icon>schedule</mat-icon>&nbsp;&nbsp;Rendez-vous</a>\n      <a mat-list-item routerLink=\"/gift\"><mat-icon>card_giftcard</mat-icon>&nbsp;&nbsp;Récompenses</a>\n      <a mat-list-item routerLink=\"/catalogue\"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Catalogue</a>\n      <a mat-list-item routerLink=\"/admin\"><mat-icon>build</mat-icon>&nbsp;&nbsp;Admin</a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n\n\n    <router-outlet></router-outlet>\n\n  </mat-sidenav-content>\n\n</mat-sidenav-container>\n"
+module.exports = "<mat-toolbar *ngIf=\"userService.user.email!=null\"\n             color=\"primary\">\n  <button\n    type=\"button\"\n    aria-label=\"Toggle sidenav\"\n    mat-icon-button\n    (click)=\"drawer.toggle()\"\n    *ngIf=\"isHandset$ | async\">\n    <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n  </button>\n  <span class=\"fill-remaining-space\"></span>\n  <button mat-raised-button color=\"primary\" (click)=\"logout()\">Déconnecter</button>\n</mat-toolbar>\n\n<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav\n    *ngIf=\"userService.user.email!=null\"\n    #drawer\n    class=\"sidenav\"\n    fixedInViewport=\"true\"\n    [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n    [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\n    [opened]=\"!(isHandset$ | async)\">\n    <mat-toolbar color=\"primary\">\n      <img class=\"main-logo\" src=\"assets/img/logo-rousseau.png\">\n    </mat-toolbar>\n    <mat-nav-list>\n      <a mat-list-item routerLink=\"/main\"><mat-icon>dns</mat-icon>&nbsp;&nbsp;Dashboard</a>\n      <a mat-list-item routerLink=\"/schedule\"><mat-icon>schedule</mat-icon>&nbsp;&nbsp;Rendez-vous</a>\n      <a mat-list-item routerLink=\"/gift\"><mat-icon>card_giftcard</mat-icon>&nbsp;&nbsp;Récompenses</a>\n      <!--<a mat-list-item routerLink=\"/catalogue\"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Catalogue</a>-->\n      <a mat-list-item routerLink=\"http://www.salvaloc.fr/#\"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Locations</a>\n      <a mat-list-item routerLink=\"/admin\"><mat-icon>build</mat-icon>&nbsp;&nbsp;Admin</a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n\n\n    <router-outlet></router-outlet>\n\n  </mat-sidenav-content>\n\n</mat-sidenav-container>\n"
 
 /***/ }),
 
@@ -1457,7 +1526,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  page-not-found works!\n</p>\n"
+module.exports = "<p>\n  Cette version est une maquette encore en construction.<br>\n  Cette page n'a pas encore été réalisée\n</p>\n"
 
 /***/ }),
 

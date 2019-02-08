@@ -39,6 +39,7 @@ import { CarPickerComponent } from './car-picker/car-picker.component';
 import { NextAppointmentComponent } from './next-appointment/next-appointment.component';
 import { LightProfilComponent } from './light-profil/light-profil.component';
 import { TimerComponent } from './timer/timer.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { TimerComponent } from './timer/timer.component';
     CarPickerComponent,
     NextAppointmentComponent,
     LightProfilComponent,
-    TimerComponent
+    TimerComponent,
+    CatalogueComponent
   ],
   imports: [
     BrowserModule,
