@@ -19,7 +19,7 @@ import {
   MatCardModule,
   MatGridListModule,
   MatMenuModule,
-  MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTreeModule, MatChipsModule
+  MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTreeModule, MatChipsModule, MatSnackBarModule
 } from '@angular/material';
 import { ContactComponent } from './contact/contact.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -64,6 +64,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
   ],
   imports: [
     BrowserModule,
+    MatSnackBarModule,
     MatChipsModule,
     MatDatepickerModule,
     BrowserAnimationsModule,

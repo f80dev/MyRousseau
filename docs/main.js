@@ -423,6 +423,7 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSnackBarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDatepickerModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
@@ -809,6 +810,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api.service */ "./src/app/api.service.ts");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -821,8 +823,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var GiftComponent = /** @class */ (function () {
-    function GiftComponent(api, userService) {
+    function GiftComponent(snackBar, api, userService) {
+        this.snackBar = snackBar;
         this.api = api;
         this.userService = userService;
         this.gifts = [];
@@ -847,6 +851,7 @@ var GiftComponent = /** @class */ (function () {
     GiftComponent.prototype.useGift = function (evt, gift) {
         var _this = this;
         this.userService.addgift(gift.id).subscribe(function () {
+            _this.snackBar.open(gift.manual, "", { duration: 5000 });
             _this.refresh();
         });
         var elt = evt.target.parentElement.parentElement;
@@ -886,7 +891,7 @@ var GiftComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./gift.component.html */ "./src/app/gift/gift.component.html"),
             styles: [__webpack_require__(/*! ./gift.component.css */ "./src/app/gift/gift.component.css")]
         }),
-        __metadata("design:paramtypes", [_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"], _user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSnackBar"], _api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"], _user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
     ], GiftComponent);
     return GiftComponent;
 }());

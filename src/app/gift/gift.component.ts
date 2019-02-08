@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
 import {UserService} from '../user.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-gift',
@@ -15,7 +16,7 @@ export class GiftComponent implements OnInit {
   @Input() userFilter="";
   @Input() icon_view: boolean=false;
 
-  constructor(public api:ApiService,public userService:UserService) { }
+  constructor(public snackBar: MatSnackBar,public api:ApiService,public userService:UserService) { }
 
   ngOnInit() {
     this.refresh();
@@ -34,6 +35,7 @@ export class GiftComponent implements OnInit {
   useGift(evt,gift) {
 
     this.userService.addgift(gift.id).subscribe(()=>{
+      this.snackBar.open(gift.manual,"",{duration:5000});
       this.refresh();
     });
 
