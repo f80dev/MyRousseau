@@ -25,6 +25,10 @@
       </mat-form-field>
 
       <br><br>
+      <div style="display:inline;" *ngIf="message!=''">
+        <p>{{message}}</p>
+      </div>
+
       <button *ngIf="email.length>0 && email.split('@').length>1" mat-raised-button (click)="login()">Login</button>
 
     </mat-card-content>
