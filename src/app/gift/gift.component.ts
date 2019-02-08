@@ -18,7 +18,11 @@ export class GiftComponent implements OnInit {
   constructor(public api:ApiService,public userService:UserService) { }
 
   ngOnInit() {
-    this.api.getgifts(this.userFilter).subscribe((r:any)=>{
+    this.refresh();
+  }
+
+  refresh(){
+    this.api.getgifts(localStorage.getItem("email")).subscribe((r:any)=>{
       this.gifts=[];
       r.items.forEach((i)=>{
         if((i.dtStart>=this.dtStart || this.dtStart==0) && (i.dtEnd>=this.dtEnd || this.dtEnd==0))
@@ -27,17 +31,26 @@ export class GiftComponent implements OnInit {
     })
   }
 
-  useGift(evt) {
-    var elt=evt.target;
-    elt.parentElement.parentElement.parentElement.parentElement.className="flip-card_hover";
+  useGift(evt,gift) {
 
-    elt.parentElement.parentElement.parentElement.addEventListener("mouseleave",()=>{
-      elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
+    this.userService.addgift(gift.id).subscribe(()=>{
+      this.refresh();
     });
 
-    elt.parentElement.parentElement.parentElement.parentElement.addEventListener("tap",()=>{
-      elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
-    });
+    let elt:any=evt.target.parentElement.parentElement;
+
+    while(elt.className.indexOf("flip-card-inner")==-1)
+      elt=elt.parentElement;
+
+    elt.className+=" flip-card-reback";
+    //
+    // elt.parentElement.parentElement.parentElement.addEventListener("mouseleave",()=>{
+    //   elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
+    // });
+
+    // elt.parentElement.parentElement.parentElement.parentElement.addEventListener("tap",()=>{
+    //   elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
+    // });
 
     setTimeout(()=>{
       elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";

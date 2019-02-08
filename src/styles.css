@@ -19,6 +19,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   vertical-align: text-top;
   display: flex;
   padding:0px;
+  overflow: hidden;
 }
 
 .fill-remaining-space {
@@ -73,7 +74,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card_hover .flip-card-inner {
+.flip-card-reback .flip-card-inner {
   transform: rotateY(180deg);
 }
 

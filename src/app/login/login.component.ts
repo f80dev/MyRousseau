@@ -3,6 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material';
 import {ApiService} from '../api.service';
 import {Router} from '@angular/router';
+import {reload} from '../tools';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
       } else {
         if(r!=null){
           localStorage.setItem("password",this.password);
-          document.location.reload();
+          this.router.navigate(["main"]);
         } else {
           this.message="Mot de passe incorrect";
         }

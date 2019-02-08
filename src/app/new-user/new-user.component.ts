@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {reload} from '../tools';
 
 @Component({
   selector: 'app-new-user',
@@ -13,8 +14,9 @@ export class NewUserComponent implements OnInit {
   @Input() email:string="";
   lastname: any;
   firstname:any;
+  carPicture:string="";
 
-  constructor(public api:ApiService,public route:ActivatedRoute) { }
+  constructor(public api:ApiService,public route:ActivatedRoute,public router:Router) { }
 
   ngOnInit() {
     if(this.email==""){
@@ -25,13 +27,17 @@ export class NewUserComponent implements OnInit {
   }
 
   selcar(evt){
-    this.modele=evt;
+    this.modele=evt.car;
+    this.api.getcar(this.modele).subscribe((c:any)=>{
+      if(c!=null)
+        this.carPicture=c.photo;
+    })
   }
 
   sendUser() {
     this.api.add(this.email,this.firstname,this.lastname,this.modele).subscribe((r)=>{
       localStorage.setItem("email",this.email);
-      document.location.reload();
+      this.router.navigate(["main"]);
     })
   }
 }

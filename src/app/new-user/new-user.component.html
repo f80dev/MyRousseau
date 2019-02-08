@@ -1,5 +1,8 @@
-<mat-card>
-  <mat-card-content>
+<div style="text-align: center">
+  <br><br>
+  <img src="assets/img/logo-rousseau.png">
+  <mat-card class="app-card" style="max-width: 700px;">
+    <mat-card-content>
     <h1>Inscrivez vous</h1>
 
       <table class="example-full-width" cellspacing="30"><tr>
@@ -19,12 +22,24 @@
             <button mat-raised-button>Modifier la photo</button>
           </td>
         </tr>
+
+        <tr>
+          <td><app-car-picker (onclick)="selcar($event)"></app-car-picker></td>
+          <td>
+            <img class="image-photo"
+                 *ngIf="carPicture.length>0"
+                 src="{{carPicture}}"
+                 style="width:50vw;max-width: 400px">
+          </td>
+        </tr>
       </table>
 
-      <br>
-      <app-car-picker (onclick)="selcar($event)"></app-car-picker>
 
+    <button mat-raised-button
+            *ngIf="firstname!=null && lastname!=null && firstname.length>0 && lastname.length>0"
+            (click)="sendUser()">
+      Enregistrer
+    </button>
 
-    <button mat-raised-button (click)="sendUser()">Enregistrer</button>
   </mat-card-content>
 </mat-card>

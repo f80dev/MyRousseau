@@ -25,3 +25,7 @@ export function getDelay(dtStart,lang="en",label_day="jours",serverNow=null){
 
   return affichage;
 }
+
+export function reload(){
+  document.location.href=environment.domain;
+}

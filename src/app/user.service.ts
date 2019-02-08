@@ -33,4 +33,8 @@ export class UserService {
     localStorage.removeItem("email");
     this.user={};
   }
+
+  addgift(id: string) {
+    return this.http.get(api("addgift","email="+this.user.email+"&gift="+id));
+  }
 }

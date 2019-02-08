@@ -23,7 +23,9 @@ export class MenuComponent {
     router.events.pipe(
       withLatestFrom(this.isHandset$),
       filter(([a, b]) => b && a instanceof NavigationEnd)
-    ).subscribe(_ => this.drawer.close());
+    ).subscribe(_ => {
+      if(this.drawer!=null)this.drawer.close();
+    });
   }
 
   logout() {

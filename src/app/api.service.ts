@@ -10,11 +10,15 @@ export class ApiService {
   constructor(public http: HttpClient) { }
 
   public add(user:string,firstname:string,lastname:string,modele:string=""){
-    return this.http.get(api("adduser","email="+user+"&firstname="+firstname+"&lastname="+lastname))
+    return this.http.get(api("adduser","email="+user+"&firstname="+firstname+"&lastname="+lastname+"&modele="+modele))
   }
 
   public raz(){
     return this.http.get(api("raz","")).subscribe(()=>{})
+  }
+
+  public getcar(modele:string){
+    return this.http.get(api("getcar","modele="+modele));
   }
 
   public login(email:string,password:string=""){
