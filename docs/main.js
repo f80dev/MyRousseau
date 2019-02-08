@@ -850,10 +850,12 @@ var GiftComponent = /** @class */ (function () {
     };
     GiftComponent.prototype.useGift = function (evt, gift) {
         var _this = this;
-        this.userService.addgift(gift.id).subscribe(function () {
-            _this.snackBar.open(gift.manual, "", { duration: 5000 });
-            _this.refresh();
-        });
+        this.snackBar.open(gift.manual, "", { duration: 5000 });
+        setTimeout(function () {
+            _this.userService.addgift(gift.id).subscribe(function () {
+                _this.refresh();
+            });
+        }, 2000);
         var elt = evt.target.parentElement.parentElement;
         while (elt.className.indexOf("flip-card-inner") == -1)
             elt = elt.parentElement;

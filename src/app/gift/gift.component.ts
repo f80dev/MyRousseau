@@ -34,10 +34,13 @@ export class GiftComponent implements OnInit {
 
   useGift(evt,gift) {
 
-    this.userService.addgift(gift.id).subscribe(()=>{
-      this.snackBar.open(gift.manual,"",{duration:5000});
-      this.refresh();
-    });
+    this.snackBar.open(gift.manual,"",{duration:5000});
+
+    setTimeout(()=>{
+      this.userService.addgift(gift.id).subscribe(()=>{
+        this.refresh();
+      });
+    },2000);
 
     let elt:any=evt.target.parentElement.parentElement;
 
