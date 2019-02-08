@@ -20,12 +20,13 @@
                 {{gift.message}}
               </div>
               <button mat-raised-button
-                      style="position:absolute;left:35vw;top:70%;width:30vw;max-width:150px;"
+                      style="position:absolute;left:35%;top:70%;width:30%;max-width:200px;"
                       (click)="useGift($event,gift)">
                 J'en profite
               </button>
 
               <div [ngStyle]="{'position':'absolute','text-align':'center','left':'45%','top':'82%','width':'10%','font-size':'1.5vmax','color':gift.messageColor}">
+                Fin dans<br>
                 <app-timer [end]="gift.dtEnd"></app-timer>
               </div>
             </div>
