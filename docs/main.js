@@ -1959,10 +1959,11 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    root_api: "http://localhost:8080/_ah/api/rousseau/v1",
-    domain: "http://localhost:8080"
+    root_api: "https://20190207t202035-dot-rousseauautomobile.appspot.com/_ah/api/rousseau/v1",
+    domain: "https://20190207t202035-dot-rousseauautomobile.appspot.com"
 };
 /*
+root_api:"http://localhost:8080/_ah/api/rousseau/v1",
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
