@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-next-appointment',
@@ -10,12 +11,19 @@ export class NextAppointmentComponent implements OnInit {
 
   appointments:any[]=[];
 
-  constructor(public userService:UserService) { }
+  constructor(public router:Router,public userService:UserService) { }
 
   ngOnInit() {
-    this.userService.getappointments().subscribe((r:any)=>{
-      this.appointments=r.items;
-    })
+
   }
 
+  ngAfterContentInit(){
+    this.userService.getappointments().subscribe((r:any)=>{
+      this.appointments=r.items;
+    });
+  }
+
+  ask_appointment() {
+    this.router.navigate(["schedule"]);
+  }
 }

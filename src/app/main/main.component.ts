@@ -19,10 +19,11 @@ export class MainComponent implements OnInit {
     bkob.observe([Breakpoints.Handset,Breakpoints.TabletPortrait,Breakpoints.WebPortrait]).subscribe((result)=>{
         this.bigScreen =!result.matches;
     });
+    this.userService.init(localStorage.getItem("email"));
   }
 
   ngOnInit() {
-      this.userService.init(localStorage.getItem("email"));
+
   }
 
 

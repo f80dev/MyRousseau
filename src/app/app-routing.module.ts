@@ -9,6 +9,9 @@ import {LoginComponent} from './login/login.component';
 import {NewUserComponent} from './new-user/new-user.component';
 import {AppComponent} from './app.component';
 import {CatalogueComponent} from './catalogue/catalogue.component';
+import {AddressComponent} from './address/address.component';
+import {ShareComponent} from './share/share.component';
+import {MenuComponent} from './menu/menu.component';
 
 
 const routes: Routes = [
@@ -17,9 +20,13 @@ const routes: Routes = [
   { path: 'gift',component: GiftComponent},
   { path: 'admin',component: AdminComponent},
   { path: 'login',component: LoginComponent},
+  { path: 'login/:email/:password',component: LoginComponent},
+  { path: 'login/:email',component: LoginComponent},
+  { path: 'address',component: AddressComponent},
   { path: 'newuser',component: NewUserComponent},
   { path: 'catalogue',component: CatalogueComponent},
-  { path: 'start',component: AppComponent},
+  { path: 'start',component: MainComponent},
+  { path: 'share',component: ShareComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

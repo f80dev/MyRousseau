@@ -12,8 +12,8 @@ export class UserService {
   constructor(public http: HttpClient) { }
 
 
-  public askforappointment(dt:number){
-    return this.http.get(api("askforappointment","email="+this.user.email+"&dt="+dt))
+  public askforappointment(dt:number,motif=""){
+    return this.http.get(api("askforappointment","email="+this.user.email+"&dt="+dt+"&motif="+motif))
   }
 
   public getappointments(){
@@ -21,7 +21,9 @@ export class UserService {
   }
 
   public init(email:string=null,func=null){
-    if(email==null)email=this.user.email;
+    if(email==null)
+      email=this.user.email;
+
     return this.http.get(api("getuser","email="+email)).subscribe((r)=>{
       this.user=r;
       if(func!=null)func();
@@ -36,5 +38,9 @@ export class UserService {
 
   addgift(id: string) {
     return this.http.get(api("addgift","email="+this.user.email+"&gift="+id));
+  }
+
+  share(email: string,firstname="") {
+    return this.http.get(api("share","email="+this.user.email+"&dest="+email+"&firstname="+firstname))
   }
 }

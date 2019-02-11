@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,6 +25,7 @@
     "amazing-time-picker": "^1.8.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.2.0",
+    "safe-pipe": "^0.3.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

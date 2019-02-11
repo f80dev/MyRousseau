@@ -25,8 +25,8 @@
                 J'en profite
               </button>
 
-              <div [ngStyle]="{'position':'absolute','text-align':'center','left':'45%','top':'82%','width':'10%','font-size':'1.5vmax','color':gift.messageColor}">
-                <app-timer [end]="gift.dtEnd"></app-timer>
+              <div [ngStyle]="{'position':'absolute','text-align':'center','left':'45%','top':'82%','width':'10%','font-size':'1vmax','color':gift.messageColor}">
+                Reste&nbsp;<app-timer [end]="gift.dtEnd"></app-timer>
               </div>
             </div>
             <div class="flip-card-back">

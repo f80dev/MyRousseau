@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material';
 import {ApiService} from '../api.service';
-import {Router} from '@angular/router';
-import {reload} from '../tools';
+import {ActivatedRoute, Router} from '@angular/router';
+import {api, reload} from '../tools';
+import {UserService} from '../user.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -25,10 +26,16 @@ export class LoginComponent implements OnInit {
   password="";
   message="";
 
-  constructor(public api:ApiService,public router:Router) { }
+  constructor(public userService:UserService,public api:ApiService,public router:Router,public routes:ActivatedRoute) { }
 
   ngOnInit() {
-    this.email=localStorage.getItem("email") || "";
+    this.email=localStorage.getItem("email") || this.routes.snapshot.queryParamMap.get("email");
+    if(this.email=="null")this.email=null;
+    this.showPassword=(this.email!=null);
+    this.password=localStorage.getItem("password") || this.routes.snapshot.queryParamMap.get("password");
+    if(this.email!=null && this.password!=null){
+      this.login();
+    }
   }
 
   login() {
@@ -43,6 +50,7 @@ export class LoginComponent implements OnInit {
       } else {
         if(r!=null){
           localStorage.setItem("password",this.password);
+          this.userService.init(this.email);
           this.router.navigate(["start"]);
         } else {
           this.message="Mot de passe incorrect";
@@ -59,5 +67,9 @@ export class LoginComponent implements OnInit {
   keypress($event) {
     if($event.keyCode==13)
       this.login();
+  }
+
+  loginService(service: string) {
+    document.location.href=api("connectTo","service="+service+"&domain="+location.hostname);
   }
 }

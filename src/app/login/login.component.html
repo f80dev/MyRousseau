@@ -1,23 +1,23 @@
 <div style="text-align: center">
   <br><br>
-  <img src="assets/img/logo-rousseau.png">
+  <!--<img src="assets/img/logo-rousseau.png">-->
   <mat-card class="app-card">
     <mat-card-content>
       <h1>S'identifier</h1>
           <br>
       <button class="button-identity-provider" mat-raised-button >Facebook</button><br>
-      <button class="button-identity-provider"  mat-raised-button>Google</button><br>
+      <button class="button-identity-provider"  mat-raised-button (click)="loginService('contact')">Google</button><br>
       <button  class="button-identity-provider" mat-raised-button>Linkedin</button><br>
 
       <br><br>
       <mat-form-field class="example-form-field">
-        <input matInput type="email" placeholder="Votre email" [(ngModel)]="email" (keypress)="keypress($event)">
+        <input matInput type="email" placeholder="Votre email" [(ngModel)]="email" (keypress)="keypress($event)" class="input-style">
         <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="clearEmail()">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
       <br><br>
-      <mat-form-field *ngIf="showPassword && email.length>0" class="example-form-field">
+      <mat-form-field *ngIf="showPassword && email.length>0" class="input-style">
         <input name="password" placeholder="votre code à 4 chiffres"
                [(ngModel)]="password" matInput type="password"
                [maxlength]="4" (keypress)="keypress($event)">
@@ -31,7 +31,7 @@
         <p>{{message}}</p>
       </div>
 
-      <button *ngIf="email.length>0 && email.split('@').length>1" mat-raised-button (click)="login()">Login</button>
+      <button *ngIf="email!=null && email.length>0 && email.split('@').length>1" mat-raised-button (click)="login()">Login</button>
 
     </mat-card-content>
 

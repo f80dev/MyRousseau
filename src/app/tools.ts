@@ -29,3 +29,11 @@ export function getDelay(dtStart,lang="en",label_day="jours",serverNow=null){
 export function reload(){
   document.location.href=environment.domain;
 }
+
+export function clear(elt:any,xpath:string){
+  var doc=elt.contentDocument;
+  var to_keep=doc.querySelector(xpath);
+  to_keep.parentElement.childNodes.forEach((n)=>{
+    if(n!=to_keep)n.style.display="none";
+  });
+}

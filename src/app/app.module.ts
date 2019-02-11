@@ -40,6 +40,10 @@ import { NextAppointmentComponent } from './next-appointment/next-appointment.co
 import { LightProfilComponent } from './light-profil/light-profil.component';
 import { TimerComponent } from './timer/timer.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
+import { AddressComponent } from './address/address.component';
+import { SafePipe } from './safe.pipe';
+import { ShareComponent } from './share/share.component';
+
 
 
 @NgModule({
@@ -60,7 +64,10 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
     NextAppointmentComponent,
     LightProfilComponent,
     TimerComponent,
-    CatalogueComponent
+    CatalogueComponent,
+    AddressComponent,
+    SafePipe,
+    ShareComponent
   ],
   imports: [
     BrowserModule,

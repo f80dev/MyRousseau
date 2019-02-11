@@ -28,7 +28,10 @@ export class AdminComponent implements OnInit {
   }
 
   raz(){
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
     this.api.raz();
+    location.href="/login";
   }
 
   admin() {

@@ -42,4 +42,8 @@ export class ApiService {
     if(email==null)email="null";
     return this.http.get(api("getgifts","email="+email));
   }
+
+  loginService(service: string) {
+    return this.http.get(api("connectTo","service="+service+"&domain="+location.host))
+  }
 }

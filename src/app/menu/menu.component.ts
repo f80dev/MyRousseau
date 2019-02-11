@@ -28,6 +28,10 @@ export class MenuComponent {
     });
   }
 
+  ngOnInit(){
+    this.userService.init(localStorage.getItem("email"));
+  }
+
   logout() {
     this.userService.logout();
     this.router.navigate(["/login"]);
