@@ -22,10 +22,12 @@ const routes: Routes = [
   { path: 'login',component: LoginComponent},
   { path: 'login/:email/:password',component: LoginComponent},
   { path: 'login/:email',component: LoginComponent},
+  { path: 'MyRousseauAuto/login',component: MainComponent},
   { path: 'address',component: AddressComponent},
   { path: 'newuser',component: NewUserComponent},
   { path: 'catalogue',component: CatalogueComponent},
   { path: 'start',component: MainComponent},
+  { path: 'MyRousseauAuto/start',component: MainComponent},
   { path: 'share',component: ShareComponent},
   { path: '',component: MainComponent},
   { path: '**', component: PageNotFoundComponent }
