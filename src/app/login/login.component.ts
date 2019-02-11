@@ -70,6 +70,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginService(service: string) {
-    document.location.href=api("connectTo","service="+service+"&domain="+location.hostname);
+    var domain=location.hostname;
+    domain=domain.replace("/","_slash_");
+    document.location.href=api("connectTo","service="+service+"&domain="+domain);
   }
 }
