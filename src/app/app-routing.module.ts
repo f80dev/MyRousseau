@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'catalogue',component: CatalogueComponent},
   { path: 'start',component: MainComponent},
   { path: 'share',component: ShareComponent},
+  { path: '',component: MainComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

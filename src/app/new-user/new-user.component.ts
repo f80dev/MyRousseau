@@ -29,7 +29,7 @@ export class NewUserComponent implements OnInit {
 
   selcar(evt){
     this.modele=evt.car;
-    this.api.getcar(this.modele).subscribe((c:any)=>{
+    this.api.getcar(evt.car).subscribe((c:any)=>{
       if(c!=null)
         this.carPicture=c.photo;
     });

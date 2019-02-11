@@ -13,4 +13,8 @@ export class LightProfilComponent implements OnInit {
   ngOnInit() {
   }
 
+  selcar(evt) {
+    this.userService.addcar(evt.car).subscribe(()=>{});
+  }
+
 }

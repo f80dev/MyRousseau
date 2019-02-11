@@ -5,11 +5,12 @@
     <mat-card-content>
       <h1>S'identifier</h1>
           <br>
-      <button class="button-identity-provider" mat-raised-button >Facebook</button><br>
+      <h4>avec</h4>
       <button class="button-identity-provider"  mat-raised-button (click)="loginService('contact')">Google</button><br>
-      <button  class="button-identity-provider" mat-raised-button>Linkedin</button><br>
-
-      <br><br>
+      <!--<button class="button-identity-provider" mat-raised-button >Facebook</button><br>-->
+      <!--<button  class="button-identity-provider" mat-raised-button>Linkedin</button><br>-->
+<br><br>
+      <h4>ou directement avec</h4>
       <mat-form-field class="example-form-field">
         <input matInput type="email" placeholder="Votre email" [(ngModel)]="email" (keypress)="keypress($event)" class="input-style">
         <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="clearEmail()">

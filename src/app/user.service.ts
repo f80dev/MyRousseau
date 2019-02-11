@@ -20,14 +20,18 @@ export class UserService {
     return this.http.get(api("getappointments","email="+this.user.email))
   }
 
-  public init(email:string=null,func=null){
+  public init(email:string=null,func_sucess=null,func_failed=null){
     if(email==null)
       email=this.user.email;
 
-    return this.http.get(api("getuser","email="+email)).subscribe((r)=>{
-      this.user=r;
-      if(func!=null)func();
-    });
+    if(email==null){
+      if(func_failed!=null)func_failed();
+    } else {
+      return this.http.get(api("getuser","email="+email)).subscribe((r)=>{
+        this.user=r;
+        if(func_sucess!=null)func_sucess();
+      });
+    }
   }
 
   logout() {
@@ -42,5 +46,9 @@ export class UserService {
 
   share(email: string,firstname="") {
     return this.http.get(api("share","email="+this.user.email+"&dest="+email+"&firstname="+firstname))
+  }
+
+  addcar(car: string) {
+    return this.http.get(api("addcar","email="+this.user.email+"&modele="+car))
   }
 }
