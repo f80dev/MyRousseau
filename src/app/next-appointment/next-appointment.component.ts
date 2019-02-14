@@ -18,12 +18,21 @@ export class NextAppointmentComponent implements OnInit {
   }
 
   ngAfterContentInit(){
-    this.userService.getappointments().subscribe((r:any)=>{
-      this.appointments=r.items;
-    });
+    setTimeout(()=>{
+      this.userService.getappointments().subscribe((r:any)=>{
+        this.appointments=r.items;
+      });
+    },1000);
+
   }
 
   ask_appointment() {
     this.router.navigate(["schedule"]);
+  }
+
+  cancelAppointment(app: any) {
+    this.userService.cancelappointments(app.id).subscribe((r:any)=>{
+      this.appointments=r.items;
+    });
   }
 }

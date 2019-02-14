@@ -20,6 +20,7 @@ export class MainComponent implements OnInit {
         this.bigScreen =!result.matches;
     });
 
+
   }
 
   ngOnInit() {

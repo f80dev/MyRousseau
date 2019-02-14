@@ -5,8 +5,8 @@
   <mat-card-content style="text-align: center;">
     <br>
     <div *ngIf="appointments.length>0">
-      {{appointments[0].description}}
-      <button mat-button>Annuler</button>
+      {{appointments[0].dtStart | date}} - {{appointments[0].motif}}
+      <button mat-button (click)="cancelAppointment(appointments[0])">Annuler</button>
     </div>
     <div *ngIf="appointments.length==0">
       Aucun rendez-vous plannifié

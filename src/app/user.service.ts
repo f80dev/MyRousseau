@@ -51,4 +51,8 @@ export class UserService {
   addcar(car: string) {
     return this.http.get(api("addcar","email="+this.user.email+"&modele="+car))
   }
+
+  cancelappointments(id: string) {
+    return this.http.get(api("cancelappointments","email="+this.user.email+"&appointment="+id))
+  }
 }

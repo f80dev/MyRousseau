@@ -14,10 +14,7 @@ import {UserService} from '../user.service';
 export class MenuComponent {
   @ViewChild('drawer') drawer: MatSidenav;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
     
   constructor(public userService:UserService,private breakpointObserver: BreakpointObserver,public router:Router) {
     router.events.pipe(

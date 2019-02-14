@@ -5,6 +5,10 @@ import {ApiService} from '../api.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {api, reload} from '../tools';
 import {UserService} from '../user.service';
+import {Observable} from 'rxjs';
+import {BreakpointObserver, Breakpoints} from '../../../node_modules/@angular/cdk/layout';
+import {map} from 'rxjs/operators';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -21,12 +25,17 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent implements OnInit {
 
+
   showPassword=false;
   email="";
   password="";
   message="";
 
-  constructor(public userService:UserService,public api:ApiService,public router:Router,public routes:ActivatedRoute) { }
+  constructor(public deviceService: DeviceDetectorService,
+              public userService:UserService,
+              public api:ApiService,public router:Router,public routes:ActivatedRoute) {
+
+  }
 
   ngOnInit() {
     this.email=localStorage.getItem("email") || this.routes.snapshot.queryParamMap.get("email");

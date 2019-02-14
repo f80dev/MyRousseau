@@ -43,6 +43,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { AddressComponent } from './address/address.component';
 import { SafePipe } from './safe.pipe';
 import { ShareComponent } from './share/share.component';
+import {DeviceDetectorModule} from 'ngx-device-detector';
 
 
 
@@ -81,6 +82,7 @@ import { ShareComponent } from './share/share.component';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
+    DeviceDetectorModule.forRoot(),
     MatIconModule,
     FormsModule,
     MatListModule,

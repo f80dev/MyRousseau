@@ -23,6 +23,7 @@
       <img class="main-logo" src="assets/img/logo-rousseau.png">
     </mat-toolbar>
     <mat-nav-list>
+      <a *ngIf="userService.user==null || userService.user.email==null" mat-list-item routerLink="/login"><mat-icon>person</mat-icon>&nbsp;&nbsp;Login</a>
       <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/main"><mat-icon>dns</mat-icon>&nbsp;&nbsp;Dashboard</a>
       <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/schedule"><mat-icon>schedule</mat-icon>&nbsp;&nbsp;Rendez-vous</a>
       <a mat-list-item routerLink="/gift"><mat-icon>card_giftcard</mat-icon>&nbsp;&nbsp;Récompenses</a>
