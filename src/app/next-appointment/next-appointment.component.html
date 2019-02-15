@@ -5,15 +5,15 @@
   <mat-card-content style="text-align: center;">
     <br>
     <div *ngIf="appointments.length>0">
-      {{appointments[0].dtStart | date}} - {{appointments[0].motif}}
-      <button mat-button (click)="cancelAppointment(appointments[0])">Annuler</button>
+      Le {{appointments[0].dtStart | date:'shortDate'}} à {{appointments[0].dtStart | date:'shortTime'}} - {{appointments[0].motif}}<br><br>
+      <button mat-button mat-raised-button (click)="cancelAppointment(appointments[0])">Annuler</button>
     </div>
     <div *ngIf="appointments.length==0">
       Aucun rendez-vous plannifié
     </div>
     <br>
     <mat-card-actions>
-      <button color="primary" mat-raised-button (click)="ask_appointment()">Demander</button>
+      <button *ngIf="appointments.length==0" color="primary" mat-raised-button (click)="ask_appointment()">Demander</button>
     </mat-card-actions>
   </mat-card-content>
 </mat-card>
