@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>Personne a ajouter</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput class="input-style" [(ngModel)]="firstname" placeholder="Son prenom (optionnel)">
+    </mat-form-field><br>
+
+    <mat-form-field>
+      <input matInput class="input-style" [(ngModel)]="email" placeholder="Son email">
+    </mat-form-field>
+    &nbsp;
+    <button mat-raised-button (click)="sendInvitation()">Inviter</button>
+  </mat-card-content>
+</mat-card>
