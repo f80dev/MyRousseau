@@ -43,7 +43,9 @@ export class LoginComponent implements OnInit {
     this.showPassword=(this.email!=null);
     this.password=localStorage.getItem("password") || this.routes.snapshot.queryParamMap.get("password");
     if(this.email!=null && this.password!=null){
-      this.login();
+      setTimeout(()=>{
+        this.login();
+      },2000);
     }
   }
 

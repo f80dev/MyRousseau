@@ -1,14 +1,25 @@
-<mat-card>
+<mat-card style="text-align: center;max-width: 500px;">
   <mat-card-header>Demander un rendez-vous</mat-card-header><br>
   <mat-form-field class="input-style">
     <input matInput [matDatepicker]="picker" [(ngModel)]="sch_date"  placeholder="Choisir une date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>&nbsp;&nbsp;
-  <input class="time-picker" [(ngModel)]="sch_hour" atp-time-picker onlyHour="false" start='09:30' end="17:30" local="fr" value="15:00"/><br>
-  <mat-form-field class="input-style">
-    <input matInput [(ngModel)]="motif" placeholder="Motif">
-  </mat-form-field>
+  à&nbsp;
+  <input class="time-picker"
+         [(ngModel)]="sch_hour"
+         atp-time-picker
+         onlyHour="false"
+         start='09:30'
+         end="17:30"
+         local="fr"
+         value="15:00"/>
 
+  <br>
+
+  <mat-form-field style="width:80%" class="input-style">
+    <input matInput  [(ngModel)]="motif" placeholder="Motif">
+  </mat-form-field>
+  <br>
   <button mat-raised-button color="primary" (click)="askForAppointment()">Demander</button>
 </mat-card>
