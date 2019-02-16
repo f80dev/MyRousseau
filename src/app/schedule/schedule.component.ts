@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-schedule',
@@ -10,14 +10,16 @@ import {Router} from '@angular/router';
 export class ScheduleComponent implements OnInit {
 
   @Input() public dtSchedule:any={};
-  motif="";
+  motif:string="";
   sch_hour="15:00";
   sch_date="04/02/2019";
 
-  constructor(public router:Router,public userService:UserService) { }
+  constructor(public router:Router,public userService:UserService,public route: ActivatedRoute) { }
 
   ngOnInit() {
-
+    this.route.params.subscribe(params => {
+        this.motif = params["motif"];
+    });
   }
 
   askForAppointment() {

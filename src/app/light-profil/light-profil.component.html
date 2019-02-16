@@ -8,7 +8,8 @@
       </td>
       <td style="text-align: left;padding:0px;margin:0px;">
         <div *ngIf="userService.user.cars!=null">
-          <strong>Ma {{userService.user.cars[0].modele}}</strong><br>
+          <strong>Ma {{userService.user.cars[0].modele}}</strong>&nbsp;
+          <mat-icon (click)="deleteCar()">delete</mat-icon><br>
           {{userService.user.firstname}} {{userService.user.lastname}}
         </div>
         <app-car-picker *ngIf="userService.user.cars==null" (onclick)="selcar($event)"></app-car-picker>
@@ -32,5 +33,6 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
+    <button mat-button mat-raised-button (click)="linkServices()">Services associés</button>
   </mat-card-actions>
 </mat-card>

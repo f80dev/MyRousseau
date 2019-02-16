@@ -1,46 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material';
-
-interface carNode {
-  name: string;
-  children?: carNode[];
-}
-
-const TREE_DATA : carNode[] = [
-  {
-    name: 'BMW',
-    children: [
-      {name: 'Série 5'},
-      {name: 'Série 1'},
-      {name: 'X5'},
-    ]
-  }, {
-    name: 'Renault',
-    children: [
-      {name: 'Clio'},
-      {name: 'Scénic'},
-      {name: 'Kangoo'},
-      {name: 'Captur'}
-    ]
-  },
-  {
-    name: 'Peugeot',
-    children: [
-      {name: '308'},
-      {name: '208'},
-      {name:'508'}
-    ]
-  }
-];
-
-/** Flat node with expandable and level information */
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
-
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-car-picker',
@@ -49,34 +10,39 @@ interface ExampleFlatNode {
 })
 export class CarPickerComponent implements OnInit {
 
+  modeles: any;
+  marques=[];
+  references=[];
+
   @Output('onclick') onclick: EventEmitter<any>=new EventEmitter();
+  selMarque: string=null;
+  selRef: string=null;
 
-  private transformer = (node: carNode, level: number) => {
-    return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
-      level: level,
-    };
+
+  constructor(public api:ApiService) {
   }
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
-    node => node.level, node => node.expandable);
-
-  treeFlattener = new MatTreeFlattener(
-    this.transformer, node => node.level, node => node.expandable, node => node.children);
-
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-  constructor() {
-    this.dataSource.data = TREE_DATA;
-  }
-
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
   ngOnInit() {
+    this.api.getmodeles().subscribe((ms:any)=>{
+      this.modeles=ms;
+      ms.forEach(m => {
+        if(this.marques.indexOf(m.marque)==-1)
+          this.marques.push(m.marque);
+      })
+    })
   }
 
-  selcar(node) {
-    this.onclick.emit({car:node.name});
+
+  changeMarque() {
+    this.selRef=null;
+    this.modeles.forEach(m=>{
+      if(m.marque==this.selMarque)
+        this.references=m.modeles;
+    });
+  }
+
+  selCar(ref) {
+    this.onclick.emit({car:this.selMarque+"/"+this.selRef});
   }
 }

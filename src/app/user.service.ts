@@ -55,4 +55,8 @@ export class UserService {
   cancelappointments(id: string) {
     return this.http.get(api("cancelappointments","email="+this.user.email+"&appointment="+id))
   }
+
+  delcar(index: number) {
+    return this.http.get(api("delcar","email="+this.user.email+"&index="+index))
+  }
 }

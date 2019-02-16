@@ -34,6 +34,13 @@ export class ApiService {
     return this.http.get(api("getappointments",""))
   }
 
+  public getservices(modele:string=null){
+    if(modele==null)
+      return this.http.get(api("getservices",""))
+    else
+      return this.http.get(api("getservices","modele="+modele))
+  }
+
   public addgift(user:string,gift:any){
     return this.http.post(api("addgift","email="+user),gift);
   }
@@ -46,4 +53,10 @@ export class ApiService {
   loginService(service: string) {
     return this.http.get(api("connectTo","service="+service+"&domain="+location.host))
   }
+
+  getmodeles() {
+    return this.http.get(api("getmodeles",""));
+  }
+
+
 }

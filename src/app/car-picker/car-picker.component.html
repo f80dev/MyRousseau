@@ -1,20 +1,19 @@
-Indiquez le modèle de votre véhicule
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-  <!-- This is the tree node template for leaf nodes -->
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-    <!-- use a disabled button to provide padding for tree leaf -->
-    <button mat-icon-button disabled></button>
-    <button mat-raised-button (click)="selcar(node)">{{node.name}}</button>
-  </mat-tree-node>
+Ajouter un modèle :
+  <mat-select placeholder="Marque" [(ngModel)]="selMarque" (selectionChange)="changeMarque()">
+    <mat-option *ngFor="let m of marques" [value]="m">
+      {{m}}
+    </mat-option>
+  </mat-select>
 
-  <!-- This is the tree node template for expandable nodes -->
-  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-    <button mat-icon-button matTreeNodeToggle
-            [attr.aria-label]="'toggle ' + node.name">
-      <mat-icon class="mat-icon-rtl-mirror">
-        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-      </mat-icon>
-    </button>
-    {{node.name}}
-  </mat-tree-node>
-</mat-tree>
+<br>
+
+  <mat-select *ngIf="selMarque!=null" placeholder="Reference" [(ngModel)]="selRef">
+    <mat-option *ngFor="let ref of references" [value]="ref.reference">
+      {{ref.reference}}
+    </mat-option>
+  </mat-select>
+
+<button *ngIf="selRef!=null && selMarque!=null" mat-button mat-raised-button (click)="selCar()">Selectionner</button>
+
+
+

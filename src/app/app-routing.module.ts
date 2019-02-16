@@ -12,17 +12,21 @@ import {CatalogueComponent} from './catalogue/catalogue.component';
 import {AddressComponent} from './address/address.component';
 import {ShareComponent} from './share/share.component';
 import {MenuComponent} from './menu/menu.component';
+import {ServicesComponent} from './services/services.component';
 
 
 const routes: Routes = [
   { path: 'main', component: MainComponent},
   { path: 'schedule',component: ScheduleComponent},
+  { path: 'schedule/:motif',component: ScheduleComponent},
   { path: 'gift',component: GiftComponent},
   { path: 'admin',component: AdminComponent},
   { path: 'login',component: LoginComponent},
   { path: 'login/:email/:password',component: LoginComponent},
   { path: 'login/:email',component: LoginComponent},
   { path: 'address',component: AddressComponent},
+  { path: 'services',component: ServicesComponent},
+  { path: 'services/:modele',component: ServicesComponent},
   { path: 'newuser',component: NewUserComponent},
   { path: 'catalogue',component: CatalogueComponent},
   { path: 'start',component: MainComponent},
