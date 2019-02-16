@@ -13,6 +13,7 @@ import {AddressComponent} from './address/address.component';
 import {ShareComponent} from './share/share.component';
 import {MenuComponent} from './menu/menu.component';
 import {ServicesComponent} from './services/services.component';
+import {AboutComponent} from './about/about.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'catalogue',component: CatalogueComponent},
   { path: 'start',component: MainComponent},
   { path: 'share',component: ShareComponent},
+  { path: 'about',component: AboutComponent},
   { path: '',component: MainComponent},
   { path: '**', component: PageNotFoundComponent }
 ];

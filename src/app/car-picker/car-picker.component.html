@@ -1,4 +1,5 @@
-Ajouter un modèle :
+Ajouter un modèle :<br>
+
   <mat-select placeholder="Marque" [(ngModel)]="selMarque" (selectionChange)="changeMarque()">
     <mat-option *ngFor="let m of marques" [value]="m">
       {{m}}
@@ -13,7 +14,9 @@ Ajouter un modèle :
     </mat-option>
   </mat-select>
 
-<button *ngIf="selRef!=null && selMarque!=null" mat-button mat-raised-button (click)="selCar()">Selectionner</button>
+<br>
+
+<button *ngIf="selRef!=null && selMarque!=null" mat-button mat-raised-button (click)="selCar()">Confirmer</button>
 
 
 

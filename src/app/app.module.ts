@@ -45,6 +45,7 @@ import { SafePipe } from './safe.pipe';
 import { ShareComponent } from './share/share.component';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import { ServicesComponent } from './services/services.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -70,7 +71,8 @@ import { ServicesComponent } from './services/services.component';
     AddressComponent,
     SafePipe,
     ShareComponent,
-    ServicesComponent
+    ServicesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

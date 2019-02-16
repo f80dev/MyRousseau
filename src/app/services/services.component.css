@@ -1,0 +1,8 @@
+.image-service {
+  filter: grayscale(100%);
+  width:100%;
+}
+
+.image-service:hover {
+  filter:none;
+}
