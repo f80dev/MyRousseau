@@ -1,14 +1,22 @@
-<mat-card>
-  <mat-card-title>Personne a ajouter</mat-card-title>
-  <mat-card-content>
-    <mat-form-field>
-      <input matInput class="input-style" [(ngModel)]="firstname" placeholder="Son prenom (optionnel)">
-    </mat-form-field><br>
+<mat-card class="app-card">
+  <mat-card-header>
+    <mat-card-title>Personne a ajouter</mat-card-title>
+    <mat-card-subtitle>
+      Gagner 10 pts de fidélité en invitant quelqu'un a rejoindre My Rousseau Automobile
+    </mat-card-subtitle>
+  </mat-card-header>
 
-    <mat-form-field>
-      <input matInput class="input-style" [(ngModel)]="email" placeholder="Son email">
+  <mat-card-content class="app-card-content">
+    <mat-form-field style="min-width:200px;width: 40%;">
+      <input matInput class="input-style" [(ngModel)]="firstname" placeholder="Son prenom (optionnel)">
     </mat-form-field>
     &nbsp;
+
+    <mat-form-field style="min-width:200px;width: 40%;">
+      <input matInput class="input-style" [(ngModel)]="email" placeholder="Son email">
+    </mat-form-field>
+    <br>
+
     <button mat-raised-button (click)="sendInvitation()">Inviter</button>
   </mat-card-content>
 </mat-card>

@@ -24,8 +24,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-
   showPassword=false;
   email="";
   password="";
@@ -40,12 +38,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.email=localStorage.getItem("email") || this.routes.snapshot.queryParamMap.get("email");
     if(this.email=="null")this.email=null;
+
     this.showPassword=(this.email!=null);
     this.password=localStorage.getItem("password") || this.routes.snapshot.queryParamMap.get("password");
     if(this.email!=null && this.password!=null){
       setTimeout(()=>{
         this.login();
-      },2000);
+      },1000);
     }
   }
 

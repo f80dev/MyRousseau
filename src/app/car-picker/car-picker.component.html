@@ -1,22 +1,33 @@
-Ajouter un modèle :<br>
+<div>
+
+Ajouter un modèle :<br><br>
 
   <mat-select placeholder="Marque" [(ngModel)]="selMarque" (selectionChange)="changeMarque()">
-    <mat-option *ngFor="let m of marques" [value]="m">
-      {{m}}
+    <mat-option *ngFor="let m of marques" [value]="m" style="height: 50px;">
+
+      <table style="height: 100%;vertical-align: middle;padding: 0px;margin:0px;"><tr>
+        <td><img [src]="m.icon" style="margin:0px;height:35px;width:35px;"></td>
+        <td><div style="display: inline-block;">{{m.name}}</div></td>
+      </tr></table>
+
+
+
     </mat-option>
   </mat-select>
 
 <br>
 
   <mat-select *ngIf="selMarque!=null" placeholder="Reference" [(ngModel)]="selRef">
-    <mat-option *ngFor="let ref of references" [value]="ref.reference">
-      {{ref.reference}}
+    <mat-option *ngFor="let ref of references" [value]="ref.reference" style="height: 50px;">
+      <table style="padding: 0px;margin:0px;"><tr style="vertical-align: top">
+        <td><img [src]="ref.icon" style="object-fit:contain;height:35px;width:45px;"></td>
+        <td><span>{{ref.reference}}</span></td>
+      </tr></table>
+
     </mat-option>
   </mat-select>
 
 <br>
 
 <button *ngIf="selRef!=null && selMarque!=null" mat-button mat-raised-button (click)="selCar()">Confirmer</button>
-
-
-
+</div>

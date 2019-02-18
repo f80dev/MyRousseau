@@ -29,4 +29,12 @@ export class LightProfilComponent implements OnInit {
   linkServices() {
     this.router.navigate(["services",this.userService.user.cars[0].modele])
   }
+
+  addcar() {
+
+  }
+
+  takephoto() {
+
+  }
 }

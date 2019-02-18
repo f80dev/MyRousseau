@@ -1,15 +1,9 @@
-<mat-card *ngIf="gifts.length>0" class="app-card" style="max-width: 1200px;">
+<mat-card *ngIf="gifts.length>0" class="app-card">
   <mat-card-header>
-      <div>Promotions / cadeaux</div>
-      <div class="fill"></div>
-      <div>
-        <button mat-icon-button class="more-button" aria-label="Toggle menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-      </div>
+      Promotions / cadeaux
   </mat-card-header>
 
-  <mat-card-content style="overflow: hidden;">
+  <mat-card-content class="app-card-content">
 
     <div *ngIf="!icon_view" fxLayout="row wrap">
         <div class="flip-card" *ngFor="let gift of gifts" style="margin-bottom:8px;position:relative;height:400px;width:100%;overflow: hidden;">

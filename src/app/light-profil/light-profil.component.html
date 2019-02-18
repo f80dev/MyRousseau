@@ -1,6 +1,5 @@
 <mat-card class="app-card">
-  <mat-card-header>
-
+  <mat-card-header style="margin-left:-10px;">
     <table style="width:100%;margin-bottom: 5vh;">
       <tr style="vertical-align: middle;">
       <td style="text-align: left;width:20%;">
@@ -8,11 +7,14 @@
       </td>
       <td style="text-align: left;padding:0px;margin:0px;">
         <div *ngIf="userService.user.cars!=null">
-          <strong>Ma {{userService.user.cars[0].modele}}</strong>&nbsp;
-          <mat-icon (click)="deleteCar()">delete</mat-icon><br>
+          <strong>Ma {{userService.user.cars[0].modele}}</strong><br>
           {{userService.user.firstname}} {{userService.user.lastname}}
         </div>
-        <app-car-picker *ngIf="userService.user.cars==null" (onclick)="selcar($event)"></app-car-picker>
+
+          <app-car-picker *ngIf="userService.user.cars==null" (onclick)="selcar($event)"></app-car-picker>
+
+
+
       </td>
       <td style="text-align:right;font-size: 4.5vw;">
         {{userService.user.pts}}
@@ -22,17 +24,26 @@
 
   </mat-card-header>
 
-  <mat-card-content style="text-align: center;overflow: hidden;">
-    <img mat-card-image
-         *ngIf="userService.user.cars!=null"
-         style="max-width:700px;"
-         src="{{userService.user.cars[0].photo}}"
-         alt="My Car">
+  <mat-card-content class="app-card-content">
+    <div style="position:relative">
+      <img mat-card-image
+           *ngIf="userService.user.cars!=null"
+           style="width:100%;max-width:700px;"
+           src="{{userService.user.cars[0].photo}}"
+           alt="My Car">
+      <div *ngIf="userService.user.cars!=null" style="position:absolute;left:-10px;top:-10px;color:black">
+        <button mat-icon-button (click)="deleteCar()"><mat-icon>remove_circle</mat-icon></button>
+        <button mat-icon-button (click)="addcar()"><mat-icon>add_circle</mat-icon></button>
+        <button mat-icon-button (click)="takephoto()"><mat-icon>camera</mat-icon></button>
+      </div>
+
+    </div>
+
     <p>
       {{userService.user.message}}
     </p>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions class="app-card-content">
     <button *ngIf="userService.user.cars!=null" mat-button mat-raised-button (click)="linkServices()">Services associés</button>
   </mat-card-actions>
 </mat-card>

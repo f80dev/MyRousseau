@@ -59,4 +59,5 @@ export class UserService {
   delcar(index: number) {
     return this.http.get(api("delcar","email="+this.user.email+"&index="+index))
   }
+
 }

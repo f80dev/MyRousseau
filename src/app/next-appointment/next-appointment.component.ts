@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {Router} from '@angular/router';
 
@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 export class NextAppointmentComponent implements OnInit {
 
   appointments:any[]=[];
+  @Input() count=1;
+  @Input() new_button=true;
 
   constructor(public router:Router,public userService:UserService) { }
 
@@ -21,6 +23,8 @@ export class NextAppointmentComponent implements OnInit {
     setTimeout(()=>{
       this.userService.getappointments().subscribe((r:any)=>{
         this.appointments=r.items;
+        if(this.count<this.appointments.length)
+          this.appointments=this.appointments.slice(0,this.count);
       });
     },1000);
 

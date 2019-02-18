@@ -24,7 +24,12 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.init(localStorage.getItem("email"),null,()=>{
+    this.userService.init(localStorage.getItem("email"),()=>{
+      this.api.login(localStorage.getItem("email"),localStorage.getItem("password")).subscribe((r)=>{
+        if(r==null)
+          this.router.navigate(["login"]);
+      })
+    },()=>{
       this.router.navigate(["login"]);
     });
   }

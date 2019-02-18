@@ -2,6 +2,7 @@
   <table style="width: 100%;">
     <tr style="vertical-align: top;">
     <td style="width:50%">
+      <app-welcome *ngIf="userService.user.connexions.length<3"></app-welcome>
       <app-light-profil></app-light-profil><br>
       <app-next-appointment></app-next-appointment>
     </td>
@@ -13,6 +14,7 @@
 </div>
 
 <div *ngIf="!bigScreen">
+  <app-welcome *ngIf="userService.user.connexions.length<3"></app-welcome>
   <app-light-profil></app-light-profil><br>
   <app-next-appointment></app-next-appointment>
   <app-gift></app-gift>

@@ -46,6 +46,9 @@ import { ShareComponent } from './share/share.component';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -72,7 +75,8 @@ import { AboutComponent } from './about/about.component';
     SafePipe,
     ShareComponent,
     ServicesComponent,
-    AboutComponent
+    AboutComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +104,8 @@ import { AboutComponent } from './about/about.component';
     AppRoutingModule,
     MatNativeDateModule,
     AmazingTimePickerModule,
-    MatTreeModule
+    MatTreeModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ApiService,UserService],
   bootstrap: [AppComponent]

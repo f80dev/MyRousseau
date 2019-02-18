@@ -15,7 +15,7 @@ export class CarPickerComponent implements OnInit {
   references=[];
 
   @Output('onclick') onclick: EventEmitter<any>=new EventEmitter();
-  selMarque: string=null;
+  selMarque: any=null;
   selRef: string=null;
 
 
@@ -43,6 +43,6 @@ export class CarPickerComponent implements OnInit {
   }
 
   selCar(ref) {
-    this.onclick.emit({car:this.selMarque+"/"+this.selRef});
+    this.onclick.emit({car:this.selMarque.name+"/"+this.selRef});
   }
 }
