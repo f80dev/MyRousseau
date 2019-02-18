@@ -3,7 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material';
 import {ApiService} from '../api.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {api, reload} from '../tools';
+import {api, direct_api, reload} from '../tools';
 import {UserService} from '../user.service';
 import {Observable} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '../../../node_modules/@angular/cdk/layout';
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   email="";
   password="";
   message="";
+  showResendCode=false;
 
   constructor(public deviceService: DeviceDetectorService,
               public userService:UserService,
@@ -63,7 +64,8 @@ export class LoginComponent implements OnInit {
           this.userService.init(this.email);
           this.router.navigate(["start"]);
         } else {
-          this.message="Mot de passe incorrect";
+          this.message="Code incorrect";
+          this.showResendCode=true;
         }
       }
     })
@@ -82,6 +84,12 @@ export class LoginComponent implements OnInit {
   loginService(service: string) {
     var domain=location.href.replace("https://","").replace("http://","").replace("/login","");
     domain=domain.replace("/","_slash_");
-    document.location.href=api("connectTo","service="+service+"&domain="+domain);
+    document.location.href=direct_api("connectTo","service="+service+"&domain="+domain);
+  }
+
+  resend_code() {
+    this.api.resend_code(this.email).subscribe(()=>{
+      this.message="Consulter votre boite mail";
+    });
   }
 }

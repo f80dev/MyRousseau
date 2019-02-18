@@ -31,7 +31,7 @@ export class AdminComponent implements OnInit {
     localStorage.removeItem("email");
     localStorage.removeItem("password");
     this.api.raz();
-    location.href="/MyRousseauAuto/login";
+    location.href="/login";
   }
 
   admin() {

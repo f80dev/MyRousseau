@@ -5,6 +5,11 @@ export function api(service:string ,param : string, encode : boolean = true):str
   return(environment.root_api+ "/" + service + "?" + param);
 }
 
+export function direct_api(service:string ,param : string, encode : boolean = true):string  {
+  if (encode) param = encodeURI(param);
+  return(environment.domain+ "/" + service + "?" + param);
+}
+
 
 export function getDelay(dtStart,lang="en",label_day="jours",serverNow=null){
   if(dtStart==undefined)return "";

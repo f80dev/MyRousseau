@@ -32,6 +32,8 @@
         <p>{{message}}</p>
       </div>
 
+      <button *ngIf="showResendCode" mat-raised-button (click)="resend_code()">Renvoyer le code</button><br>
+
       <button *ngIf="email!=null && email.length>0 && email.split('@').length>1" mat-raised-button (click)="login()">Login</button>
 
     </mat-card-content>

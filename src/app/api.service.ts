@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {api} from './tools';
+import {api, direct_api} from './tools';
 import {HttpClient} from '../../node_modules/@angular/common/http';
 
 @Injectable({
@@ -51,7 +51,7 @@ export class ApiService {
   }
 
   loginService(service: string) {
-    return this.http.get(api("connectTo","service="+service+"&domain="+location.host))
+    return this.http.get(direct_api("connectTo","service="+service+"&domain="+location.host))
   }
 
   getmodeles() {
@@ -59,4 +59,7 @@ export class ApiService {
   }
 
 
+  resend_code(email: string) {
+    return this.http.get(api("resend_code","email="+email));
+  }
 }

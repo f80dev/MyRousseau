@@ -23,10 +23,10 @@ export class ScheduleComponent implements OnInit {
   }
 
   askForAppointment() {
-    var dt:Date=new Date(this.sch_date);
-    dt.setHours(parseInt(this.sch_hour.split(":")[0]))
-    this.userService.askforappointment(dt.getTime(),this.motif).subscribe(()=>{
-      this.router.navigate(["main"]);
-    });
+      var dt:Date=new Date(this.sch_date);
+      dt.setHours(parseInt(this.sch_hour.split(":")[0]))
+      this.userService.askforappointment(dt.getTime(),this.motif).subscribe(()=>{
+        this.router.navigate(["main"]);
+      });
   }
 }

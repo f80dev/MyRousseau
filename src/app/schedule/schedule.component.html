@@ -23,7 +23,10 @@
       <input matInput  [(ngModel)]="motif" placeholder="Motif">
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary" (click)="askForAppointment()">Demander</button>
+    <button mat-raised-button
+            *ngIf="motif.length>0"
+            color="primary"
+            (click)="askForAppointment()">Demander</button>
   </mat-card-content>
 
 </mat-card>
