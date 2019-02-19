@@ -1,21 +1,25 @@
 <mat-card class="app-card">
   <mat-card-header>
-    <span *ngIf="appointments.length==0">
+    <span *ngIf="appointments!=null && appointments.length==0">
       Aucun rendez-vous plannifié
     </span>
-        <span *ngIf="appointments.length>0">
+        <span *ngIf="appointments!=null && appointments.length>0">
       Votre prochain rendez-vous
     </span>
   </mat-card-header>
   <mat-card-content class="app-card-content">
-    <br>
-    <div *ngFor="let app of appointments" style="vertical-align: middle;">
-      <button mat-icon-button (click)="cancelAppointment(app)"><mat-icon>delete</mat-icon></button>
-      Le {{app.dtStart | date:'shortDate'}} à {{app.dtStart | date:'shortTime'}} - {{app.motif}}
-
-    </div>
-    <br>
-    <mat-card-actions class="app-card-content" *ngIf="appointments.length==0 && new_button">
+      <table>
+      <tr *ngFor="let app of appointments">
+        <td>
+          <button style="margin-bottom: 10px;" mat-icon-button (click)="cancelAppointment(app)"><mat-icon>delete</mat-icon></button>
+        </td>
+        <td>
+          Le {{app.dtStart | date:'shortDate'}} à {{app.dtStart | date:'shortTime'}}<br>
+          <span style="font-weight:bold;font-size: small">{{app.motif}}</span>
+        </td>
+      </tr>
+      </table>
+    <mat-card-actions class="app-card-content" *ngIf="appointments!=null && appointments.length==0 && new_button">
       <button color="primary" mat-raised-button (click)="ask_appointment()">Nouveau rendez-vous</button>
     </mat-card-actions>
   </mat-card-content>

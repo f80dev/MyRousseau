@@ -2,7 +2,7 @@
 <mat-card class="app-card">
   <mat-card-header>Demander un rendez-vous</mat-card-header><br>
   <mat-card-content class="app-card-content">
-    <mat-form-field class="input-style">
+    <mat-form-field class="input-style" style="width:140px">
       <input matInput [matDatepicker]="picker" [(ngModel)]="sch_date"  placeholder="Choisir une date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
@@ -24,7 +24,7 @@
     </mat-form-field>
     <br>
     <button mat-raised-button
-            *ngIf="motif.length>0"
+            *ngIf="motif!=null && motif.length>0"
             color="primary"
             (click)="askForAppointment()">Demander</button>
   </mat-card-content>

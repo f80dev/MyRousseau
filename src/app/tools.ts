@@ -11,6 +11,23 @@ export function direct_api(service:string ,param : string, encode : boolean = tr
 }
 
 
+export function openGeneral(item,domain)  {
+  return new Promise((resolve,reject)=>{
+      let url = environment.domain + "/api/connectTo?service=" + item+"&domain="+domain;
+      var hwnd:any=window.open(url, "Login", "menubar=0,status=0,height=600,titlebar=0,width=400");
+      //setTimeout(()=>{hwnd.width=300;hwnd.height=500;},1500);
+      window.addEventListener("message", (event:  any)=>{
+        if (event.origin !== "https://www.shifumix.com")
+          reject();
+        else{
+          resolve(event.data);
+        }
+      }, false);
+  });
+}
+
+
+
 export function getDelay(dtStart,lang="en",label_day="jours",serverNow=null){
   if(dtStart==undefined)return "";
   if(serverNow==null)serverNow=new Date().getTime();

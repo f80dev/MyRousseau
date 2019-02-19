@@ -3,11 +3,8 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material';
 import {ApiService} from '../api.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {api, direct_api, reload} from '../tools';
+import {api, direct_api, openGeneral, reload} from '../tools';
 import {UserService} from '../user.service';
-import {Observable} from 'rxjs';
-import {BreakpointObserver, Breakpoints} from '../../../node_modules/@angular/cdk/layout';
-import {map} from 'rxjs/operators';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -27,8 +24,8 @@ export class LoginComponent implements OnInit {
   showPassword=false;
   email="";
   password="";
-  message="";
   showResendCode=false;
+  handleLogin=null;
 
   constructor(public deviceService: DeviceDetectorService,
               public userService:UserService,
@@ -40,32 +37,32 @@ export class LoginComponent implements OnInit {
     this.email=localStorage.getItem("email") || this.routes.snapshot.queryParamMap.get("email");
     if(this.email=="null")this.email=null;
 
-    this.showPassword=(this.email!=null);
     this.password=localStorage.getItem("password") || this.routes.snapshot.queryParamMap.get("password");
     if(this.email!=null && this.password!=null){
-      setTimeout(()=>{
-        this.login();
-      },1000);
+      setTimeout(()=>{this.login();},1000);
     }
   }
 
-  login() {
+  login(manual=false) {
     localStorage.setItem("email",this.email);
     this.api.login(this.email,this.password).subscribe((r:any)=>{
       if(!this.showPassword){
         if(r==null){
-          this.router.navigate(['/newuser'],{ queryParams: { email: this.email} });
+          if(manual)
+            this.router.navigate(['/newuser'],{ queryParams: { email: this.email} });
         }
         else
           this.showPassword=true;
       } else {
         if(r!=null){
+          clearInterval(this.handleLogin);
           localStorage.setItem("password",this.password);
           this.userService.init(this.email);
           this.router.navigate(["start"]);
         } else {
-          this.message="Code incorrect";
-          this.showResendCode=true;
+          if(this.password!=null){
+            this.showResendCode=true;
+          }
         }
       }
     })
@@ -77,19 +74,30 @@ export class LoginComponent implements OnInit {
   }
 
   keypress($event) {
-    if($event.keyCode==13)
+    if($event.keyCode==13){
+      this.showPassword=true;
       this.login();
+    }
+
   }
 
   loginService(service: string) {
     var domain=location.href.replace("https://","").replace("http://","").replace("/login","");
     domain=domain.replace("/","_slash_");
-    document.location.href=direct_api("connectTo","service="+service+"&domain="+domain);
+    openGeneral(service,"https://www.shifumix.com").then((data:any)=>{
+      this.email=data.email;
+      this.password=data.password;
+      clearInterval(this.handleLogin);
+      this.handleLogin=setInterval(()=>{
+        this.showPassword=true;
+        this.login();
+        },1000);
+    })
   }
 
   resend_code() {
     this.api.resend_code(this.email).subscribe(()=>{
-      this.message="Consulter votre boite mail";
+      this.showPassword=true;
     });
   }
 }

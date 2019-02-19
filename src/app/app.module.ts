@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
-import { LayoutModule } from '@angular/cdk/layout';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import {
   MatToolbarModule,
@@ -21,6 +20,7 @@ import {
   MatMenuModule,
   MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTreeModule, MatChipsModule, MatSnackBarModule
 } from '@angular/material';
+
 import { ContactComponent } from './contact/contact.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
@@ -49,6 +49,7 @@ import { AboutComponent } from './about/about.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {LayoutModule} from '@angular/cdk/layout';
 
 
 

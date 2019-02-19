@@ -1,15 +1,14 @@
 <div style="text-align: center">
   <br><br>
-  <mat-card class="app-card">
+  <mat-card class="app-card" style="margin-top:0">
     <mat-card-content>
       <img *ngIf="deviceService.isMobile()" style="width:90%" src="assets/img/logo-rousseau.png">
-      <h1>S'identifier</h1>
-          <br>
-      <h4>avec</h4>
+      <h1>Se connecter</h1>
+      <h4>via</h4>
       <button class="button-identity-provider"  mat-raised-button (click)="loginService('contact')">Google</button><br>
       <!--<button class="button-identity-provider" mat-raised-button >Facebook</button><br>-->
       <button  class="button-identity-provider" mat-raised-button (click)="loginService('linkedin')">Linkedin</button><br>
-<br><br>
+      <br>
       <h4>ou directement avec</h4>
       <mat-form-field class="example-form-field">
         <input matInput type="email" placeholder="Votre email" [(ngModel)]="email" (keypress)="keypress($event)" class="input-style">
@@ -17,8 +16,8 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
-      <br><br>
-      <mat-form-field *ngIf="showPassword && email.length>0" class="input-style">
+      <br>
+      <mat-form-field *ngIf="showPassword && email!=null && email.length>0" class="input-style">
         <input name="password" placeholder="votre code à 4 chiffres"
                [(ngModel)]="password" matInput type="password"
                [maxlength]="4" (keypress)="keypress($event)">
@@ -27,14 +26,18 @@
         </button>
       </mat-form-field>
 
-      <br><br>
-      <div style="display:inline;" *ngIf="message!=''">
-        <p>{{message}}</p>
+
+      <div *ngIf="showResendCode">
+        Votre code est incorrect, Il vous à été envoyé dans votre boite mail<br>
+        <button mat-raised-button (click)="resend_code()">Renvoyer le code</button>
+        <br>
       </div>
 
-      <button *ngIf="showResendCode" mat-raised-button (click)="resend_code()">Renvoyer le code</button><br>
 
-      <button *ngIf="email!=null && email.length>0 && email.split('@').length>1" mat-raised-button (click)="login()">Login</button>
+      <br>
+      <button *ngIf="email!=null && email.length>0 && email.split('@').length>1"
+              mat-raised-button
+              (click)="login(true)">Login</button>
 
     </mat-card-content>
 

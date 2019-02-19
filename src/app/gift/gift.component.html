@@ -1,9 +1,9 @@
-<mat-card *ngIf="gifts.length>0" class="app-card">
-  <mat-card-header>
+<mat-card *ngIf="gifts!=null && gifts.length>0" class="app-card">
+  <mat-card-header style="margin-bottom: 10px;">
       Promotions / cadeaux
   </mat-card-header>
 
-  <mat-card-content class="app-card-content">
+  <mat-card-content class="">
 
     <div *ngIf="!icon_view" fxLayout="row wrap">
         <div class="flip-card" *ngFor="let gift of gifts" style="margin-bottom:8px;position:relative;height:400px;width:100%;overflow: hidden;">
@@ -14,13 +14,13 @@
                 {{gift.message}}
               </div>
               <button mat-raised-button
-                      style="position:absolute;left:35%;top:70%;width:30%;max-width:200px;"
+                      style="position:absolute;left:30%;top:70%;width:40%;font-size:1.5vmax;"
                       (click)="useGift($event,gift)">
                 J'en profite
               </button>
 
-              <div [ngStyle]="{'position':'absolute','text-align':'center','left':'40%','top':'82%','width':'10%','font-size':'1vmax','color':gift.messageColor}">
-                Reste&nbsp;<app-timer [end]="gift.dtEnd"></app-timer>
+              <div [ngStyle]="{'position':'absolute','text-align':'center','left':'35%','top':'82%','width':'30%','font-size':'1.3vmax','color':gift.messageColor}">
+                Il reste&nbsp;<app-timer [end]="gift.dtEnd"></app-timer>
               </div>
             </div>
             <div class="flip-card-back">

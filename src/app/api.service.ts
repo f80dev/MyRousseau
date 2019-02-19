@@ -51,7 +51,7 @@ export class ApiService {
   }
 
   loginService(service: string) {
-    return this.http.get(direct_api("connectTo","service="+service+"&domain="+location.host))
+    return this.http.get(direct_api("api/connectTo","service="+service+"&domain="+location.host))
   }
 
   getmodeles() {

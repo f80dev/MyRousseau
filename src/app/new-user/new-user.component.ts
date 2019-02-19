@@ -36,14 +36,18 @@ export class NewUserComponent implements OnInit {
   }
 
   sendUser() {
-    this.api.add(this.email,this.firstname,this.lastname,this.modele).subscribe((r)=>{
-      localStorage.setItem("email",this.email);
-
-      this.message="Votre code d'accès vient d'être envoyé sur votre mail. Vérifier votre boite pour pouvoir vous reconnecter."
+    this.api.add(this.email,this.firstname,this.lastname,this.modele).subscribe((r:any)=>{
+      debugger
+      localStorage.setItem("email",r.email);
+      this.message="Votre code d'accès vient d'être envoyé sur votre mail. Vérifier votre boite "+this.email;
       setTimeout(()=>{
-        this.router.navigate(["start"]);
-      },3000);
+        this.router.navigate(["login"],{queryParams:{email:this.email}});
+      },2000);
 
     });
+  }
+
+  cancel(){
+    this.router.navigate(["start"]);
   }
 }

@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'gift',component: GiftComponent},
   { path: 'admin',component: AdminComponent},
   { path: 'login',component: LoginComponent},
+  { path: 'connectTo',redirectTo:"/api/connectTo"},
   { path: 'login/:email/:password',component: LoginComponent},
   { path: 'login/:email',component: LoginComponent},
   { path: 'address',component: AddressComponent},
@@ -34,7 +35,6 @@ const routes: Routes = [
   { path: 'share',component: ShareComponent},
   { path: 'about',component: AboutComponent},
   { path: '',component: MainComponent},
-  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

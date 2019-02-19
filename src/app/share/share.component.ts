@@ -21,10 +21,10 @@ export class ShareComponent implements OnInit {
 
   sendInvitation() {
     if(this.email.length>0){
-      this.userService.share(this.email,this.firstname).subscribe(()=>{
+      this.userService.share(this.email,this.firstname).subscribe((r:any)=>{
         this.firstname="";
         this.email="";
-        this.snackBar.open("Invitation envoyeé","",{duration:5000});
+        this.snackBar.open(r.message,"",{duration:5000});
         this.router.navigate(["main"]);
       });
     }

@@ -5,6 +5,7 @@ import {filter, map, withLatestFrom} from 'rxjs/operators';
 import {NavigationEnd, Router} from '@angular/router';
 import {MatSidenav} from '@angular/material';
 import {UserService} from '../user.service';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-menu',
@@ -13,6 +14,8 @@ import {UserService} from '../user.service';
 })
 export class MenuComponent {
   @ViewChild('drawer') drawer: MatSidenav;
+  version:string="";
+
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
     
@@ -23,6 +26,7 @@ export class MenuComponent {
     ).subscribe(_ => {
       if(this.drawer!=null)this.drawer.close();
     });
+    this.version=environment.version;
   }
 
   ngOnInit(){
