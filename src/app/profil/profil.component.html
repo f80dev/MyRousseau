@@ -1,3 +1,23 @@
-<p>
-  profil works!
-</p>
+<mat-form-field class="input-style">
+  <input [(ngModel)]="profil.email" [readonly]="true" matInput placeholder="Votre email">
+</mat-form-field>
+<br>
+<mat-form-field class="input-style">
+  <input [(ngModel)]="profil.firstname" matInput placeholder="Votre prénom"
+         (change)="onchange.emit(profil)">
+</mat-form-field>
+<br>
+<mat-form-field class="input-style">
+  <input [(ngModel)]="profil.lastname" matInput placeholder="Votre nom"
+         (change)="onchange.emit(profil)">
+</mat-form-field>
+<br>
+  <mat-checkbox [(ngModel)]="profil.notif"
+                (change)="onchange.emit(profil)">
+    Notifications
+  </mat-checkbox>
+<br><br>
+
+<img class="avatar" [src]="config.values.avatar">&nbsp;
+
+<button mat-raised-button>Modifier la photo</button>

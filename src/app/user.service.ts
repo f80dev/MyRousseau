@@ -27,11 +27,16 @@ export class UserService {
     if(email==null){
       if(func_failed!=null)func_failed();
     } else {
-      return this.http.get(api("getuser","email="+email)).subscribe((r)=>{
-        this.user=r;
+      return this.http.get(api("getuser","email="+email)).subscribe((r:any)=>{
+        this.set(r);
         if(func_sucess!=null)func_sucess();
       });
     }
+  }
+
+  public set(r:any){
+    r.notif=(r.dtLastNotif!=1e9)
+    this.user=r;
   }
 
   logout() {

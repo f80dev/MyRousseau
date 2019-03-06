@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {api, direct_api, openGeneral, reload} from '../tools';
 import {UserService} from '../user.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import {ConfigService} from '../config.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -28,9 +29,9 @@ export class LoginComponent implements OnInit {
   handleLogin=null;
 
   constructor(public deviceService: DeviceDetectorService,
-              public userService:UserService,
+              public userService:UserService,public config:ConfigService,
               public api:ApiService,public router:Router,public routes:ActivatedRoute) {
-
+    config.init();
   }
 
   ngOnInit() {

@@ -1,1 +1,4 @@
-<iframe style="width:100%;border: None;height:100%;" src="https://www.salvaloc.fr/"></iframe>
+<iframe *ngIf="url!=null && url.length>0"
+        style="width:100%;border: None;height:100%;"
+        [src]="url | safe:'resourceUrl'">
+</iframe>

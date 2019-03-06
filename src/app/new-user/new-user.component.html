@@ -3,24 +3,8 @@
     <h2>Inscrivez vous</h2>
   </mat-card-header>
   <mat-card-content class="app-card-content">
-    <br>
 
-    <mat-form-field class="input-style">
-      <input [(ngModel)]="email" [readonly]="true" matInput placeholder="Votre email">
-    </mat-form-field>
-    <br>
-    <mat-form-field class="input-style">
-      <input [(ngModel)]="firstname" matInput placeholder="Votre prénom">
-    </mat-form-field>
-    <br>
-    <mat-form-field class="input-style">
-      <input [(ngModel)]="lastname" matInput placeholder="Votre nom">
-    </mat-form-field>
-    <br><br>
-
-    <img class="avatar" src="./assets/img/avatar.jpg">&nbsp;
-
-    <button mat-raised-button>Modifier la photo</button>
+    <app-profil [profil]="profil" (onchange)="updateProfil($event)"></app-profil>
 
     <br><br>
 
@@ -32,7 +16,7 @@
   </mat-card-content>
   <mat-card-actions style="text-align: center">
     <button mat-raised-button
-            *ngIf="firstname!=null && lastname!=null && firstname.length>0 && lastname.length>0"
+            *ngIf="profil.firstname!=null && profil.lastname!=null && profil.firstname.length>0 && profil.lastname.length>0"
             (click)="sendUser()">
       Enregistrer
     </button>

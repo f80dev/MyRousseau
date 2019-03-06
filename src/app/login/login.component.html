@@ -1,43 +1,67 @@
 <div style="text-align: center">
   <br><br>
   <mat-card class="app-card" style="margin-top:0">
-    <mat-card-content>
-      <img *ngIf="deviceService.isMobile()" style="width:90%" src="assets/img/logo-rousseau.png">
+    <mat-card-content *ngIf="config.values">
+      <img *ngIf="deviceService.isMobile()" style="width:90%" src="{{config.values.logo}}">
       <h1>Se connecter</h1>
       <h4>via</h4>
-      <button class="button-identity-provider"  mat-raised-button (click)="loginService('contact')">Google</button><br>
+      <button *ngIf="config.values.authent.google"
+              class="button-identity-provider"
+              mat-raised-button
+              (click)="loginService('contact')">
+        Google
+      </button>
+      <br>
+
       <!--<button class="button-identity-provider" mat-raised-button >Facebook</button><br>-->
-      <button  class="button-identity-provider" mat-raised-button (click)="loginService('linkedin')">Linkedin</button><br>
-      <br>
-      <h4>ou directement avec</h4>
-      <mat-form-field class="example-form-field">
-        <input matInput type="email" placeholder="Votre email" [(ngModel)]="email" (keypress)="keypress($event)" class="input-style">
-        <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="clearEmail()">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
-      <br>
-      <mat-form-field *ngIf="showPassword && email!=null && email.length>0" class="input-style">
-        <input name="password" placeholder="votre code à 4 chiffres"
-               [(ngModel)]="password" matInput type="password"
-               [maxlength]="4" (keypress)="keypress($event)">
-        <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
+      <button *ngIf="config.values.authent.linkedin"
+              class="button-identity-provider"
+              mat-raised-button
+              (click)="loginService('linkedin')">
+        Linkedin
+      </button>
 
-
-      <div *ngIf="showResendCode">
-        Votre code est incorrect, Il vous à été envoyé dans votre boite mail<br>
-        <button mat-raised-button (click)="resend_code()">Renvoyer le code</button>
+      <div *ngIf="config.values.authent.email">
         <br>
+        <h4>ou directement avec</h4>
+        <mat-form-field class="example-form-field">
+          <input matInput type="email" placeholder="Votre email" [(ngModel)]="email" (keypress)="keypress($event)" class="input-style">
+          <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="clearEmail()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field *ngIf="showPassword && email!=null && email.length>0" class="input-style">
+          <input name="password" placeholder="votre code à 4 chiffres"
+                 [(ngModel)]="password" matInput type="password"
+                 [maxlength]="4" (keypress)="keypress($event)">
+          <button mat-button matSuffix mat-icon-button
+                  *ngIf="password"
+                  aria-label="Clear"
+                  (click)="password=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <div *ngIf="showResendCode">
+          Votre code est incorrect, Il vous à été envoyé dans votre boite mail<br>
+          <button mat-raised-button
+                  (click)="resend_code()">
+            Renvoyer le code
+          </button>
+          <br>
+        </div>
+
+        <br>
+        <button *ngIf="email!=null && email.length>0 && email.split('@').length>1"
+                mat-raised-button
+                (click)="login(true)">
+          Login
+        </button>
+
       </div>
 
-
-      <br>
-      <button *ngIf="email!=null && email.length>0 && email.split('@').length>1"
-              mat-raised-button
-              (click)="login(true)">Login</button>
 
     </mat-card-content>
 

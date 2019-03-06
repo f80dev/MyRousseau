@@ -9,8 +9,8 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  public add(user:string,firstname:string,lastname:string,modele:string=""){
-    return this.http.get(api("adduser","email="+user+"&firstname="+firstname+"&lastname="+lastname+"&modele="+modele))
+  public add(user:string,firstname:string,lastname:string,dtlastnotif:number,modele:string=""){
+    return this.http.get(api("adduser","dtlastnotif="+dtlastnotif+"&email="+user+"&firstname="+firstname+"&lastname="+lastname+"&modele="+modele))
   }
 
   public raz(){
@@ -24,7 +24,6 @@ export class ApiService {
   public login(email:string,password:string=""){
     return this.http.get(api("login","email="+email+"&password="+password))
   }
-
 
   public getusers(){
     return this.http.get(api("getusers",""))

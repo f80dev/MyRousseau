@@ -18,7 +18,7 @@ import {
   MatCardModule,
   MatGridListModule,
   MatMenuModule,
-  MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTreeModule, MatChipsModule, MatSnackBarModule
+  MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTreeModule, MatChipsModule, MatSnackBarModule, MatCheckboxModule
 } from '@angular/material';
 
 import { ContactComponent } from './contact/contact.component';
@@ -50,6 +50,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {LayoutModule} from '@angular/cdk/layout';
+import { PreferencesComponent } from './preferences/preferences.component';
 
 
 
@@ -77,7 +78,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     ShareComponent,
     ServicesComponent,
     AboutComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    PreferencesComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +99,7 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatListModule,
     MatInputModule,
     MatSelectModule,
+    MatCheckboxModule,
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,

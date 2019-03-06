@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-profil',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor() { }
+  @Input("profil") profil:any={email:"",firstname:"",lastname:""}
+  @Output('onchange') onchange: EventEmitter<any>=new EventEmitter();
+
+  constructor(public config:ConfigService) {
+  }
 
   ngOnInit() {
   }

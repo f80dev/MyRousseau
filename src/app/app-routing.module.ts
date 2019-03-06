@@ -14,6 +14,8 @@ import {ShareComponent} from './share/share.component';
 import {MenuComponent} from './menu/menu.component';
 import {ServicesComponent} from './services/services.component';
 import {AboutComponent} from './about/about.component';
+import {PreferencesComponent} from './preferences/preferences.component';
+import {ContactComponent} from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -24,14 +26,17 @@ const routes: Routes = [
   { path: 'admin',component: AdminComponent},
   { path: 'login',component: LoginComponent},
   { path: 'connectTo',redirectTo:"/api/connectTo"},
+  { path: 'preferences',component: PreferencesComponent},
   { path: 'login/:email/:password',component: LoginComponent},
   { path: 'login/:email',component: LoginComponent},
   { path: 'address',component: AddressComponent},
   { path: 'services',component: ServicesComponent},
   { path: 'services/:modele',component: ServicesComponent},
   { path: 'newuser',component: NewUserComponent},
+  { path: 'catalogue/:url',component: CatalogueComponent},
   { path: 'catalogue',component: CatalogueComponent},
   { path: 'start',component: MainComponent},
+  { path: 'contact',component: ContactComponent},
   { path: 'share',component: ShareComponent},
   { path: 'about',component: AboutComponent},
   { path: '',component: MainComponent},

@@ -19,19 +19,45 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">
-      <img class="main-logo" src="assets/img/logo-rousseau.png">
+    <mat-toolbar color="primary" *ngIf="config.values">
+      <img class="main-logo" src="{{config.values.logo}}">
     </mat-toolbar>
     <mat-nav-list>
-      <a *ngIf="userService.user==null || userService.user.email==null" mat-list-item routerLink="/login"><mat-icon>person</mat-icon>&nbsp;&nbsp;Login</a>
-      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/main"><mat-icon>dns</mat-icon>&nbsp;&nbsp;Dashboard</a>
-      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/schedule"><mat-icon>schedule</mat-icon>&nbsp;&nbsp;Rendez-vous</a>
-      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/gift"><mat-icon>card_giftcard</mat-icon>&nbsp;&nbsp;Récompenses</a>
+      <a *ngIf="userService.user==null || userService.user.email==null" mat-list-item routerLink="/login">
+        <mat-icon>person</mat-icon>
+        &nbsp;&nbsp;Login
+      </a>
+
+      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/main">
+        <mat-icon>dns</mat-icon>
+        &nbsp;&nbsp;Dashboard
+      </a>
+
+      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/schedule">
+        <mat-icon>schedule</mat-icon>
+        &nbsp;&nbsp;Rendez-vous
+      </a>
+
+      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/gift">
+        <mat-icon>cake</mat-icon>
+        &nbsp;&nbsp;Récompenses
+      </a>
+
       <a mat-list-item routerLink="/services"><mat-icon>build</mat-icon>&nbsp;&nbsp;Services</a>
-      <a mat-list-item routerLink="/catalogue"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Location</a>
-      <!--<a mat-list-item routerLink="/address"><mat-icon>place</mat-icon>&nbsp;&nbsp;Nous contacter</a>-->
-      <a mat-list-item routerLink="/share"><mat-icon>person_add</mat-icon>&nbsp;&nbsp;Ajouter</a>
-      <a mat-list-item routerLink="/about"><mat-icon>help</mat-icon>&nbsp;&nbsp;A propos</a>
+
+      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/preferences">
+        <mat-icon>settings</mat-icon>
+        &nbsp;&nbsp;Mon profil
+      </a>
+      <br>
+
+      <a mat-list-item routerLink="/catalogue/loc"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Location</a>
+      <a mat-list-item routerLink="/contact"><mat-icon>phone_in_talk</mat-icon>&nbsp;&nbsp;Contacter</a>
+
+      <br>
+      <a mat-list-item routerLink="/catalogue/faq"><mat-icon>help</mat-icon>&nbsp;&nbsp;FAQ</a>
+      <a mat-list-item routerLink="/share"><mat-icon>person_add</mat-icon>&nbsp;&nbsp;Inviter</a>
+      <a mat-list-item routerLink="/about"><mat-icon>account_balance</mat-icon>&nbsp;&nbsp;A propos</a>
       <br><br><br>
       <a mat-list-item routerLink="/admin"><mat-icon>build</mat-icon>&nbsp;&nbsp;Admin</a>
       <div style="width:100%;text-align: left;font-size: small;">&nbsp;&nbsp;&nbsp;version:{{version}}</div>

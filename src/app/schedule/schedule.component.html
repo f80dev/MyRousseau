@@ -3,7 +3,10 @@
   <mat-card-header>Demander un rendez-vous</mat-card-header><br>
   <mat-card-content class="app-card-content">
     <mat-form-field class="input-style" style="width:140px">
-      <input matInput [matDatepicker]="picker" [(ngModel)]="sch_date"  placeholder="Choisir une date">
+      <input matInput
+             [matDatepicker]="picker"
+             [(ngModel)]="sch_date"
+             placeholder="Choisir une date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>&nbsp;&nbsp;

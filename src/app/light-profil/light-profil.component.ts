@@ -16,13 +16,13 @@ export class LightProfilComponent implements OnInit {
 
   selcar(evt) {
     this.userService.addcar(evt.car).subscribe((r)=>{
-      this.userService.user=r;
+      this.userService.set(r);
     });
   }
 
   deleteCar() {
     this.userService.delcar(0).subscribe((r)=>{
-      this.userService.user=r;
+      this.userService.set(r);
     });
   }
 

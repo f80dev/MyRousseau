@@ -1,0 +1,12 @@
+1. Mise a jour du nom
+    - angular.json
+    - package.json
+
+2. Mise a jour des icons dans le /assets/icons
+3. Mise a jour des images
+    - dans le /assets/img
+    - chemin du logo dans le fichier /assets/config.json
+
+4. Modification des options d'authentification :
+    dans le fichier config.json
+    chez les différents prestatataire d'authentification

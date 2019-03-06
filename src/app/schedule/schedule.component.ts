@@ -12,11 +12,12 @@ export class ScheduleComponent implements OnInit {
   @Input() public dtSchedule:any={};
   motif:string="";
   sch_hour="15:00";
-  sch_date="04/02/2019";
+  sch_date:string="";
 
   constructor(public router:Router,public userService:UserService,public route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.sch_date=new Date(new Date().getTime()+1000*3600*24*3).toISOString();
     this.route.params.subscribe(params => {
         this.motif = params["motif"];
     });

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-catalogue',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogueComponent implements OnInit {
 
-  constructor() { }
+  url:string;
+
+  constructor(public route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      if(params["url"]=="faq")this.url="/faq.html";
+      if(params["url"]=="loc")this.url="https://www.salvaloc.fr/";
+    });
+  }
 
   ngOnInit() {
+
   }
 
 }

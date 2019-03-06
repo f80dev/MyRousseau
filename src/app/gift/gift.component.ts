@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
 import {UserService} from '../user.service';
 import {MatSnackBar} from '@angular/material';
+import {PushNotificationsService} from '../push-notifications.service';
 
 @Component({
   selector: 'app-gift',
@@ -16,7 +17,7 @@ export class GiftComponent implements OnInit {
   @Input() userFilter="";
   @Input() icon_view: boolean=false;
 
-  constructor(public snackBar: MatSnackBar,public api:ApiService,public userService:UserService) { }
+  constructor(private _notificationService: PushNotificationsService,public snackBar: MatSnackBar,public api:ApiService,public userService:UserService) { }
 
   ngOnInit() {
     this.refresh();
@@ -26,8 +27,17 @@ export class GiftComponent implements OnInit {
     this.api.getgifts(localStorage.getItem("email")).subscribe((r:any)=>{
       this.gifts=[];
       r.items.forEach((i)=>{
-        if((i.dtStart>=this.dtStart || this.dtStart==0) && (i.dtEnd>=this.dtEnd || this.dtEnd==0))
+        if((i.dtStart>=this.dtStart || this.dtStart==0) && (i.dtEnd>=this.dtEnd || this.dtEnd==0)){
+          if(this.userService.user.dtLastNotif<i.dtCreate){
+            this._notificationService.generateNotification([{
+              "title":"Promotion",
+              "alertContent":i.message,
+              "icon":i.picture,
+              "tag":"promotion"
+            }]);
+          }
           this.gifts.push(i);
+        }
       });
     })
   }

@@ -12,8 +12,7 @@ export class NewUserComponent implements OnInit {
 
   modele:string="";
   @Input() email:string="";
-  lastname: any;
-  firstname:any;
+  profil: any;
   carPicture:string="";
   message: string = '';
 
@@ -35,9 +34,13 @@ export class NewUserComponent implements OnInit {
     });
   }
 
+  updateProfil(p:any){
+    debugger
+    this.profil=p;
+  }
+
   sendUser() {
-    this.api.add(this.email,this.firstname,this.lastname,this.modele).subscribe((r:any)=>{
-      debugger
+    this.api.add(this.email,this.profil.firstname,this.profil.lastname,1e9,this.modele).subscribe((r:any)=>{
       localStorage.setItem("email",r.email);
       this.message="Votre code d'accès vient d'être envoyé sur votre mail. Vérifier votre boite "+this.email;
       setTimeout(()=>{

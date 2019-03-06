@@ -1,0 +1,30 @@
+{
+  "logo":"/assets/img/logo-rousseau.png",
+
+  "authent":{
+    "google":false,
+    "linkedin":true,
+    "facebook":false,
+    "email":true
+  },
+
+  "menus":[
+    {
+      "title":"Location",
+      "icon":"collections",
+      "href":"https://www.salvaloc.fr/"
+    },
+    {
+      "title":"Catalogue",
+      "icon":"collections",
+      "href":"https://www.salvaloc.fr/"
+    }
+  ],
+
+  "admin":{
+    "visible":true,
+    "href":""
+  },
+
+  "avatar":"./assets/img/avatar.jpg"
+}
