@@ -8,6 +8,33 @@
     "email":true
   },
 
+  "menu":{
+    "dashboard":{
+      "visible":true
+    },
+    "schedule":{
+      "visible":true
+    },
+    "gift":{
+      "visible":true
+    },
+    "services":{
+      "visible":true
+    },
+    "profil":{
+      "visible":true
+    },
+    "contact":{
+      "visible":true
+    },
+    "share":{
+      "visible":true
+    },
+    "about":{
+      "visible":true
+    }
+  },
+  
   "menus":[
     {
       "title":"Location",

@@ -35,6 +35,8 @@ export class UserService {
   }
 
   public set(r:any){
+    if(r==null)return;
+    if(!r.hasOwnProperty("dtLastNotif"))r.dtLastNotif=1e9;
     r.notif=(r.dtLastNotif!=1e9)
     this.user=r;
   }

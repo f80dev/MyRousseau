@@ -11,7 +11,7 @@
   <button  *ngIf="userService.user!=null && userService.user.email!=null" mat-raised-button color="primary" (click)="logout()">Déconnecter</button>
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" *ngIf="config.values!=null">
   <mat-sidenav
     #drawer
     class="sidenav"
@@ -28,24 +28,24 @@
         &nbsp;&nbsp;Login
       </a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/main">
+      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.dashboard.visible" mat-list-item routerLink="/main">
         <mat-icon>dns</mat-icon>
         &nbsp;&nbsp;Dashboard
       </a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/schedule">
+      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.schedule.visible" mat-list-item routerLink="/schedule">
         <mat-icon>schedule</mat-icon>
         &nbsp;&nbsp;Rendez-vous
       </a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/gift">
+      <a *ngIf="userService.user!=null && userService.user.email!=null  && config.values.menu.gift.visible" mat-list-item routerLink="/gift">
         <mat-icon>cake</mat-icon>
         &nbsp;&nbsp;Récompenses
       </a>
 
-      <a mat-list-item routerLink="/services"><mat-icon>build</mat-icon>&nbsp;&nbsp;Services</a>
+      <a *ngIf="config.values.menu.services.visible" mat-list-item routerLink="/services"><mat-icon>build</mat-icon>&nbsp;&nbsp;Services</a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null" mat-list-item routerLink="/preferences">
+      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.profil.visible" mat-list-item routerLink="/preferences">
         <mat-icon>settings</mat-icon>
         &nbsp;&nbsp;Mon profil
       </a>

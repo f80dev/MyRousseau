@@ -12,7 +12,7 @@ export class NewUserComponent implements OnInit {
 
   modele:string="";
   @Input() email:string="";
-  profil: any;
+  profil: any={firstname:"",lastname:"",dtLastModif:1e9};
   carPicture:string="";
   message: string = '';
 
@@ -22,6 +22,7 @@ export class NewUserComponent implements OnInit {
     if(this.email==""){
       this.route.queryParams.subscribe((params) => {
         this.email=params['email'] || "";
+        this.profil.email=this.email;
       });
     }
   }
@@ -35,12 +36,11 @@ export class NewUserComponent implements OnInit {
   }
 
   updateProfil(p:any){
-    debugger
     this.profil=p;
   }
 
   sendUser() {
-    this.api.add(this.email,this.profil.firstname,this.profil.lastname,1e9,this.modele).subscribe((r:any)=>{
+    this.api.add(this.email,this.profil.firstname,this.profil.lastname,this.profil.dtLastModif,this.modele).subscribe((r:any)=>{
       localStorage.setItem("email",r.email);
       this.message="Votre code d'accès vient d'être envoyé sur votre mail. Vérifier votre boite "+this.email;
       setTimeout(()=>{
