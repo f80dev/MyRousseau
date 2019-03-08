@@ -13,12 +13,22 @@
     à&nbsp;
     <input class="time-picker"
            [(ngModel)]="sch_hour"
+           style="width: 75px;"
            atp-time-picker
            onlyHour="false"
            start='09:30'
            end="17:30"
            local="fr"
            value="15:00"/>
+
+    &nbsp;pendant:&nbsp;
+    <mat-select placeholder="Durée" [(ngModel)]="duration" style="width: 75px;">
+      <mat-option [value]="15" active>00:15</mat-option>
+      <mat-option [value]="30">00:30</mat-option>
+      <mat-option [value]="60">01:00</mat-option>
+      <mat-option [value]="90">01:30</mat-option>
+      <mat-option [value]="120">02:00</mat-option>
+    </mat-select>
 
     <br>
 

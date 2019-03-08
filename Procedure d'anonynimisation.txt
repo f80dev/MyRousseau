@@ -10,3 +10,11 @@
 4. Modification des options d'authentification :
     dans le fichier config.json
     chez les différents prestatataire d'authentification
+
+5. Installation du CRM
+  - Déploiement d'un serveur linux
+  - Installation de docker
+  - execution du script : suiterc_setup.sh
+  - creation d'un compte "selfapp/hh4271"
+  - ajouter l'Euro comme monnaie
+

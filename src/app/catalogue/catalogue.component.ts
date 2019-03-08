@@ -12,6 +12,7 @@ export class CatalogueComponent implements OnInit {
 
   constructor(public route: ActivatedRoute) {
     this.route.params.subscribe(params => {
+      this.url="http://"+params["url"];
       if(params["url"]=="faq")this.url="/faq.html";
       if(params["url"]=="loc")this.url="https://www.salvaloc.fr/";
     });

@@ -13,6 +13,7 @@ export class ScheduleComponent implements OnInit {
   motif:string="";
   sch_hour="15:00";
   sch_date:string="";
+  duration:number=15;
 
   constructor(public router:Router,public userService:UserService,public route: ActivatedRoute) { }
 
@@ -26,7 +27,7 @@ export class ScheduleComponent implements OnInit {
   askForAppointment() {
       var dt:Date=new Date(this.sch_date);
       dt.setHours(parseInt(this.sch_hour.split(":")[0]))
-      this.userService.askforappointment(dt.getTime(),this.motif).subscribe(()=>{
+      this.userService.askforappointment(dt.getTime(),this.motif,this.duration).subscribe(()=>{
         this.router.navigate(["main"]);
       });
   }

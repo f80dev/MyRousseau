@@ -12,8 +12,8 @@ export class UserService {
   constructor(public http: HttpClient) { }
 
 
-  public askforappointment(dt:number,motif=""){
-    return this.http.get(api("askforappointment","email="+this.user.email+"&dt="+dt+"&motif="+motif))
+  public askforappointment(dt:number,motif="",duration=30){
+    return this.http.get(api("askforappointment","durationInMin="+duration+"&email="+this.user.email+"&dt="+dt+"&motif="+motif))
   }
 
   public getappointments(){
