@@ -22,7 +22,9 @@ export class ApiService {
   }
 
   public login(email:string,password:string=""){
-    return this.http.get(api("login","email="+email+"&password="+password))
+    var complete="";
+    if(password!=null)complete="&password="+password;
+    return this.http.get(api("login","email="+email+complete))
   }
 
   public getusers(){

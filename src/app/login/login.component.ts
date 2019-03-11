@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
 
   login(manual=false) {
     localStorage.setItem("email",this.email);
+    debugger
     this.api.login(this.email,this.password).subscribe((r:any)=>{
       if(!this.showPassword){
         if(r==null){

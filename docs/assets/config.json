@@ -1,0 +1,57 @@
+{
+  "logo":"/assets/img/logo-rousseau.png",
+
+  "authent":{
+    "google":false,
+    "linkedin":true,
+    "facebook":false,
+    "email":true
+  },
+
+  "menu":{
+    "dashboard":{
+      "visible":true
+    },
+    "schedule":{
+      "visible":true
+    },
+    "gift":{
+      "visible":true
+    },
+    "services":{
+      "visible":true
+    },
+    "profil":{
+      "visible":true
+    },
+    "contact":{
+      "visible":true
+    },
+    "share":{
+      "visible":true
+    },
+    "about":{
+      "visible":true
+    }
+  },
+  
+  "menus":[
+    {
+      "title":"Location",
+      "icon":"collections",
+      "href":"https://www.salvaloc.fr/"
+    },
+    {
+      "title":"Catalogue",
+      "icon":"collections",
+      "href":"https://www.salvaloc.fr/"
+    }
+  ],
+
+  "admin":{
+    "visible":true,
+    "href":""
+  },
+
+  "avatar":"./assets/img/avatar.jpg"
+}
