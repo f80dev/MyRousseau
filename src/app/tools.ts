@@ -15,7 +15,6 @@ export function openGeneral(item,domain)  {
   return new Promise((resolve,reject)=>{
       let url = environment.domain + "/api/connectTo?service=" + item+"&domain="+domain;
       var hwnd:any=window.open(url, "Login", "menubar=0,status=0,height=600,titlebar=0,width=400");
-      //setTimeout(()=>{hwnd.width=300;hwnd.height=500;},1500);
       window.addEventListener("message", (event:  any)=>{
         if (event.origin !== "https://www.shifumix.com")
           reject();
@@ -23,6 +22,22 @@ export function openGeneral(item,domain)  {
           resolve(event.data);
         }
       }, false);
+
+      var hTimer=setInterval(()=>{
+        if(hwnd.location.href!=null && hwnd.location.href.indexOf("email")>-1){
+          debugger
+          var pos=hwnd.location.href.indexOf("email=");
+          var email=hwnd.location.href.substr(pos+6,hwnd.location.href.indexOf("&",pos)-pos-6);
+          var password=hwnd.location.href.substr(hwnd.location.href.indexOf("&",pos)+10);
+          hwnd.close();
+          clearInterval(hTimer);
+          resolve({email:email,password:password});
+        }
+      },1000);
+
+      // hwnd.addEventListener("unload",(event)=>{
+      //   var obj={email:localStorage.getItem("email"),password:localStorage.getItem("password")};
+      // })
   });
 }
 

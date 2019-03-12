@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
 
   login(manual=false) {
     localStorage.setItem("email",this.email);
-    debugger
     this.api.login(this.email,this.password).subscribe((r:any)=>{
       if(!this.showPassword){
         if(r==null){
@@ -86,7 +85,7 @@ export class LoginComponent implements OnInit {
   loginService(service: string) {
     var domain=location.href.replace("https://","").replace("http://","").replace("/login","");
     domain=domain.replace("/","_slash_");
-    openGeneral(service,"https://www.shifumix.com").then((data:any)=>{
+    openGeneral(service,location.host).then((data:any)=>{
       this.email=data.email;
       this.password=data.password;
       clearInterval(this.handleLogin);
