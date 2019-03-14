@@ -83,8 +83,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginService(service: string) {
-    var domain=location.href.replace("https://","").replace("http://","").replace("/login","");
-    domain=domain.replace("/","_slash_");
     openGeneral(service,location.host).then((data:any)=>{
       this.email=data.email;
       this.password=data.password;

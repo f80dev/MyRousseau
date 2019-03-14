@@ -9,7 +9,6 @@
         return vars;
     }
 
-
     var hwnd=window.opener;
     if(hwnd!=null){
         hwnd.postMessage({email:getParam().email,password:getParam().password},"*");
