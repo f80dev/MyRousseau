@@ -76,13 +76,13 @@ export class LoginComponent implements OnInit {
 
   keypress($event) {
     if($event.keyCode==13){
-      this.showPassword=true;
-      this.login();
+      this.login(true);
     }
 
   }
 
   loginService(service: string) {
+    debugger
     openGeneral(service,location.host).then((data:any)=>{
       this.email=data.email;
       this.password=data.password;

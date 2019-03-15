@@ -1433,12 +1433,12 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.keypress = function ($event) {
         if ($event.keyCode == 13) {
-            this.showPassword = true;
-            this.login();
+            this.login(true);
         }
     };
     LoginComponent.prototype.loginService = function (service) {
         var _this = this;
+        debugger;
         Object(_tools__WEBPACK_IMPORTED_MODULE_3__["openGeneral"])(service, location.host).then(function (data) {
             _this.email = data.email;
             _this.password = data.password;
@@ -2734,15 +2734,11 @@ function openGeneral(item, domain) {
         var url = _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].domain + "/api/connectTo?service=" + item + "&domain=" + domain;
         var hwnd = window.open(url, "Login", "menubar=0,status=0,height=600,titlebar=0,width=400");
         window.addEventListener("message", function (event) {
-            if (event.origin !== "https://www.shifumix.com")
-                reject();
-            else {
-                resolve(event.data);
-            }
+            clearInterval(hTimer);
+            resolve(event.data);
         }, false);
         var hTimer = setInterval(function () {
             if (hwnd.location.href != null && hwnd.location.href.indexOf("email") > -1) {
-                debugger;
                 var pos = hwnd.location.href.indexOf("email=");
                 var email = hwnd.location.href.substr(pos + 6, hwnd.location.href.indexOf("&", pos) - pos - 6);
                 var password = hwnd.location.href.substr(hwnd.location.href.indexOf("&", pos) + 10);
