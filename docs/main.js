@@ -2738,13 +2738,15 @@ function openGeneral(item, domain) {
             resolve(event.data);
         }, false);
         var hTimer = setInterval(function () {
-            if (hwnd.location.href != null && hwnd.location.href.indexOf("email") > -1) {
-                var pos = hwnd.location.href.indexOf("email=");
-                var email = hwnd.location.href.substr(pos + 6, hwnd.location.href.indexOf("&", pos) - pos - 6);
-                var password = hwnd.location.href.substr(hwnd.location.href.indexOf("&", pos) + 10);
-                hwnd.close();
-                clearInterval(hTimer);
-                resolve({ email: email, password: password });
+            if (hwnd != null) {
+                if (hwnd.location.href != null && hwnd.location.href.indexOf("email") > -1) {
+                    var pos = hwnd.location.href.indexOf("email=");
+                    var email = hwnd.location.href.substr(pos + 6, hwnd.location.href.indexOf("&", pos) - pos - 6);
+                    var password = hwnd.location.href.substr(hwnd.location.href.indexOf("&", pos) + 10);
+                    hwnd.close();
+                    clearInterval(hTimer);
+                    resolve({ email: email, password: password });
+                }
             }
         }, 1000);
         // hwnd.addEventListener("unload",(event)=>{
