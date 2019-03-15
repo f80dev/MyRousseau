@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   root_api:"http://localhost:8080/_ah/api/rousseau/v1",
   domain:"http://localhost:8080",
-  version:"0.0.1"
+  version:"0.0.2"
 };
 
 /*
