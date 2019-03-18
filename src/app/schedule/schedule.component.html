@@ -12,6 +12,7 @@
     </mat-form-field>&nbsp;&nbsp;
     à&nbsp;
     <input class="time-picker"
+           id="lstTimePicker"
            [(ngModel)]="sch_hour"
            style="width: 75px;"
            atp-time-picker
@@ -22,7 +23,7 @@
            value="15:00"/>
 
     &nbsp;pendant:&nbsp;
-    <mat-select placeholder="Durée" [(ngModel)]="duration" style="width: 75px;">
+    <mat-select id="lstDuration" placeholder="Durée" [(ngModel)]="duration" style="width: 75px;">
       <mat-option [value]="15" active>00:15</mat-option>
       <mat-option [value]="30">00:30</mat-option>
       <mat-option [value]="60">01:00</mat-option>
@@ -33,10 +34,13 @@
     <br>
 
     <mat-form-field style="width:80%" class="input-style">
-      <input matInput  [(ngModel)]="motif" placeholder="Motif">
+      <input id="txtMotif"
+             title="Il est utile d'énoncer clairement le motif du rendez-vous afin de faciliter sa préparation"
+             matInput  [(ngModel)]="motif" placeholder="Motif">
     </mat-form-field>
     <br>
     <button mat-raised-button
+            id="cmdValide"
             *ngIf="motif!=null && motif.length>0"
             color="primary"
             (click)="askForAppointment()">Demander</button>

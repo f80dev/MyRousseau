@@ -6,13 +6,13 @@
         <img class="avatar" src="{{userService.user.photo}}">
       </td>
       <td style="text-align: left;padding:0px;margin:0px;">
-        <div *ngIf="userService.user.cars!=null">
+        <div *ngIf="userService.user.cars!=null" id="divCar">
           <strong>Ma {{userService.user.cars[0].modele}}</strong><br>
           {{userService.user.firstname}} {{userService.user.lastname}}
         </div>
           <app-car-picker *ngIf="userService.user.cars==null" (onclick)="selcar($event)"></app-car-picker>
       </td>
-      <td style="text-align:right;font-size: 4.5vw;">
+      <td id="lblPoints" style="text-align:right;font-size: 4.5vw;">
         {{userService.user.pts}}
         <span style="font-size: 2.5vw;">pts</span>&nbsp;
       </td>
@@ -26,9 +26,9 @@
            src="{{userService.user.cars[0].photo}}"
            alt="My Car">
       <div *ngIf="userService.user.cars!=null" style="position:absolute;left:90%;top:0px;width:8%;width:50px;">
-        <button class="button-image-toolbar" mat-icon-button (click)="deleteCar()"><mat-icon>remove_circle</mat-icon></button>
-        <button class="button-image-toolbar" mat-icon-button (click)="addcar()"><mat-icon>add_circle</mat-icon></button>
-        <button class="button-image-toolbar" mat-icon-button (click)="takephoto()"><mat-icon>camera</mat-icon></button>
+        <button id="cmdRemoveCar" class="button-image-toolbar" mat-icon-button (click)="deleteCar()"><mat-icon>remove_circle</mat-icon></button>
+        <button id="cmdAddCar" class="button-image-toolbar" mat-icon-button (click)="addcar()"><mat-icon>add_circle</mat-icon></button>
+        <button id="cmdPhotoCar" class="button-image-toolbar" mat-icon-button (click)="takephoto()"><mat-icon>camera</mat-icon></button>
       </div>
     </div>
     <br>

@@ -2,7 +2,7 @@
 
   <h4>Ajouter un véhicule:</h4>
 
-  <mat-select placeholder="Marque" [(ngModel)]="selMarque" (selectionChange)="changeMarque()">
+  <mat-select id="lstMarques" placeholder="Marque" [(ngModel)]="selMarque" (selectionChange)="changeMarque()">
     <mat-option *ngFor="let m of marques" [value]="m" style="height: 50px;">
 
       <table style="height: 100%;vertical-align: middle;padding: 0px;margin:0px;"><tr>
@@ -15,7 +15,7 @@
 
 <br>
 
-  <mat-select *ngIf="selMarque!=null" placeholder="Reference" [(ngModel)]="selRef">
+  <mat-select id="lstReferences" *ngIf="selMarque!=null" placeholder="Reference" [(ngModel)]="selRef">
     <mat-option *ngFor="let ref of references" [value]="ref.reference" style="height: 50px;">
       <table style="padding: 0px;margin:0px;"><tr style="vertical-align: top">
         <td><img [src]="ref.icon" style="object-fit:contain;height:35px;width:45px;"></td>
@@ -27,5 +27,8 @@
 
 <br>
 
-<button *ngIf="selRef!=null && selMarque!=null" mat-button mat-raised-button (click)="selCar()">Confirmer</button>
+<button *ngIf="selRef!=null && selMarque!=null"
+        id="cmdConfirm"
+        mat-button mat-raised-button
+        (click)="selCar()">Confirmer</button>
 </div>

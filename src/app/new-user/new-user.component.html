@@ -16,12 +16,14 @@
   </mat-card-content>
   <mat-card-actions style="text-align: center">
     <button mat-raised-button
+            id="cmdAddUser"
             *ngIf="profil.firstname!=null && profil.lastname!=null && profil.firstname.length>0 && profil.lastname.length>0"
             (click)="sendUser()">
       Enregistrer
     </button>
     &nbsp;
     <button mat-raised-button
+            id="cmdCancel"
             (click)="cancel()">
       Annuler
     </button>

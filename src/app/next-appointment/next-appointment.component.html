@@ -11,7 +11,11 @@
       <table>
       <tr *ngFor="let app of appointments">
         <td>
-          <button style="margin-bottom: 10px;" mat-icon-button (click)="cancelAppointment(app)"><mat-icon>delete</mat-icon></button>
+          <button style="margin-bottom: 10px;"
+                  id="cmdDelete"
+                  mat-icon-button
+                  (click)="cancelAppointment(app)">
+            <mat-icon>delete</mat-icon></button>
         </td>
         <td>
           Le {{app.dtStart | date:'shortDate'}} à {{app.dtStart | date:'shortTime'}}<br>
@@ -20,7 +24,10 @@
       </tr>
       </table>
     <mat-card-actions class="app-card-content" *ngIf="appointments!=null && appointments.length==0 && new_button">
-      <button color="primary" mat-raised-button (click)="ask_appointment()">Nouveau rendez-vous</button>
+      <button color="primary"
+              id="cmdAskAppointment"
+              mat-raised-button
+              (click)="ask_appointment()">Nouveau rendez-vous</button>
     </mat-card-actions>
   </mat-card-content>
 </mat-card>

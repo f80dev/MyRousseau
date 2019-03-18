@@ -1,6 +1,9 @@
 <mat-card class="app-card" style="max-width:1000px;text-align: center">
 <mat-card-content>
-  <h3 *ngIf="modele!=null">Services disponibles pour votre {{modele}} :</h3>
+  <h3 id="lblTitre"
+      title="Seul les services compatibles avec le véhicule du client sont proposés"
+      *ngIf="modele!=null">Services disponibles pour votre {{modele}} :</h3>
+
   <h3 *ngIf="modele==null">Liste de toutes les prestations disponibles</h3>
   <div *ngFor="let service of services" style="position:relative;width:100%;max-width: 1000px;max-height:400px;display: inline-block;overflow: hidden;">
     <img src="{{service.photo}}" class="image-service">
@@ -8,6 +11,7 @@
       {{service.label}}
     </div>
     <button mat-raised-button
+            name="cmdValide"
             style="position:absolute;left:35%;top:70%;width:40%;max-width:200px;"
             (click)="rendezVous(service)">
       Rendez-vous

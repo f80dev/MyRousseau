@@ -6,6 +6,7 @@
       <h1>Se connecter</h1>
       <h4>via</h4>
       <button *ngIf="config.values.authent.google"
+              id="cmdGoogle"
               class="button-identity-provider"
               mat-raised-button
               (click)="loginService('contact')">
@@ -17,6 +18,7 @@
       <button *ngIf="config.values.authent.linkedin"
               class="button-identity-provider"
               mat-raised-button
+              id="cmdLinkedin"
               (click)="loginService('linkedin')">
         Linkedin
       </button>
@@ -25,19 +27,29 @@
         <br>
         <h4>ou directement avec</h4>
         <mat-form-field class="example-form-field">
-          <input matInput type="email" placeholder="Votre email" [(ngModel)]="email" (keypress)="keypress($event)" class="input-style">
-          <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="clearEmail()">
+          <input matInput type="email"
+                 id="txtUsername"
+                 placeholder="Votre email" [(ngModel)]="email"
+                 (keypress)="keypress($event)" class="input-style">
+
+          <button mat-button *ngIf="email"
+                  id="cmdClearEmail"
+                  matSuffix mat-icon-button aria-label="Clear" (click)="clearEmail()">
             <mat-icon>close</mat-icon>
           </button>
+
         </mat-form-field>
 
         <br>
         <mat-form-field *ngIf="showPassword && email!=null && email.length>0" class="input-style">
           <input name="password" placeholder="votre code à 4 chiffres"
+                 id="txtPassword"
                  [(ngModel)]="password" matInput type="password"
                  [maxlength]="4" (keypress)="keypress($event)">
+
           <button mat-button matSuffix mat-icon-button
                   *ngIf="password"
+                  id="cmdClearPassword"
                   aria-label="Clear"
                   (click)="password=''">
             <mat-icon>close</mat-icon>
@@ -47,6 +59,7 @@
         <div *ngIf="showResendCode">
           Votre code est incorrect, Il vous à été envoyé dans votre boite mail<br>
           <button mat-raised-button
+                  id="cmdResendPassword"
                   (click)="resend_code()">
             Renvoyer le code
           </button>
@@ -56,6 +69,7 @@
         <br>
         <button *ngIf="email!=null && email.length>0 && email.split('@').length>1"
                 mat-raised-button
+                id="cmdLogin"
                 (click)="login(true)">
           Login
         </button>

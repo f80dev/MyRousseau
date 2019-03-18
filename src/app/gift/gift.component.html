@@ -15,11 +15,14 @@
               </div>
               <button mat-raised-button
                       style="position:absolute;left:30%;top:70%;width:40%;font-size:1.5vmax;"
+                      name="cmdValide"
                       (click)="useGift($event,gift)">
                 J'en profite
               </button>
 
-              <div [ngStyle]="{'position':'absolute','text-align':'center','left':'35%','top':'82%','width':'30%','font-size':'1.3vmax','color':gift.messageColor}">
+              <div help="Pour chaque offre, on indique en temps réel le temps restant"
+                    name="lblGiftDuration"
+                   [ngStyle]="{'position':'absolute','text-align':'center','left':'35%','top':'82%','width':'30%','font-size':'1.3vmax','color':gift.messageColor}">
                 Il reste&nbsp;<app-timer [end]="gift.dtEnd"></app-timer>
               </div>
             </div>
