@@ -2,23 +2,44 @@
   <input [(ngModel)]="profil.email" [readonly]="true" matInput placeholder="Votre email">
 </mat-form-field>
 <br>
+<div class="row">
+  <div class="col">
+    <mat-form-field class="input-style">
+      <input [(ngModel)]="profil.firstname" matInput placeholder="Votre prénom"
+             id="txtFirstname"
+             (change)="onchange.emit(profil)">
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field class="input-style">
+      <input [(ngModel)]="profil.lastname" matInput placeholder="Votre nom"
+             id="txtLastname"
+             (change)="onchange.emit(profil)">
+    </mat-form-field>
+  </div>
+</div>
+
+
 <mat-form-field class="input-style">
-  <input [(ngModel)]="profil.firstname" matInput placeholder="Votre prénom"
-         id="txtFirstname"
+  <input [(ngModel)]="profil.phone" matInput placeholder="Votre numéro de téléphone"
+         id="txtPhone"
          (change)="onchange.emit(profil)">
 </mat-form-field>
 <br>
-<mat-form-field class="input-style">
-  <input [(ngModel)]="profil.lastname" matInput placeholder="Votre nom"
-         id="txtLastname"
-         (change)="onchange.emit(profil)">
-</mat-form-field>
-<br>
+
+
   <mat-checkbox [(ngModel)]="profil.notif"
                 id="chkNotif"
                 (change)="onchange.emit(profil)">
-    Notifications
+    Notifications des promotions
   </mat-checkbox>
+  <br>
+
+  <mat-checkbox [(ngModel)]="profil.share"
+              id="chkShareProfil"
+              (change)="onchange.emit(profil)">
+  Profil partagé
+</mat-checkbox>
 <br><br>
 
 <img class="avatar" id="imgPhoto" [src]="config.values.avatar">&nbsp;

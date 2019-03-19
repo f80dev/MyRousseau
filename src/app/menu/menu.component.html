@@ -1,5 +1,6 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" style="z-index: 10;">
   <button
+    id="cmdBurger"
     type="button"
     aria-label="Toggle sidenav"
     mat-icon-button
@@ -7,8 +8,15 @@
     *ngIf="isHandset$ | async">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
+  <img *ngIf="!(isHandset$ | async) && config.values!=null"
+       class="main-logo"
+       src="{{config.values.logo}}">
   <span class="fill-remaining-space"></span>
-  <button  *ngIf="userService.user!=null && userService.user.email!=null" mat-raised-button color="primary" (click)="logout()">Déconnecter</button>
+  <button *ngIf="userService.user!=null && userService.user.email!=null"
+          id="cmdLogout"
+          mat-raised-button color="primary"
+          (click)="logout()">Déconnecter
+  </button>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container" *ngIf="config.values!=null">
@@ -19,45 +27,85 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary" *ngIf="config.values">
-      <img class="main-logo" src="{{config.values.logo}}">
-    </mat-toolbar>
+    <br><br><br>
+
     <mat-nav-list>
       <a *ngIf="userService.user==null || userService.user.email==null" mat-list-item routerLink="/login">
         <mat-icon>person</mat-icon>
         &nbsp;&nbsp;Login
       </a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.dashboard.visible" mat-list-item routerLink="/main">
+      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.dashboard.visible"
+         id="cmdDashboard"
+         mat-list-item
+         routerLink="/main">
         <mat-icon>dns</mat-icon>
         &nbsp;&nbsp;Dashboard
       </a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.schedule.visible" mat-list-item routerLink="/schedule">
+      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.schedule.visible" mat-list-item routerLink="/schedule"
+         id="cmdSchedule"
+         title="Liste des rendez-vous planifiés et possibilité d'en prendre d'autres">
         <mat-icon>schedule</mat-icon>
         &nbsp;&nbsp;Rendez-vous
       </a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null  && config.values.menu.gift.visible" mat-list-item routerLink="/gift">
+      <a *ngIf="userService.user!=null && userService.user.email!=null  && config.values.menu.gift.visible" mat-list-item routerLink="/gift"
+          id="cmdGift"
+          title="Liste des cadeaux / promotions">
         <mat-icon>cake</mat-icon>
         &nbsp;&nbsp;Récompenses
       </a>
 
-      <a *ngIf="config.values.menu.services.visible" mat-list-item routerLink="/services"><mat-icon>build</mat-icon>&nbsp;&nbsp;Services</a>
+      <a *ngIf="config.values.menu.services.visible" mat-list-item routerLink="/services"
+         id="cmdAllServices"
+         title="Liste de l'ensemble des prestations / services proposées">
+        <mat-icon>build</mat-icon>&nbsp;&nbsp;Services</a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.profil.visible" mat-list-item routerLink="/preferences">
+      <a mat-list-item routerLink="/share"
+         id="cmdInvite"
+         title="Inviter votre entourage a rejoindre l'application">
+        <mat-icon>person_add</mat-icon>&nbsp;&nbsp;Inviter</a>
+
+
+      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.profil.visible"
+         id="cmdProfil"
+         mat-list-item routerLink="/preferences"
+         title="Paramétrage de l'application">
         <mat-icon>settings</mat-icon>
         &nbsp;&nbsp;Mon profil
       </a>
       <br>
 
-      <a mat-list-item routerLink="/catalogue/loc"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Location</a>
-      <a mat-list-item routerLink="/contact"><mat-icon>phone_in_talk</mat-icon>&nbsp;&nbsp;Contacter</a>
+      <a mat-list-item routerLink="/catalogue/faq"
+         id="cmdFaq"
+         title="Liste des questions / réponses fréquentes"><mat-icon>help</mat-icon>&nbsp;&nbsp;Vos Questions</a>
+
+      <a mat-list-item routerLink="/catalogue/loc"
+         id="cmdLocation"
+         title="Services de location de véhicule"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Location</a>
+
+
+      <a mat-list-item routerLink="/catalogue/forum"
+         id="cmdForum"
+         title="Forum des clients du concessionnaire"><mat-icon>forum</mat-icon>&nbsp;&nbsp;Forum</a>
+
+      <a *ngIf="userService.user==null || userService.user.email==null"
+         mat-list-item routerLink="/contact"><mat-icon>phone_in_talk</mat-icon>&nbsp;&nbsp;
+        Contacter
+      </a>
 
       <br>
-      <a mat-list-item routerLink="/catalogue/faq"><mat-icon>help</mat-icon>&nbsp;&nbsp;FAQ</a>
-      <a mat-list-item routerLink="/share"><mat-icon>person_add</mat-icon>&nbsp;&nbsp;Inviter</a>
+
+
+      <a mat-list-item
+         id="cmdBlog"
+         routerLink="/catalogue/blog"><mat-icon>camera_roll</mat-icon>&nbsp;&nbsp;Le Blog</a>
+
+
       <a mat-list-item routerLink="/about"><mat-icon>account_balance</mat-icon>&nbsp;&nbsp;A propos</a>
+
+
       <br><br><br>
       <a mat-list-item routerLink="/admin"><mat-icon>build</mat-icon>&nbsp;&nbsp;Admin</a>
       <a mat-list-item routerLink="/catalogue/server.f80.fr"><mat-icon>build</mat-icon>&nbsp;&nbsp;CRM</a>

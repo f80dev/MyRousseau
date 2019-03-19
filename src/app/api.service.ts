@@ -46,9 +46,9 @@ export class ApiService {
     return this.http.post(api("addgift","email="+user),gift);
   }
 
-  getgifts(email:string) {
+  getgifts(email:string,limit:number) {
     if(email==null)email="null";
-    return this.http.get(api("getgifts","email="+email));
+    return this.http.get(api("getgifts","email="+email+"&limit="+limit));
   }
 
   loginService(service: string) {

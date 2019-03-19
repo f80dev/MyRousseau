@@ -4,12 +4,12 @@
       Aucun rendez-vous plannifié
     </span>
         <span *ngIf="appointments!=null && appointments.length>0">
-      Votre prochain rendez-vous
+      Vos prochains rendez-vous
     </span>
   </mat-card-header>
   <mat-card-content class="app-card-content">
       <table>
-      <tr *ngFor="let app of appointments">
+      <tr *ngFor="let app of appointments" name="nextAppointment">
         <td>
           <button style="margin-bottom: 10px;"
                   id="cmdDelete"

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+body { overflow: hidden; margin: 0; font-family: 'Roboto', sans-serif; }
 
 .time-picker {
   border: none;
@@ -114,7 +114,13 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 .input-style {
   margin:5px;
+}
 
+.menu-overflow-hidden {
+  overflow: hidden !important;
 }
 
 
+/deep/ html.cdk–global–scrollblock {
+  overflow: hidden;
+}

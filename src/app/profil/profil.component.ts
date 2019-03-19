@@ -8,7 +8,7 @@ import {ConfigService} from '../config.service';
 })
 export class ProfilComponent implements OnInit {
 
-  @Input("profil") profil:any={email:"",firstname:"",lastname:""}
+  @Input("profil") profil:any={email:"",firstname:"",lastname:"",notif:false,share:false};
   @Output('onchange') onchange: EventEmitter<any>=new EventEmitter();
 
   constructor(public config:ConfigService) {

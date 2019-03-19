@@ -1,9 +1,11 @@
 .sidenav-container {
   height: 100%;
+  overflow-y: hidden;
 }
 
 .sidenav {
   width: 200px;
+  overflow-y: hidden;
 }
 
 .mat-toolbar.mat-primary {
@@ -14,5 +16,6 @@
 .main-logo{
   height:70%;
 }
+
 
 

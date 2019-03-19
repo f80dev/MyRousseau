@@ -24,7 +24,7 @@ export class GiftComponent implements OnInit {
   }
 
   refresh(){
-    this.api.getgifts(localStorage.getItem("email")).subscribe((r:any)=>{
+    this.api.getgifts(localStorage.getItem("email"),3).subscribe((r:any)=>{
       this.gifts=[];
       r.items.forEach((i)=>{
         if((i.dtStart>=this.dtStart || this.dtStart==0) && (i.dtEnd>=this.dtEnd || this.dtEnd==0)){

@@ -15,6 +15,8 @@ export class CatalogueComponent implements OnInit {
       this.url="https://"+params["url"]+"/";
       if(params["url"]=="faq")this.url="/faq.html";
       if(params["url"]=="loc")this.url="https://www.salvaloc.fr/";
+      if(params["url"]=="forum")this.url="https://forum.quechoisir.org/reparation-voiture-f41.html";
+      if(params["url"]=="blog")this.url="https://blog.atome.auto/category/auto/belles-voitures/voiture-de-collection/";
     });
   }
 

@@ -32,7 +32,10 @@
       </div>
     </div>
     <br>
-    <button *ngIf="userService.user.cars!=null" mat-button mat-raised-button (click)="linkServices()">Services</button>
+    <button *ngIf="userService.user.cars!=null"
+            id="cmdServices"
+            mat-button mat-raised-button
+            (click)="linkServices()">Services associés</button>
     {{userService.user.message}}
   </mat-card-content>
 

@@ -35,10 +35,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.email=localStorage.getItem("email") || this.routes.snapshot.queryParamMap.get("email");
-    if(this.email=="null")this.email=null;
+    this.email=this.routes.snapshot.queryParamMap.get("email");
+    if(this.email==null)this.email=localStorage.getItem("email");
+    if(this.email=="null" || this.email=="undefined")this.email=null;
 
     this.password=localStorage.getItem("password") || this.routes.snapshot.queryParamMap.get("password");
+    if(this.password=="undefined")this.password=null;
+
     if(this.email!=null && this.password!=null){
       setTimeout(()=>{this.login();},1000);
     }
@@ -82,7 +85,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginService(service: string) {
-    debugger
     openGeneral(service,location.host).then((data:any)=>{
       this.email=data.email;
       this.password=data.password;
