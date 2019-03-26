@@ -14,32 +14,73 @@
 </head>
 <body>
 
+<style>
+  .cover-img {
+    height:100vmax;
+    width:100vmax;
+    object-fit: cover;
+    object-position: center;
+  }
+</style>
 
-<script>
-  (function () {
-    // Retrieve the URL the user was trying to access when receiving the 404.
-    var redirect = sessionStorage.redirect;
-    // Remove the URL from sessionStorage.
-    delete sessionStorage.redirect;
-    // Check if we actually need to redirect.
-    if (redirect && redirect != location.href) {
-      // We need to redirect to the URL the user was trying to access.
-      history.replaceState(null, null, redirect);
-    }
-  })();
-</script>
 
   <app-root>
-    <br><br><br><br><br><br>
-    <div style="width: 100%;text-align: center;">
-      <br><br>
-      Votre espace client
-      <br>
-      <img src="./assets/img/logo-rousseau.png" style="width: 80%;max-width: 400px;";>
-      <br><br><br><br>
-      Chargement ...
+
+    <div style="width: 100%;height:100%;">
+      <img
+           src=""
+           class=""
+           id="page">
+
+      <img style="position: absolute;left:20px;top:20px;width: 40px;height: 40px;"
+           src="./assets/img/wait.gif">
+
+      <div id="name_appli"
+           style="font-family: Arial, Helvetica, serif;
+                   font-size:6vw;color:white;font-weight:lighter;
+                   position: absolute;left:0px;top:25%;width: 100%;text-align: center;">
+      </div>
+
     </div>
+
+
+    <!--<br><br><br><br><br><br>-->
+    <!--<div style="width: 100%;text-align: center;">-->
+      <!--<br><br>-->
+      <!--Votre espace client-->
+      <!--<br>-->
+      <!--<img src="./assets/img/splash_screen.jpg" style="width: 80%;max-width: 400px;";>-->
+      <!--<br><br><br><br>-->
+      <!--Chargement ...-->
+    <!--</div>-->
   </app-root>
+
+
+<script>
+  fetch("./assets/config.json").then(function(response) {return response.json();})
+    .then(function(config) {
+      document.getElementById("page").onload=function(){
+        document.getElementById("page").classList.toggle("cover-img");
+      };
+      document.getElementById("page").src=config.splash.screen;
+      document.getElementById("name_appli").innerHTML=config.splash.title;
+      document.title=config.appli_name;
+
+      (function () {
+        // Retrieve the URL the user was trying to access when receiving the 404.
+        var redirect = sessionStorage.redirect;
+        // Remove the URL from sessionStorage.
+        delete sessionStorage.redirect;
+        // Check if we actually need to redirect.
+        if (redirect && redirect != location.href) {
+          // We need to redirect to the URL the user was trying to access.
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    });
+</script>
+
   <noscript>Veuillez activer JavaScript pour faire fonctionner MyRousseauAutomobile</noscript>
+
 </body>
 </html>

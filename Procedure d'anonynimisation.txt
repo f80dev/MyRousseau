@@ -9,7 +9,11 @@
 
 4. Modification des options d'authentification :
     dans le fichier config.json
-    chez les différents prestatataire d'authentification
+    chez les différents prestatataire d'authentification notamment avec les lignes
+      - https://_domain.appspot.com:443/api/oauth2callback?from=<presta>
+      - http://localhost:8080/api/oauth2callback?from=<presta>
+
+    mettre a jour le fichier WEB-INF/classes/services.json avec les clés des prestataires
 
 5. Installation du CRM
   - Déploiement d'un serveur linux

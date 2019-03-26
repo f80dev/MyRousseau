@@ -1,4 +1,4 @@
-<mat-card *ngIf="gifts!=null && gifts.length>0" class="app-card">
+<mat-card *ngIf="gifts?.length>0" class="app-card">
   <mat-card-header style="margin-bottom: 10px;">
       Promotions / Cadeaux
   </mat-card-header>
@@ -9,7 +9,7 @@
         <div class="flip-card" *ngFor="let gift of gifts" style="margin-bottom:8px;position:relative;height:400px;width:100%;overflow: hidden;">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="{{gift.picture}}" style="position:absolute;left:0;top:0;object-fit: cover;">
+              <img src="{{gift.picture}}" style="width:100%;height:100%;object-fit:cover;">
               <div [ngStyle]="{'position':'absolute','text-align':'center','left':'20%','top':'15%','width':'60%','font-size':'2.5vmax','color':gift.messageColor}">
                 {{gift.message}}
               </div>

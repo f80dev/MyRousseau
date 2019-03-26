@@ -1,5 +1,4 @@
-<mat-toolbar color="primary" style="z-index: 10;">
-  <button
+<mat-toolbar color="primary" style="z-index: 100;"><button
     id="cmdBurger"
     type="button"
     aria-label="Toggle sidenav"
@@ -8,7 +7,7 @@
     *ngIf="isHandset$ | async">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
-  <img *ngIf="!(isHandset$ | async) && config.values!=null"
+  <img *ngIf="!(isHandset$ | async) &&  config.values.header?.logo"
        class="main-logo"
        src="{{config.values.logo}}">
   <span class="fill-remaining-space"></span>
@@ -77,20 +76,15 @@
       </a>
       <br>
 
-      <a mat-list-item routerLink="/catalogue/faq"
-         id="cmdFaq"
-         title="Liste des questions / réponses fréquentes"><mat-icon>help</mat-icon>&nbsp;&nbsp;Vos Questions</a>
+      <div *ngFor="let menu of menus">
+        <a  mat-list-item [routerLink]="menu.routerLink"
+            [name]="menu.name"
+            [title]="menu.description">
+          <mat-icon>{{menu.icon}}</mat-icon>&nbsp;&nbsp;{{menu.title}}
+        </a>
+      </div>
 
-      <a mat-list-item routerLink="/catalogue/loc"
-         id="cmdLocation"
-         title="Services de location de véhicule"><mat-icon>collections</mat-icon>&nbsp;&nbsp;Location</a>
-
-
-      <a mat-list-item routerLink="/catalogue/forum"
-         id="cmdForum"
-         title="Forum des clients du concessionnaire"><mat-icon>forum</mat-icon>&nbsp;&nbsp;Forum</a>
-
-      <a *ngIf="userService.user==null || userService.user.email==null"
+      <a *ngIf="userService.user==null || userService.user.email==null && config.values.menu.contact.visible"
          mat-list-item routerLink="/contact"><mat-icon>phone_in_talk</mat-icon>&nbsp;&nbsp;
         Contacter
       </a>
@@ -98,17 +92,15 @@
       <br>
 
 
-      <a mat-list-item
-         id="cmdBlog"
-         routerLink="/catalogue/blog"><mat-icon>camera_roll</mat-icon>&nbsp;&nbsp;Le Blog</a>
-
-
       <a mat-list-item routerLink="/about"><mat-icon>account_balance</mat-icon>&nbsp;&nbsp;A propos</a>
 
 
       <br><br><br>
-      <a mat-list-item routerLink="/admin"><mat-icon>build</mat-icon>&nbsp;&nbsp;Admin</a>
-      <a mat-list-item routerLink="/catalogue/server.f80.fr"><mat-icon>build</mat-icon>&nbsp;&nbsp;CRM</a>
+      <div *ngIf="config.values.menu.admin.visible">
+        <a mat-list-item routerLink="/admin"><mat-icon>build</mat-icon>&nbsp;&nbsp;Admin</a>
+        <a mat-list-item routerLink="/catalogue/server.f80.fr"><mat-icon>build</mat-icon>&nbsp;&nbsp;CRM</a>
+      </div>
+
       <div style="width:100%;text-align: left;font-size: small;">&nbsp;&nbsp;&nbsp;version:{{version}}</div>
     </mat-nav-list>
   </mat-sidenav>

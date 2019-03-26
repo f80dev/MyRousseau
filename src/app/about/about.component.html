@@ -1,7 +1,8 @@
 <mat-card class="app-card">
   <mat-card-content class="app-card-content">
-    My Rousseau Automobile est une maquette partiellement fonctionnelle
+    {{config.values.appli_name}} est une maquette partiellement fonctionnelle
     d'une application de fidélisation destinée au concessionnaire automobile.<br><br>
-    Elle est la propriété de <a href="https://f80.fr" target="_blank">F80</a>
+    Elle est la propriété de <a href="{{config.values.owner.website}}" target="_blank"><h2>{{config.values.owner.company}}</h2></a><br><br>
+    Licence : {{config.values.owner.licence}}
   </mat-card-content>
 </mat-card>

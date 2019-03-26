@@ -1,5 +1,24 @@
 {
-  "logo":"/assets/img/logo-rousseau.png",
+  "appli_name":"BlueHotel",
+  "owner":{
+    "licence":"propriétaire",
+    "company":"F80",
+    "website":"http://f80.fr",
+    "author":"Herve HOAREAU",
+    "contact":"dev@f80.fr"
+  },
+
+  "admin":{
+    "email":"paul.dudule@gmail.com"
+  },
+
+  "_logo":"./assets/img/logo-rousseau.png",
+  "logo":"https://cdn.webhotelier.net/photos/h=180:v=3/templates/2693/logo.png",
+  "splash":{
+    "title":"Blue Cycladic Resort",
+    "screen":"https://media-cdn.tripadvisor.com/media/photo-s/0f/1c/93/ec/aegea-blue-cycladic-resort.jpg"
+  },
+  "background_color":"black",
 
   "authent":{
     "google":false,
@@ -8,9 +27,34 @@
     "email":true
   },
 
+  "user_profil":{
+    "firstname":true,
+    "lastname":true,
+    "phone":false,
+    "photo":true,
+    "address":false,
+    "share":true,
+    "notif":true
+  },
+
+  "header":{
+    "logo":true,
+    "color":"primaey"
+  },
+
+  "product_picker":{
+    "title":"Quelle chambre avez vous ?",
+    "title_color":"white",
+    "font_size":"2em",
+    "label_button":"Celle-ci !"
+  },
+
   "menu":{
     "dashboard":{
       "visible":true
+    },
+    "car_picker":{
+      "visible":false
     },
     "schedule":{
       "visible":true
@@ -19,23 +63,26 @@
       "visible":true
     },
     "services":{
-      "visible":true
+      "visible":false
     },
     "profil":{
       "visible":true
     },
     "contact":{
-      "visible":true
+      "visible":false
     },
     "share":{
       "visible":true
     },
     "about":{
       "visible":true
+    },
+    "admin":{
+      "visible":true
     }
   },
   
-  "menus":[
+  "_menus":[
     {
       "title":"Location",
       "icon":"collections",
@@ -46,6 +93,95 @@
       "icon":"collections",
       "href":"https://www.salvaloc.fr/"
     }
+  ],
+
+  "resto_menus":[
+    {
+      "title":"Menus",
+      "description":"Menus et cartes",
+      "icon":"chrome_reader_mode",
+      "href":"https://www.zazza.paris/menus-carte/#"
+    },
+    {
+      "title":"Privatiser",
+      "icon":"face",
+      "href":"https://reservations.zenchef.com/privatisation.php?rid=348829&lang=fr&1001"
+    },
+    {
+      "title":"Réserver",
+      "icon":"alarm",
+      "href":""
+    },
+    {
+      "title":"Contacter",
+      "icon":"phone",
+      "href":"https://www.zazza.paris/informations-contact/"
+    }
+  ],
+
+  "loyalty":{
+    "invite":10
+  },
+
+  "menus":[
+    {
+      "title":"Menus",
+      "description":"Menus et cartes",
+      "icon":"chrome_reader_mode",
+      "href":"https://www.aegeablue.gr/gastronomy/"
+    },
+    {
+      "title":"Tourisme",
+      "icon":"face",
+      "href":"https://www.tripadvisor.fr/Tourism-g580193-Andros_Cyclades_South_Aegean-Vacations.html"
+    },
+    {
+      "title":"Réserver",
+      "icon":"alarm",
+      "href":"https://www.booking.com/hotel/gr/aegea-blue-cycladic-resort.fr.html"
+    },
+    {
+      "title":"Forum",
+      "icon":"forum",
+      "href":"https://forum.f80.fr"
+    },
+    {
+      "title":"Contacter",
+      "icon":"phone",
+      "href":"https://www.aegeablue.gr/contact/"
+    }
+  ],
+
+  "rousseau_menus":[
+    {
+      "id":"faq",
+      "title":"Vos questions",
+      "description":"Questions les plus fréquentes",
+      "icon":"help",
+      "href":"/faq.html"
+    },
+    {
+      "id":"forum",
+      "title":"Forum",
+      "description":"La communauté des clients",
+      "icon":"forum",
+      "href":"https://forum.quechoisir.org/reparation-voiture-f41.html"
+    },
+    {
+      "id":"location",
+      "title":"Location",
+      "description":"Louer un véhicule",
+      "icon":"collections",
+      "href":"https://www.salvaloc.fr/"
+    },
+    {
+      "id":"blog",
+      "title":"Le blog",
+      "description":"Toute l'actualité de votre concessionnaire",
+      "icon":"camera_roll",
+      "href":"https://blog.atome.auto/category/auto/belles-voitures/voiture-de-collection/"
+    }
+
   ],
 
   "admin":{

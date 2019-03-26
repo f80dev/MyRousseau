@@ -55,16 +55,16 @@ export class UserService {
     return this.http.get(api("share","email="+this.user.email+"&dest="+email+"&firstname="+firstname))
   }
 
-  addcar(car: string) {
-    return this.http.get(api("addcar","email="+this.user.email+"&modele="+car))
+  addproduct(p: any) {
+    return this.http.post(api("addproduct","email="+this.user.email),p);
   }
 
   cancelappointments(id: string) {
     return this.http.get(api("cancelappointments","email="+this.user.email+"&appointment="+id))
   }
 
-  delcar(index: number) {
-    return this.http.get(api("delcar","email="+this.user.email+"&index="+index))
+  delproduct(index: number) {
+    return this.http.get(api("delproduct","email="+this.user.email+"&index="+index))
   }
 
 }

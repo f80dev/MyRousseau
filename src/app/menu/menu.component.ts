@@ -17,11 +17,20 @@ export class MenuComponent {
   @ViewChild('drawer') drawer: MatSidenav;
   version:string="";
   logo:string="";
+  menus:any[]=[];
+  menu_appli:any={};
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
     
   constructor(public config:ConfigService,public userService:UserService,private breakpointObserver: BreakpointObserver,public router:Router) {
-    config.init();
+    config.init((conf)=>{
+      this.menus=[];
+      conf.menus.forEach(m=>{
+        m.routerLink="/catalogue/"+encodeURIComponent(btoa(m.href));
+        if(m.description==null)m.description=m.title;
+        this.menus.push(m);
+      });
+    });
 
     router.events.pipe(
       withLatestFrom(this.isHandset$),
@@ -30,6 +39,8 @@ export class MenuComponent {
       if(this.drawer!=null)this.drawer.close();
     });
     this.version=environment.version;
+
+
   }
 
   ngOnInit(){

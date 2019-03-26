@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user.service';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-share',
@@ -13,7 +14,7 @@ export class ShareComponent implements OnInit {
   email="";
   firstname="";
 
-  constructor(public snackBar:MatSnackBar,public userService:UserService,public router:Router) { }
+  constructor(public config:ConfigService,public snackBar:MatSnackBar,public userService:UserService,public router:Router) { }
 
   ngOnInit() {
 

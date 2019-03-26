@@ -51,8 +51,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {LayoutModule} from '@angular/cdk/layout';
 import { PreferencesComponent } from './preferences/preferences.component';
-
-
+import { ProductPickerComponent } from './product-picker/product-picker.component';
+import {MatCarouselModule} from '@ngmodule/material-carousel';
 
 @NgModule({
   declarations: [
@@ -79,9 +79,11 @@ import { PreferencesComponent } from './preferences/preferences.component';
     ServicesComponent,
     AboutComponent,
     WelcomeComponent,
-    PreferencesComponent
+    PreferencesComponent,
+    ProductPickerComponent
   ],
   imports: [
+    MatCarouselModule,
     BrowserModule,
     MatSnackBarModule,
     MatChipsModule,

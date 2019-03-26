@@ -1,9 +1,10 @@
 {
-  "name": "myRousseauAuto",
-  "short_name": "My Rousseau Automobile",
+  "name": "selfApp",
+  "short_name": "My Self App",
   "theme_color": "#1976d2",
-  "background_color": "#fafafa",
-  "display": "standalone",
+  "display": "fullscreen",
+  "background_color": "darkgrey",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [

@@ -7,6 +7,7 @@
       <h4>via</h4>
       <button *ngIf="config.values.authent.google"
               id="cmdGoogle"
+              title="Authentification via Google"
               class="button-identity-provider"
               mat-raised-button
               (click)="loginService('contact')">
@@ -14,9 +15,20 @@
       </button>
       <br>
 
+      <button *ngIf="config.values.authent.facebook"
+              id="cmdFacebook"
+              title="Authentification via Facebook"
+              class="button-identity-provider"
+              mat-raised-button
+              (click)="loginService('facebook')">
+        Facebook
+      </button>
+      <br>
+
       <!--<button class="button-identity-provider" mat-raised-button >Facebook</button><br>-->
       <button *ngIf="config.values.authent.linkedin"
               class="button-identity-provider"
+              title="Authentification via linkedin"
               mat-raised-button
               id="cmdLinkedin"
               (click)="loginService('linkedin')">
@@ -29,6 +41,7 @@
         <mat-form-field class="example-form-field">
           <input matInput type="email"
                  id="txtUsername"
+                 title="Indiquer votre mail afin de recevoir le code de connexion dans votre boite"
                  placeholder="Votre email" [(ngModel)]="email"
                  (keypress)="keypress($event)" class="input-style">
 
@@ -43,6 +56,7 @@
         <br>
         <mat-form-field *ngIf="showPassword && email!=null && email.length>0" class="input-style">
           <input name="password" placeholder="votre code à 4 chiffres"
+                 title="Votre code envoyé sur votre boite mail à l'inscription"
                  id="txtPassword"
                  [(ngModel)]="password" matInput type="password"
                  [maxlength]="4" (keypress)="keypress($event)">
@@ -75,7 +89,6 @@
         </button>
 
       </div>
-
 
     </mat-card-content>
 

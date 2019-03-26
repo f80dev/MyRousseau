@@ -67,8 +67,8 @@ export class GiftComponent implements OnInit {
     //   elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
     // });
 
-    setTimeout(()=>{
-      elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
-    },6000);
+    // setTimeout(()=>{
+    //   elt.parentElement.parentElement.parentElement.parentElement.className="flip-card-inner";
+    // },6000);
   }
 }

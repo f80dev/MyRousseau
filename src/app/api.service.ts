@@ -7,6 +7,8 @@ import {HttpClient} from '../../node_modules/@angular/common/http';
 })
 export class ApiService {
 
+  products=[];
+
   constructor(public http: HttpClient) { }
 
   public add(user:string,firstname:string,lastname:string,dtlastnotif:number,modele:string=""){
@@ -31,15 +33,16 @@ export class ApiService {
     return this.http.get(api("getusers",""))
   }
 
+  public getproducts(){
+    return this.http.get(api("getproducts",""))
+  }
+
   public getappointments(){
     return this.http.get(api("getappointments",""))
   }
 
-  public getservices(modele:string=null){
-    if(modele==null)
-      return this.http.get(api("getservices",""))
-    else
-      return this.http.get(api("getservices","modele="+modele))
+  public getservices(id:string=null){
+      return this.http.get(api("getservices","product="+id))
   }
 
   public addgift(user:string,gift:any){
@@ -62,5 +65,16 @@ export class ApiService {
 
   resend_code(email: string) {
     return this.http.get(api("resend_code","email="+email));
+  }
+
+  initProducts() {
+    this.getproducts().subscribe((r:any)=>{
+      var i=1;
+      this.products=[];
+      while(r.hasOwnProperty(i)){
+        this.products.push(r[i]);
+        i=i+1;
+      }
+    });
   }
 }

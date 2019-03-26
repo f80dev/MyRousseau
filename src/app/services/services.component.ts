@@ -10,14 +10,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ServicesComponent implements OnInit {
 
   services=[];
-  modele:any;
+  modele={};
 
   constructor(public api:ApiService,public router:Router,public route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.modele= params["modele"];
-      this.api.getservices(this.modele).subscribe((r:any)=>{
+    this.route.params.subscribe((val) => {
+      this.api.getservices(val.product).subscribe((r:any)=>{
         this.services=r;
       })
     });

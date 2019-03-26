@@ -4,14 +4,16 @@
 <br>
 <div class="row">
   <div class="col">
-    <mat-form-field class="input-style">
+    <mat-form-field class="input-style"
+                    *ngIf="config.values.user_profil.firstname">
       <input [(ngModel)]="profil.firstname" matInput placeholder="Votre prénom"
              id="txtFirstname"
              (change)="onchange.emit(profil)">
     </mat-form-field>
   </div>
   <div class="col">
-    <mat-form-field class="input-style">
+    <mat-form-field class="input-style"
+                    *ngIf="config.values.user_profil.firstname">
       <input [(ngModel)]="profil.lastname" matInput placeholder="Votre nom"
              id="txtLastname"
              (change)="onchange.emit(profil)">
@@ -20,7 +22,8 @@
 </div>
 
 
-<mat-form-field class="input-style">
+<mat-form-field class="input-style"
+                *ngIf="config.values.user_profil.phone">
   <input [(ngModel)]="profil.phone" matInput placeholder="Votre numéro de téléphone"
          id="txtPhone"
          (change)="onchange.emit(profil)">
@@ -30,12 +33,14 @@
 
   <mat-checkbox [(ngModel)]="profil.notif"
                 id="chkNotif"
+                *ngIf="config.values.user_profil.notif"
                 (change)="onchange.emit(profil)">
     Notifications des promotions
   </mat-checkbox>
   <br>
 
   <mat-checkbox [(ngModel)]="profil.share"
+                *ngIf="config.values.user_profil.share"
               id="chkShareProfil"
               (change)="onchange.emit(profil)">
   Profil partagé

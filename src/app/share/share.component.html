@@ -1,8 +1,8 @@
-<mat-card class="app-card">
+<mat-card class="app-card" *ngIf="config.values!=null">
   <mat-card-header>
     <mat-card-title>Personne a ajouter</mat-card-title>
     <mat-card-subtitle>
-      Gagner 10 pts de fidélité en invitant quelqu'un a rejoindre My Rousseau Automobile
+      Gagner {{config.values.loyalty.invite}} pts de fidélité en invitant quelqu'un a rejoindre {{config.values.appli_name}}
     </mat-card-subtitle>
   </mat-card-header>
 

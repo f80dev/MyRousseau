@@ -1,9 +1,9 @@
 <mat-card class="app-card">
   <mat-card-header>
-    <span *ngIf="appointments!=null && appointments.length==0">
+    <span *ngIf="appointments?.length==0">
       Aucun rendez-vous plannifié
     </span>
-        <span *ngIf="appointments!=null && appointments.length>0">
+        <span *ngIf="appointments?.length>0">
       Vos prochains rendez-vous
     </span>
   </mat-card-header>
