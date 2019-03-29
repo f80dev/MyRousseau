@@ -1,4 +1,5 @@
-<iframe *ngIf="url!=null && url.length>0"
-        style="width:100%;border: None;height:100%;"
-        [src]="url | safe:'resourceUrl'">
-</iframe>
+
+    <iframe height="100%" width="100%" style="overflow:hidden;border: None;" *ngIf="url!=null && url.length>0"
+            [src]="url | safe:'resourceUrl'">
+    </iframe>
+

@@ -1,14 +1,17 @@
 <mat-card class="app-card" style="max-width:1000px;text-align: center">
-<mat-card-content>
+<mat-card-content *ngIf="userService.user?.products!=null">
   <h3 id="lblTitre"
       title="Seul les services compatibles avec le véhicule du client sont proposés"
-      *ngIf="modele!=null">Services disponibles pour votre {{modele}} :</h3>
+      *ngIf="userService.user?.products[0]!=null">Services disponibles pour votre {{api.products[userService.user?.products[0]]?.label}} :</h3>
 
   <h3 *ngIf="modele==null">Liste de toutes les prestations disponibles</h3>
   <div *ngFor="let service of services" style="position:relative;width:100%;max-width: 1000px;max-height:400px;display: inline-block;overflow: hidden;">
     <img src="{{service.photo}}" class="image-service">
     <div [ngStyle]="{'position':'absolute','text-align':'center','left':'20%','top':'15%','width':'60%','font-size':'2.5vmax','color':'white'}">
-      {{service.label}}
+      {{service.label}}<br>
+      <span style="font-size: small">
+        {{service.tarif}}€
+      </span>
     </div>
     <button mat-raised-button
             name="cmdValide"

@@ -8,7 +8,7 @@
       "updateMode": "prefetch",
       "urls": [
         "/favicon.ico",
-        "/main.48607289ad15382f2ece.js",
+        "/main.18a7cb4a1eba81fba4ec.js",
         "/polyfills.898576310992865ac2b8.js",
         "/privacy.html",
         "/runtime.06daa30a2963fa413676.js",
@@ -41,6 +41,7 @@
         "/assets/img/logo-rousseau.png",
         "/assets/img/logo-rousseau2.png",
         "/assets/img/logo_selfapp.png",
+        "/assets/img/splash_hotel.jpg",
         "/assets/img/splash_screen.webp",
         "/assets/img/wait.gif"
       ],
@@ -61,7 +62,7 @@
     }
   ],
   "hashTable": {
-    "/assets/config.json": "30479189a29871a8d1b4b89c2b71da2ed2752cea",
+    "/assets/config.json": "e1b88e209f10c9454ff9cc77039d6182a073b3e1",
     "/assets/icons/icon-128x128.png": "8535c91170da784e0079876e4ce6dcfe0ec7adf8",
     "/assets/icons/icon-144x144.png": "ab11a67d07d3a8e720ae080c6b18b1599588d5ad",
     "/assets/icons/icon-152x152.png": "bd7ed9f36a7599306a0ceff30666dc35fa249fce",
@@ -80,10 +81,11 @@
     "/assets/img/logo-rousseau.png": "eea6e34b5bd9f6d279930f92829a9f14c19397bc",
     "/assets/img/logo-rousseau2.png": "eea6e34b5bd9f6d279930f92829a9f14c19397bc",
     "/assets/img/logo_selfapp.png": "b975dae853e3ca99ce9179194565b08ac500b3e0",
+    "/assets/img/splash_hotel.jpg": "4add7a544f6f73d2bb0755c31c0138e9a298e63a",
     "/assets/img/splash_screen.webp": "ddb802d7917228dbe66593dbac2176ac9fa80081",
     "/assets/img/wait.gif": "8631a7917c369b330020c52aa463452ce9426dbd",
     "/favicon.ico": "8535c91170da784e0079876e4ce6dcfe0ec7adf8",
-    "/main.48607289ad15382f2ece.js": "38e138ea84ba0e2ba7db2a0ea4b37b308ee1f915",
+    "/main.18a7cb4a1eba81fba4ec.js": "b14723388fea4e588fde1b003a9fdaee9c8cf01b",
     "/polyfills.898576310992865ac2b8.js": "4c850befca5b780eb941f5897e76e8654e7c962d",
     "/privacy.html": "a52c952a7c135fedf53b3809189a16996a4c0033",
     "/runtime.06daa30a2963fa413676.js": "b62956c2192bfe5516d6374e753773901ed50ec5",

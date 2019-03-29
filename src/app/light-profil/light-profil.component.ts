@@ -9,9 +9,10 @@ import {ApiService} from '../api.service';
   templateUrl: './light-profil.component.html',
   styleUrls: ['./light-profil.component.css']
 })
-export class LightProfilComponent {
+export class LightProfilComponent implements OnInit {
 
-  constructor(public api:ApiService,public config:ConfigService,public userService:UserService,public router:Router) { }
+  constructor(public api:ApiService,public config:ConfigService,
+              public userService:UserService,public router:Router) { }
 
   deleteProduct() {
     this.userService.delproduct(0).subscribe((r)=>{
@@ -30,12 +31,20 @@ export class LightProfilComponent {
 
 
   linkServices() {
-    this.router.navigate(["services",this.api.products[this.userService.user.products[0]].id])
+    var p=this.api.products[this.userService.user.products[0]];
+    if(p!=null){
+      this.router.navigate(["services",p.id]);
+    }
+
   }
 
   selproduct(ref) {
     this.userService.addproduct(ref).subscribe((r:any)=>{
         this.userService.user=r;
     });
+  }
+
+  ngOnInit(): void {
+    this.api.initProducts();
   }
 }

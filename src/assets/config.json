@@ -1,5 +1,5 @@
 {
-  "appli_name":"BlueHotel",
+  "appli_name":"Blue Cycladic Resort",
   "owner":{
     "licence":"propriétaire",
     "company":"F80",
@@ -16,7 +16,7 @@
   "logo":"https://cdn.webhotelier.net/photos/h=180:v=3/templates/2693/logo.png",
   "splash":{
     "title":"Blue Cycladic Resort",
-    "screen":"https://media-cdn.tripadvisor.com/media/photo-s/0f/1c/93/ec/aegea-blue-cycladic-resort.jpg"
+    "screen":"./assets/img/splash_hotel.jpg"
   },
   "background_color":"black",
 
@@ -45,7 +45,7 @@
   "product_picker":{
     "title":"Quelle chambre avez vous ?",
     "title_color":"white",
-    "font_size":"2em",
+    "font_size":"3vmin",
     "label_button":"Celle-ci !"
   },
 
@@ -125,25 +125,29 @@
 
   "menus":[
     {
+      "id":"cmdMenus",
       "title":"Menus",
       "description":"Menus et cartes",
       "icon":"chrome_reader_mode",
       "href":"https://www.aegeablue.gr/gastronomy/"
     },
     {
+      "id":"cmdTourisme",
       "title":"Tourisme",
       "icon":"face",
-      "href":"https://www.tripadvisor.fr/Tourism-g580193-Andros_Cyclades_South_Aegean-Vacations.html"
+      "href":"https://www.tripadvisor.fr/Attractions-g580193-Activities-Andros_Cyclades_South_Aegean.html#ATTRACTION_SORT_WRAPPER"
     },
     {
+      "id":"cmdReserver",
       "title":"Réserver",
       "icon":"alarm",
-      "href":"https://www.booking.com/hotel/gr/aegea-blue-cycladic-resort.fr.html"
+      "href":"https://www.tripadvisor.fr/Hotel_Review-g580193-d4324772-Reviews-Aegea_Blue_Cycladic_Resort-Andros_Cyclades_South_Aegean.html"
     },
     {
+      "id":"cmdForum",
       "title":"Forum",
       "icon":"forum",
-      "href":"https://forum.f80.fr"
+      "href":"https://www.tapatalk.com/groups/hotelaegan"
     },
     {
       "title":"Contacter",

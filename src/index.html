@@ -59,10 +59,13 @@
 <script>
   fetch("./assets/config.json").then(function(response) {return response.json();})
     .then(function(config) {
-      document.getElementById("page").onload=function(){
-        document.getElementById("page").classList.toggle("cover-img");
-      };
-      document.getElementById("page").src=config.splash.screen;
+      if(document.getElementById("page")!=null){
+        document.getElementById("page").onload=function(){
+          if(document.getElementById("page")!=null)
+            document.getElementById("page").classList.toggle("cover-img");
+        };
+        document.getElementById("page").src=config.splash.screen;
+      }
       document.getElementById("name_appli").innerHTML=config.splash.title;
       document.title=config.appli_name;
 

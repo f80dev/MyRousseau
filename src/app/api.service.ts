@@ -69,7 +69,7 @@ export class ApiService {
 
   initProducts() {
     this.getproducts().subscribe((r:any)=>{
-      var i=1;
+      var i=0;
       this.products=[];
       while(r.hasOwnProperty(i)){
         this.products.push(r[i]);

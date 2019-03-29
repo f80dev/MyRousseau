@@ -8,7 +8,7 @@
              src="{{userService.user.photo}}">
       </td>
       <td style="text-align: left;padding:0px;margin:0px;">
-        <div *ngIf="userService.user.products!=null" id="divCar">
+        <div *ngIf="userService.user.products!=null" id="divProduct">
           <strong>Ma {{api.products[userService.user.products[0]]?.label}}</strong><br>
           {{userService.user.firstname}} {{userService.user.lastname}}
         </div>
@@ -32,16 +32,16 @@
     <div *ngIf="userService.user.products!=null" style="position:relative;width:100%;">
       <img
            style="width:100%;max-width:700px;"
-           src="{{api.products[0]?.photo}}"
+           src="{{api.products[userService.user.products[0]]?.photo}}"
            alt="My Car">
-      <div *ngIf="userService.user.cars!=null" style="position:absolute;left:90%;top:0px;width:8%;width:50px;">
-        <button id="cmdRemoveCar" class="button-image-toolbar" mat-icon-button (click)="deleteProduct()"><mat-icon>remove_circle</mat-icon></button>
-        <button id="cmdAddCar" class="button-image-toolbar" mat-icon-button (click)="addProduct()"><mat-icon>add_circle</mat-icon></button>
-        <button id="cmdPhotoCar" class="button-image-toolbar" mat-icon-button (click)="takePhoto()"><mat-icon>camera</mat-icon></button>
+      <div *ngIf="userService.user.products!=null" style="position:absolute;left:90%;top:0px;width:8%;width:50px;">
+        <button id="cmdRemoveProduct" class="button-image-toolbar" mat-icon-button (click)="deleteProduct()"><mat-icon>remove_circle</mat-icon></button>
+        <button id="cmdAddProduct" class="button-image-toolbar" mat-icon-button (click)="addProduct()"><mat-icon>add_circle</mat-icon></button>
+        <button id="cmdPhotoProduct" class="button-image-toolbar" mat-icon-button (click)="takePhoto()"><mat-icon>camera</mat-icon></button>
       </div>
     </div>
     <br>
-    <button *ngIf="userService.user.products!=null"
+    <button *ngIf="userService.user?.products!=null"
             id="cmdServices"
             mat-button mat-raised-button
             (click)="linkServices()">Services associés</button>

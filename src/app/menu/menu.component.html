@@ -1,4 +1,5 @@
-<mat-toolbar color="primary" style="z-index: 100;"><button
+<mat-toolbar color="primary" style="z-index: 100;height:7vh;">
+  <button
     id="cmdBurger"
     type="button"
     aria-label="Toggle sidenav"
@@ -7,9 +8,11 @@
     *ngIf="isHandset$ | async">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
-  <img *ngIf="!(isHandset$ | async) &&  config.values.header?.logo"
+
+  <img *ngIf="!(isHandset$ | async) &&  config.values?.header?.logo"
        class="main-logo"
        src="{{config.values.logo}}">
+
   <span class="fill-remaining-space"></span>
   <button *ngIf="userService.user!=null && userService.user.email!=null"
           id="cmdLogout"
@@ -79,6 +82,7 @@
       <div *ngFor="let menu of menus">
         <a  mat-list-item [routerLink]="menu.routerLink"
             [name]="menu.name"
+            id="{{menu.id}}"
             [title]="menu.description">
           <mat-icon>{{menu.icon}}</mat-icon>&nbsp;&nbsp;{{menu.title}}
         </a>
@@ -105,7 +109,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content style="overflow: hidden;">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 

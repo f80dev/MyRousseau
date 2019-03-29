@@ -59,10 +59,13 @@
 <script>
   fetch("./assets/config.json").then(function(response) {return response.json();})
     .then(function(config) {
-      document.getElementById("page").onload=function(){
-        document.getElementById("page").classList.toggle("cover-img");
-      };
-      document.getElementById("page").src=config.splash.screen;
+      if(document.getElementById("page")!=null){
+        document.getElementById("page").onload=function(){
+          if(document.getElementById("page")!=null)
+            document.getElementById("page").classList.toggle("cover-img");
+        };
+        document.getElementById("page").src=config.splash.screen;
+      }
       document.getElementById("name_appli").innerHTML=config.splash.title;
       document.title=config.appli_name;
 
@@ -82,5 +85,5 @@
 
   <noscript>Veuillez activer JavaScript pour faire fonctionner MyRousseauAutomobile</noscript>
 
-<script type="text/javascript" src="runtime.06daa30a2963fa413676.js"></script><script type="text/javascript" src="polyfills.898576310992865ac2b8.js"></script><script type="text/javascript" src="main.48607289ad15382f2ece.js"></script></body>
+<script type="text/javascript" src="runtime.06daa30a2963fa413676.js"></script><script type="text/javascript" src="polyfills.898576310992865ac2b8.js"></script><script type="text/javascript" src="main.18a7cb4a1eba81fba4ec.js"></script></body>
 </html>

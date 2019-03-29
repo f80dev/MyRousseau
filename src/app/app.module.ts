@@ -23,7 +23,6 @@ import {
 
 import { ContactComponent } from './contact/contact.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { MainComponent } from './main/main.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { GiftComponent } from './gift/gift.component';
@@ -59,7 +58,6 @@ import {MatCarouselModule} from '@ngmodule/material-carousel';
     AppComponent,
     MenuComponent,
     ContactComponent,
-    MyDashboardComponent,
     MainComponent,
     ScheduleComponent,
     GiftComponent,
