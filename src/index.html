@@ -66,7 +66,8 @@
         };
         document.getElementById("page").src=config.splash.screen;
       }
-      document.getElementById("name_appli").innerHTML=config.splash.title;
+      if(document.getElementById("name_appli")!=null)
+        document.getElementById("name_appli").innerHTML=config.splash.title;
       document.title=config.appli_name;
 
       (function () {

@@ -45,6 +45,7 @@ import { ShareComponent } from './share/share.component';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
+import { QRCodeModule } from 'angularx-qrcode';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -52,6 +53,11 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { ProductPickerComponent } from './product-picker/product-picker.component';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
+import { AnonymousComponent } from './anonymous/anonymous.component';
+import { ListMessagesComponent } from './list-messages/list-messages.component';
+import { ListWorksComponent } from './list-works/list-works.component';
+import { AddmessageComponent } from './addmessage/addmessage.component';
+import {WebcamModule} from 'ngx-webcam';
 
 @NgModule({
   declarations: [
@@ -78,7 +84,11 @@ import {MatCarouselModule} from '@ngmodule/material-carousel';
     AboutComponent,
     WelcomeComponent,
     PreferencesComponent,
-    ProductPickerComponent
+    ProductPickerComponent,
+    AnonymousComponent,
+    ListMessagesComponent,
+    ListWorksComponent,
+    AddmessageComponent
   ],
   imports: [
     MatCarouselModule,
@@ -88,6 +98,8 @@ import {MatCarouselModule} from '@ngmodule/material-carousel';
     MatDatepickerModule,
     BrowserAnimationsModule,
     LayoutModule,
+    WebcamModule,
+    QRCodeModule,
     MatExpansionModule,
     HttpClientModule,
     MatToolbarModule,

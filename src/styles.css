@@ -9,24 +9,42 @@ body { overflow: hidden; margin: 0; font-family: 'Roboto', sans-serif; }
   color:gray;
 }
 
+.card-title {
+  padding:0px;
+  margin:0px;
+  font-size:large;
+  color:black;
+}
+
 .text-left {
   text-align: left;
   width:100%;
 }
 
 .app-card {
-  margin:1%;
+  margin:2px;
   max-width: 700px;
   vertical-align: text-top;
   display: flex;
-  padding:0px;
-  overflow: hidden;
+  padding:0;
 }
 
 .app-card-content {
-  margin-left:20px;
-  margin-top:10px;
+  margin-left:10px;
+  padding:0px;
+  margin-top:0px;
+  overflow:hidden;
 }
+
+.app-card-header {
+  font-weight: bold;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 
 .button-image-toolbar {
   margin:0;

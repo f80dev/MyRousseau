@@ -16,6 +16,9 @@ import {ServicesComponent} from './services/services.component';
 import {AboutComponent} from './about/about.component';
 import {PreferencesComponent} from './preferences/preferences.component';
 import {ContactComponent} from './contact/contact.component';
+import {AnonymousComponent} from './anonymous/anonymous.component';
+import {AddmessageComponent} from './addmessage/addmessage.component';
+import {ListWorksComponent} from './list-works/list-works.component';
 
 
 const routes: Routes = [
@@ -30,10 +33,15 @@ const routes: Routes = [
   { path: 'login/:email/:password',component: LoginComponent},
   { path: 'login/:email',component: LoginComponent},
   { path: 'address',component: AddressComponent},
+  { path: 'anonymous',component: AnonymousComponent},
   { path: 'services',component: ServicesComponent},
   { path: 'services/:product',component: ServicesComponent},
   { path: 'newuser',component: NewUserComponent},
+  { path: 'addmessages',component: AddmessageComponent},
   { path: 'catalogue/:url',component: CatalogueComponent},
+  { path: 'main/:command',component: MainComponent},
+  { path: 'list-work/:command',component: ListWorksComponent},
+  { path: 'works',component: ListWorksComponent},
   { path: 'catalogue',component: CatalogueComponent},
   { path: 'start',component: MainComponent},
   { path: 'contact',component: ContactComponent},

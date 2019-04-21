@@ -1,7 +1,11 @@
 <mat-card class="app-card" *ngIf="config.values!=null">
   <mat-card-header>
-    <mat-card-title>Personne a ajouter</mat-card-title>
-    <mat-card-subtitle>
+
+      Personne a ajouter
+      <span class="fill-remaining-space"></span>
+      <button id="cmdSend" mat-raised-button (click)="sendInvitation()">Inviter</button>
+
+    <mat-card-subtitle *ngIf="config.values.loyalty.enabled">
       Gagner {{config.values.loyalty.invite}} pts de fidélité en invitant quelqu'un a rejoindre {{config.values.appli_name}}
     </mat-card-subtitle>
   </mat-card-header>
@@ -19,8 +23,10 @@
              title="Un email générique permettant de se connecter à l'application est directement envoyé au destinataire"
              id="txtEmail" class="input-style" [(ngModel)]="email" placeholder="Son email">
     </mat-form-field>
-    <br>
+    <br><br>
 
-    <button id="cmdSend" mat-raised-button (click)="sendInvitation()">Inviter</button>
+    Inviter quelqu'un ...<br><br>
+    <qrcode [qrdata]="url_appli" [size]="200" [level]="'M'"></qrcode>
+
   </mat-card-content>
 </mat-card>

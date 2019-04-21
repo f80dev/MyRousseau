@@ -4,10 +4,11 @@
   z-index:10;
 }
 
-.sidenav {
+.invisible-scrollbar .sidenav {
   width: 200px;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
+
 
 .mat-toolbar.mat-primary {
   position: sticky;
@@ -15,7 +16,7 @@
 }
 
 .main-logo{
-  height:70%;
+  height:60%;
 }
 
 

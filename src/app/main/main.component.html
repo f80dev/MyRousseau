@@ -1,13 +1,15 @@
-<div *ngIf="bigScreen">
+<div *ngIf="bigScreen" style="overflow-y: scroll;overflow-x: hidden;scrollbar-width: none;">
   <table style="width: 100%;">
     <tr style="vertical-align: top;">
     <td style="width:50%">
-      <app-welcome *ngIf="userService.user.connexions!=null && userService.user.connexions.length<3"></app-welcome>
+      <app-welcome *ngIf="userService.user.connexions!=null && userService.user.connexions.length<2"></app-welcome>
       <app-light-profil></app-light-profil><br>
-      <app-next-appointment></app-next-appointment>
+      <app-next-appointment *ngIf="config.values.menu.next_appointment.visible"></app-next-appointment>
     </td>
       <td>
-        <app-gift></app-gift>
+        <app-list-messages></app-list-messages>
+        <app-list-works *ngIf="config.values.menu.list_works?.visible"></app-list-works>
+        <app-gift  *ngIf="config.values.menu.gifts.visible"></app-gift>
       </td>
     </tr>
   </table>
@@ -15,7 +17,10 @@
 
 <div *ngIf="!bigScreen">
   <app-welcome *ngIf="userService.user.connexions!=null && userService.user.connexions.length<3"></app-welcome>
+  <app-list-messages></app-list-messages>
+  <app-list-works *ngIf="config.values.menu.list_works?.visible && userService.user?.products!=null" [max_items]="3"></app-list-works>
   <app-light-profil></app-light-profil>
-  <app-next-appointment></app-next-appointment>
-  <app-gift></app-gift>
+  <app-next-appointment *ngIf="config.values.menu.next_appointment?.visible"></app-next-appointment>
+
+  <app-gift *ngIf="config.values.menu?.gifts?.visible"></app-gift>
 </div>

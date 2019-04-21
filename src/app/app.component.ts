@@ -14,7 +14,4 @@ export class AppComponent {
   constructor(public api:ApiService,public userService:UserService,public router:Router,private route: ActivatedRoute){
   }
 
-  ngOnInit(){
-    //if(localStorage.getItem("email")==null)this.router.navigate(["/login"]);
-  }
 }

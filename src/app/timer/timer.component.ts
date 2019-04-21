@@ -27,7 +27,7 @@ export class TimerComponent implements OnInit {
   }
 
   refresh(){
-    if(this.end<new Date().getTime()){
+    if(this.onlyPositif && this.end<new Date().getTime()){
       if(this.handle!=null){
         clearInterval(this.handle);
         this.handle=null;

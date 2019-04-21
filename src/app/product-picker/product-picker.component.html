@@ -1,4 +1,4 @@
-<h3>{{config.values.product_picker.title}}</h3>
+<h3>{{userData.user?.firstname}}, {{config.values.product_picker.title}}</h3>
 
 <!--https://github.com/gbrlsnchs/material2-carousel-->
 <mat-carousel [autoplay]="false"
@@ -12,12 +12,12 @@
     <img [src]="product.photo"
          [ngStyle]="{'width': width,'object-fit': 'cover'}"
          >
-    <div style="z-index:10;position: absolute;top:30px;left:20px;font-size: 1vw;">
+    <div style="z-index:10;position: absolute;top:10px;left:15px;font-size: 1vw;">
       <span [ngStyle]="{'color':config.values.product_picker.title_color,'font-size':config.values.product_picker.font_size}">
         {{product.label}}
       </span>
     </div>
-    <div style="z-index:10;position: absolute;top:75%;left:65%;">
+    <div style="z-index:10;position: absolute;top:75%;left:60%;">
       <button mat-button mat-raised-button id="cmdSelProduct" (click)="onClick(product)">
         {{config.values.product_picker.label_button}}
       </button>

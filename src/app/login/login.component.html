@@ -2,9 +2,15 @@
   <br><br>
   <mat-card class="app-card" style="margin-top:0">
     <mat-card-content *ngIf="config.values">
-      <img *ngIf="deviceService.isMobile()" style="width:90%" src="{{config.values.logo}}">
+      <div *ngIf="deviceService.isMobile()">
+        <h2>{{config.values?.appli_name}}</h2>
+        <img
+          style="max-height: 30vh;"
+          src="{{config.values.logo}}">
+      </div>
+
       <h1>Se connecter</h1>
-      <h4>via</h4>
+      <div *ngIf="showServiceTiers">
       <button *ngIf="config.values.authent.google"
               id="cmdGoogle"
               title="Authentification via Google"
@@ -15,7 +21,7 @@
       </button>
       <br>
 
-      <button *ngIf="config.values.authent.facebook"
+      <button *ngIf="config.values.authent?.facebook"
               id="cmdFacebook"
               title="Authentification via Facebook"
               class="button-identity-provider"
@@ -26,7 +32,7 @@
       <br>
 
       <!--<button class="button-identity-provider" mat-raised-button >Facebook</button><br>-->
-      <button *ngIf="config.values.authent.linkedin"
+      <button *ngIf="config.values.authent?.linkedin"
               class="button-identity-provider"
               title="Authentification via linkedin"
               mat-raised-button
@@ -34,10 +40,10 @@
               (click)="loginService('linkedin')">
         Linkedin
       </button>
+      </div>
 
-      <div *ngIf="config.values.authent.email">
+      <div *ngIf="config.values.authent?.email">
         <br>
-        <h4>ou directement avec</h4>
         <mat-form-field class="example-form-field">
           <input matInput type="email"
                  id="txtUsername"

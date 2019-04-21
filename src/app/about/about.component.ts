@@ -7,9 +7,10 @@ import {ConfigService} from '../config.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  url_record_work: string="";
 
   constructor(public config:ConfigService) {
-
+    this.url_record_work=config.values.work.short_url;
   }
 
   ngOnInit() {

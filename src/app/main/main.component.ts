@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user.service';
 import {ApiService} from '../api.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-main',
@@ -15,7 +16,7 @@ export class MainComponent implements OnInit {
   public user:any={};
   bigScreen=true;
 
-  constructor(bkob:BreakpointObserver,public api:ApiService,public userService:UserService,public router:Router) {
+  constructor(bkob:BreakpointObserver,public api:ApiService,public userService:UserService,public router:Router,public config:ConfigService,public route:ActivatedRoute) {
     bkob.observe([Breakpoints.Handset,Breakpoints.TabletPortrait,Breakpoints.WebPortrait]).subscribe((result)=>{
         this.bigScreen =!result.matches;
     });
@@ -27,10 +28,17 @@ export class MainComponent implements OnInit {
     this.userService.init(localStorage.getItem("email"),()=>{
       this.api.login(localStorage.getItem("email"),localStorage.getItem("password")).subscribe((r)=>{
         if(r==null)
-          this.router.navigate(["login"]);
+          this.router.navigate(["anonymous"]);
+        else{
+          this.route.queryParams.subscribe((params)=>{
+            let command=params['command'];
+            if(command=="mark")
+              this.router.navigate(["list-works"],{ queryParams: { command: command} })
+          })
+        }
       })
     },()=>{
-      this.router.navigate(["login"]);
+      this.router.navigate(["anonymous"]);
     });
   }
 

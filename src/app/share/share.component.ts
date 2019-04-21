@@ -13,11 +13,12 @@ export class ShareComponent implements OnInit {
 
   email="";
   firstname="";
+  url_appli: string;
 
   constructor(public config:ConfigService,public snackBar:MatSnackBar,public userService:UserService,public router:Router) { }
 
   ngOnInit() {
-
+    this.url_appli=this.config.values.url_invite+"?from="+this.userService.user.id;
   }
 
   sendInvitation() {

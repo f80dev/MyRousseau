@@ -1,65 +1,95 @@
 {
-  "appli_name":"Blue Cycladic Resort",
+  "appli_name":"My République Enfants",
+  "version":"0.2 beta",
+
   "owner":{
     "licence":"propriétaire",
     "company":"F80",
+    "logo":"https://f80.fr/img/logoF80.png",
     "website":"http://f80.fr",
     "author":"Herve HOAREAU",
-    "contact":"dev@f80.fr"
+    "contact":"dev@f80.fr",
+    "about":"République Enfants est une application développée par F80 pour le compte de la crêche du même nom"
   },
 
   "admin":{
     "email":"paul.dudule@gmail.com"
   },
 
-  "_logo":"./assets/img/logo-rousseau.png",
-  "logo":"https://cdn.webhotelier.net/photos/h=180:v=3/templates/2693/logo.png",
+  "url_invite":"https://creche.appspot.com/appli/index.html",
+  "logo":"./assets/icons/icon-384x384.png",
   "splash":{
-    "title":"Blue Cycladic Resort",
-    "screen":"./assets/img/splash_hotel.jpg"
+    "title":"République Enfants",
+    "screen":"./assets/img/splash_creche.webp"
   },
-  "background_color":"black",
+  "background_color":"orange",
 
   "authent":{
-    "google":false,
-    "linkedin":true,
-    "facebook":false,
+    "google":true,
+    "linkedin":false,
+    "facebook":true,
     "email":true
   },
 
   "user_profil":{
     "firstname":true,
-    "lastname":true,
+    "lastname":false,
     "phone":false,
-    "photo":true,
+    "photo":false,
     "address":false,
-    "share":true,
+    "share":false,
     "notif":true
   },
 
   "header":{
     "logo":true,
-    "color":"primaey"
+    "color":"primary"
+  },
+
+  "work":{
+    "title":"Présence",
+    "label_end":"Départ",
+    "label_start":"Arrivé à la crèche",
+    "label_newwork":"%product_name%",
+    "short_url":"https://bit.ly/2IkZVox"
   },
 
   "product_picker":{
-    "title":"Quelle chambre avez vous ?",
-    "title_color":"white",
-    "font_size":"3vmin",
-    "label_button":"Celle-ci !"
+    "mode":"select",
+    "title":"vous avez la responsabilité de ?",
+    "title_color":"black",
+    "font_size":"5vmin",
+    "label_button":"Sélectionner",
+    "max_product":1
+  },
+
+  "light_profil":{
+    "height_preview":"200px"
   },
 
   "menu":{
+    "next_appointment":{
+      "visible":false
+    },
     "dashboard":{
+      "visible":true
+    },
+    "gifts":{
+      "visible":false
+    },
+    "addmessage":{
       "visible":true
     },
     "car_picker":{
       "visible":false
     },
     "schedule":{
+      "visible":false
+    },
+    "list_messages":{
       "visible":true
     },
-    "gift":{
+    "list_works":{
       "visible":true
     },
     "services":{
@@ -82,111 +112,81 @@
     }
   },
   
-  "_menus":[
+
+  "menus":[
     {
-      "title":"Location",
-      "icon":"collections",
-      "href":"https://www.salvaloc.fr/"
+      "title":"Premiers secours",
+      "description":"Les premiers secours",
+      "icon":"add_circle_outline",
+      "href":"https://www.vocationsante.fr/wp-content/uploads/2017/03/infographie.png",
+      "color":"red"
     },
     {
-      "title":"Catalogue",
-      "icon":"collections",
-      "href":"https://www.salvaloc.fr/"
-    }
-  ],
-
-  "resto_menus":[
+      "title":"Contines",
+      "description":"Liste de contines",
+      "icon":"library_music",
+      "href":"https://comptines.tv/"
+    },
+    {
+      "title":"Le site web",
+      "description":"Le site web de la creche",
+      "icon":"web",
+      "href":"http://crecherepu.strikingly.com/",
+      "target":"blank"
+    },
+    {
+      "title":"PMI",
+      "description":"Liste des PMIs",
+      "icon":"account_balance",
+      "href":"https://www.mairie10.paris.fr/mes-demarches/07-enfance-et-affaires-scolaires/3-demarches-liees-a-la-petite-enfance/4-informations-accompagnement-activites-pour-aprents-et-enfants-du-10e-570"
+    },
     {
       "title":"Menus",
-      "description":"Menus et cartes",
+      "description":"Menus de la semaine",
+      "icon":"list",
+      "href":"https://p7.storage.canalblog.com/71/88/1401137/115633696.jpg"
+    },
+    {
+      "title":"Recettes",
+      "description":"Recette pour 12 mois",
+      "icon":"format_color_fill",
+      "href":"https://www.bledina.com/recettes/12-mois/",
+      "target":"blank"
+    },
+    {
+      "title":"Les commissions",
+      "description":"Le travail des commissions",
+      "icon":"message",
+      "href":"https://republiqueenfants.slack.com/messages/CHQ50RD6H/",
+      "target":"blank"
+    },
+    {
+      "title":"Cafés",
+      "description":"Les cafés avec espace pour les enfants",
+      "icon":"insert_emoticon",
+      "href":"https://www.elle.fr/Loisirs/Sorties/Dossiers/cafe-pour-enfants-cafe-poussette",
+      "target":"blank"
+    },
+    {
+      "title":"Sortir",
+      "description":"Sortir a Paris avec des petits",
+      "icon":"videogame_asset",
+      "href":"https://www.familinparis.fr/paris-pour-les-petits/#actualite"
+    },
+    {
+      "title":"Vacances",
+      "description":"Vacances scolaires",
       "icon":"chrome_reader_mode",
-      "href":"https://www.zazza.paris/menus-carte/#"
-    },
-    {
-      "title":"Privatiser",
-      "icon":"face",
-      "href":"https://reservations.zenchef.com/privatisation.php?rid=348829&lang=fr&1001"
-    },
-    {
-      "title":"Réserver",
-      "icon":"alarm",
-      "href":""
-    },
-    {
-      "title":"Contacter",
-      "icon":"phone",
-      "href":"https://www.zazza.paris/informations-contact/"
+      "href":"https://cdn.radiofrance.fr/s3/cruiser-production/2018/08/97d23c8a-1f1e-4467-a1b6-2129333aeb23/860_calendrier_2.jpg"
     }
   ],
 
   "loyalty":{
+    "enabled":false,
+    "start":100,
     "invite":10
   },
 
-  "menus":[
-    {
-      "id":"cmdMenus",
-      "title":"Menus",
-      "description":"Menus et cartes",
-      "icon":"chrome_reader_mode",
-      "href":"https://www.aegeablue.gr/gastronomy/"
-    },
-    {
-      "id":"cmdTourisme",
-      "title":"Tourisme",
-      "icon":"face",
-      "href":"https://www.tripadvisor.fr/Attractions-g580193-Activities-Andros_Cyclades_South_Aegean.html#ATTRACTION_SORT_WRAPPER"
-    },
-    {
-      "id":"cmdReserver",
-      "title":"Réserver",
-      "icon":"alarm",
-      "href":"https://www.tripadvisor.fr/Hotel_Review-g580193-d4324772-Reviews-Aegea_Blue_Cycladic_Resort-Andros_Cyclades_South_Aegean.html"
-    },
-    {
-      "id":"cmdForum",
-      "title":"Forum",
-      "icon":"forum",
-      "href":"https://www.tapatalk.com/groups/hotelaegan"
-    },
-    {
-      "title":"Contacter",
-      "icon":"phone",
-      "href":"https://www.aegeablue.gr/contact/"
-    }
-  ],
-
-  "rousseau_menus":[
-    {
-      "id":"faq",
-      "title":"Vos questions",
-      "description":"Questions les plus fréquentes",
-      "icon":"help",
-      "href":"/faq.html"
-    },
-    {
-      "id":"forum",
-      "title":"Forum",
-      "description":"La communauté des clients",
-      "icon":"forum",
-      "href":"https://forum.quechoisir.org/reparation-voiture-f41.html"
-    },
-    {
-      "id":"location",
-      "title":"Location",
-      "description":"Louer un véhicule",
-      "icon":"collections",
-      "href":"https://www.salvaloc.fr/"
-    },
-    {
-      "id":"blog",
-      "title":"Le blog",
-      "description":"Toute l'actualité de votre concessionnaire",
-      "icon":"camera_roll",
-      "href":"https://blog.atome.auto/category/auto/belles-voitures/voiture-de-collection/"
-    }
-
-  ],
 
   "admin":{
     "visible":true,

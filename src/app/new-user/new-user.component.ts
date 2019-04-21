@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {reload} from '../tools';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-new-user',
@@ -16,7 +17,7 @@ export class NewUserComponent implements OnInit {
   carPicture:string="";
   message: string = '';
 
-  constructor(public api:ApiService,public route:ActivatedRoute,public router:Router) { }
+  constructor(public config:ConfigService,public api:ApiService,public route:ActivatedRoute,public router:Router) { }
 
   ngOnInit() {
     if(this.email==""){

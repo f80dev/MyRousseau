@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../api.service';
 import {Router} from '@angular/router';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +13,7 @@ export class AdminComponent implements OnInit {
   users:any[]=[];
   gifts:any[]=[];
 
-  constructor(public api:ApiService,public rooter:Router) { }
+  constructor(public userData:UserService,public api:ApiService,public rooter:Router) { }
 
   ngOnInit() {
     this.api.getusers().subscribe((l:any)=>{
@@ -36,5 +37,9 @@ export class AdminComponent implements OnInit {
 
   admin() {
     document.location.href="http://localhost:8080/_ah/admin";
+  }
+
+  addmessage() {
+    this.userData.postmessage("coucou",24).subscribe(()=>{});
   }
 }

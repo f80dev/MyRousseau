@@ -1,7 +1,6 @@
-<mat-form-field class="input-style">
-  <input [(ngModel)]="profil.email" [readonly]="true" matInput placeholder="Votre email">
-</mat-form-field>
 <br>
+<mat-label >{{profil?.email}}</mat-label><br>
+<br><br>
 <div class="row">
   <div class="col">
     <mat-form-field class="input-style"
@@ -13,7 +12,7 @@
   </div>
   <div class="col">
     <mat-form-field class="input-style"
-                    *ngIf="config.values.user_profil.firstname">
+                    *ngIf="config.values.user_profil.lastname">
       <input [(ngModel)]="profil.lastname" matInput placeholder="Votre nom"
              id="txtLastname"
              (change)="onchange.emit(profil)">
@@ -31,22 +30,46 @@
 <br>
 
 
-  <mat-checkbox [(ngModel)]="profil.notif"
-                id="chkNotif"
-                *ngIf="config.values.user_profil.notif"
-                (change)="onchange.emit(profil)">
-    Notifications des promotions
-  </mat-checkbox>
-  <br>
+<mat-checkbox [(ngModel)]="profil.notif"
+              id="chkNotif"
+              *ngIf="config.values.user_profil.notif"
+              (change)="onchange.emit(profil)">
+  Autoriser les notifications
+</mat-checkbox>
+<br>
 
-  <mat-checkbox [(ngModel)]="profil.share"
-                *ngIf="config.values.user_profil.share"
+<mat-checkbox [(ngModel)]="profil.share"
+              *ngIf="config.values.user_profil.share"
               id="chkShareProfil"
               (change)="onchange.emit(profil)">
   Profil partagé
 </mat-checkbox>
 <br><br>
 
-<img class="avatar" id="imgPhoto" [src]="config.values.avatar">&nbsp;
+<webcam *ngIf="takePicture"
+        height="100" width="200"
+        [trigger]="triggerObservable"
+        [videoOptions]="videoOptions"
+        [imageQuality]="0.85"
+        imageType="image/jpeg"
+        (cameraSwitched)="cameraWasSwitched($event)"
+        (initError)="handleInitError($event)"
+        (imageCapture)="handleImage($event)"
+>
+</webcam>
 
-<button mat-raised-button>Modifier la photo</button>
+<button *ngIf="takePicture"
+        mat-raised-button mat-button
+        id="cmdTakePicture"
+        (click)="triggerSnapshot()">
+  Déclencher
+</button>
+
+<div *ngIf="!takePicture">
+  <img class="avatar" id="imgPhoto" [src]="profil.photo">&nbsp;
+  <button  mat-raised-button mat-button (click)="takePicture=true;">Modifier la photo</button>
+</div>
+
+<br>
+<br>
+<button mat-raised-button mat-button (click)="deleteProduct()">Enfant</button>

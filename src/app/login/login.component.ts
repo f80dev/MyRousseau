@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   password="";
   showResendCode=false;
   handleLogin=null;
+  private showServiceTiers: boolean=true;
 
   constructor(public deviceService: DeviceDetectorService,
               public userService:UserService,public config:ConfigService,
@@ -75,9 +76,11 @@ export class LoginComponent implements OnInit {
   clearEmail() {
     this.email="";
     this.showPassword=false;
+    this.showServiceTiers=true;
   }
 
   keypress($event) {
+    this.showServiceTiers=false;
     if($event.keyCode==13){
       this.login(true);
     }

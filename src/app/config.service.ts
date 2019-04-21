@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '../../node_modules/@angular/common/http';
 import { Location } from '@angular/common';
+import {environment} from '../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +28,7 @@ export class ConfigService {
 
   private async getConfig(): Promise<any> {
     if (!this.config) {
-      this.config = (await this.http.get(this.location.prepareExternalUrl('/assets/config.json')).toPromise());
+      this.config = (await this.http.get(this.location.prepareExternalUrl(environment.config_file)).toPromise());
     }
     return Promise.resolve(this.config);
   }

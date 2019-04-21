@@ -60,11 +60,47 @@ export class UserService {
   }
 
   cancelappointments(id: string) {
-    return this.http.get(api("cancelappointments","email="+this.user.email+"&appointment="+id))
+    return this.http.get(api("cancelappointments","email="+this.user.email+"&appointment="+id));
   }
 
   delproduct(index: number) {
-    return this.http.get(api("delproduct","email="+this.user.email+"&index="+index))
+    return this.http.get(api("delproduct","email="+this.user.email+"&index="+index));
   }
 
+  getmessages() {
+    return this.http.get(api("getmessages","email="+this.user.email));
+  }
+
+  readmessage(messageId:string) {
+    return this.http.get(api("readmessage","email="+this.user.email+"&message="+messageId));
+  }
+
+  postmessage(text: string,delay:number) {
+    let message={text:text,from:this.user.firstname,author:this.user.id,dtStart:new Date().getTime(),dtEnd:new Date().getTime()+delay*1000*60*60};
+    return this.http.post(api("addmessage",""),message);
+  }
+
+  addwork(w:any) {
+    w.owner=this.user.email;
+    return this.http.post(api("addwork",""),w);
+  }
+
+  updateuser(u:any) {
+    return this.http.post(api("updateuser","email="+this.user.email),u);
+  }
+
+  addmessage(m:any) {
+    return this.http.post(api("addmessage",""),m);
+  }
+
+  getworks() {
+    if(this.user.products!=null){
+      var productid=this.user.products[0].id;
+      return this.http.get(api("getworks","productid="+productid));
+    }
+  }
+
+  sendphoto(param: { photo: string ,type:string}) {
+    return this.http.post(api("sendphoto","email="+this.user.email),param);
+  }
 }

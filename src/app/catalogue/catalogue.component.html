@@ -1,5 +1,10 @@
+<div *ngIf="!url.endsWith('.jpg') && !url.endsWith('.png')" style="width:100%;height:100%;">
+  <iframe height="100%" width="100%" style="overflow:hidden;border: None;" *ngIf="url!=null && url.length>0"
+          [src]="url | safe:'resourceUrl'">
+  </iframe>
+</div>
+<div *ngIf="url.endsWith('.jpg') || url.endsWith('.png')" style="width:100%;height:100%;">
+  <img [src]="url" style="width: 100%;object-fit: contain;">
+</div>
 
-    <iframe height="100%" width="100%" style="overflow:hidden;border: None;" *ngIf="url!=null && url.length>0"
-            [src]="url | safe:'resourceUrl'">
-    </iframe>
 
