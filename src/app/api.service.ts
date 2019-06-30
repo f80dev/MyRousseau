@@ -69,13 +69,13 @@ export class ApiService {
 
   initProducts() {
     this.getproducts().subscribe((r:any)=>{
-      var i=0;
-      this.products=[];
-      while(r.hasOwnProperty(i)){
-        this.products.push(r[i]);
-        i=i+1;
-      }
+      this.products=r.items;
     });
   }
+
+  startwork(product_id:string) {
+    return this.http.get(api("startwork","product_id="+product_id));
+  }
+
 
 }

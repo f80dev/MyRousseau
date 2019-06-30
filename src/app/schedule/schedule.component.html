@@ -1,40 +1,49 @@
-<app-next-appointment count="5" [new_button]="false"></app-next-appointment>
+<!--<app-next-appointment count="5" [new_button]="false"></app-next-appointment>-->
 <mat-card class="app-card">
-  <mat-card-header>Demander un rendez-vous</mat-card-header><br>
+  <mat-card-header *ngIf="title.length>0">{{title}}</mat-card-header><br>
   <mat-card-content class="app-card-content">
     <mat-form-field class="input-style" style="width:140px">
       <input matInput
              id="datePicker"
              [matDatepicker]="picker"
+             lang="fr"
              [(ngModel)]="sch_date"
              placeholder="Choisir une date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>&nbsp;&nbsp;
-    à&nbsp;
-    <input class="time-picker"
+    de&nbsp;
+
+    <input
+        class="time-picker"
            id="lstTimePicker"
            [(ngModel)]="sch_hour"
            style="width: 75px;"
+           (click)="open()"
+           value="15:00"/>
+
+    <span *ngIf="durations.length>0">&nbsp;pendant:&nbsp;</span>
+    <span *ngIf="durations.length==0">&nbsp;jusqu'a:&nbsp;</span>
+
+    <mat-select id="lstDuration" *ngIf="durations.length>0" placeholder="Durée" [(ngModel)]="duration" style="width: 75px;">
+      <mat-option *ngFor="let duration_item of durations"
+                  [value]="duration_item.durationInMinute">
+        {{duration_item.label}}
+      </mat-option>
+    </mat-select>
+
+    <input class="time-picker"
+           id="lstEndTimePicker"
+           *ngIf="durations.length==0"
+           [(ngModel)]="sch_end_hour"
+           style="width: 75px;"
            atp-time-picker
-           onlyHour="false"
-           start='09:30'
-           end="17:30"
            local="fr"
            value="15:00"/>
 
-    &nbsp;pendant:&nbsp;
-    <mat-select id="lstDuration" placeholder="Durée" [(ngModel)]="duration" style="width: 75px;">
-      <mat-option [value]="15" active>00:15</mat-option>
-      <mat-option [value]="30">00:30</mat-option>
-      <mat-option [value]="60">01:00</mat-option>
-      <mat-option [value]="90">01:30</mat-option>
-      <mat-option [value]="120">02:00</mat-option>
-    </mat-select>
-
     <br>
 
-    <mat-form-field style="width:80%" class="input-style">
+    <mat-form-field style="width:80%" class="input-style" *ngIf="needMotif">
       <input id="txtMotif"
              title="Il est utile d'énoncer clairement le motif du rendez-vous afin de faciliter sa préparation"
              matInput  [(ngModel)]="motif" placeholder="Motif">
@@ -43,9 +52,9 @@
     <button mat-raised-button
             id="cmdValide"
             title="La validation entraine l'envoi de la demande de rendez-vous au concessionnaire qui en cas d'impossilibté recontacte le client"
-            *ngIf="motif!=null && motif.length>0"
+            *ngIf="(motif!=null && motif.length>0) || needMotif==false"
             color="primary"
-            (click)="askForAppointment()">Demander</button>
+            (click)="askForAppointment()">Ajouter</button>
   </mat-card-content>
 
 </mat-card>

@@ -126,9 +126,7 @@
 
       <a mat-list-item routerLink="/about"><mat-icon>account_balance</mat-icon>&nbsp;&nbsp;A propos</a>
 
-
-      <br><br><br>
-      <div *ngIf="config.values.menu.admin?.visible">
+      <div *ngIf="userService.user.email==config.values.admin.email">
         <a mat-list-item routerLink="/admin"><mat-icon>build</mat-icon>&nbsp;&nbsp;Admin</a>
         <a mat-list-item routerLink="/catalogue/server.f80.fr"><mat-icon>build</mat-icon>&nbsp;&nbsp;CRM</a>
       </div>

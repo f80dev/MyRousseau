@@ -1,6 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AmazingTimePickerModule, AmazingTimePickerService} from 'amazing-time-picker';
+import {tirage} from '../tools';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-schedule',
@@ -10,25 +13,85 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ScheduleComponent implements OnInit {
 
   @Input() public dtSchedule:any={};
+  @Input("title") title:string="";
+  @Input("lang") lang:string="fr";
+  @Input("defaultDuration") defaultDuration:number=9;
+  @Input("durations") durations:any[]=[];
   motif:string="";
-  sch_hour="15:00";
+  sch_hour="09:00";
   sch_date:string="";
-  duration:number=15;
+  duration:number=540;
 
-  constructor(public router:Router,public userService:UserService,public route: ActivatedRoute) { }
+  @Input("needMotif") needMotif:boolean=true;
+  @Output() close: EventEmitter<any> = new EventEmitter();
+  @Output() cancel: EventEmitter<any> = new EventEmitter();
+  sch_end_hour="17:00";
+
+  constructor(public atp:AmazingTimePickerService,
+              public config:ConfigService,
+              public router:Router,public userService:UserService,public route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.sch_date=new Date(new Date().getTime()+1000*3600*24*3).toISOString();
+    this.sch_date=new Date(new Date().getTime()).toISOString();
     this.route.params.subscribe(params => {
         this.motif = params["motif"];
     });
+    this.calculEndHour();
+  }
+
+  open(){
+    const amazingTimePicker = this.atp.open({
+      theme: 'material-blue',
+      time:"08:00",
+      locale:"fr"
+    });
+    amazingTimePicker.afterClose().subscribe(time => {
+      this.sch_hour=time;
+      this.calculEndHour();
+    });
+  }
+
+  getFullDate(_date:string=null,_time:string=null):Date{
+    if(_date!=null)
+      _date=_date.split("T")[0];
+    else
+      _date=new Date().toISOString().split("T")[0];
+
+    if(_time==null)_time=new Date().toISOString().split("T")[1];
+    var fullDate=_date+"T"+_time;
+    if(fullDate.indexOf("+")==-1)fullDate+="+02:00";
+    return new Date(fullDate);
+  }
+
+  convertStringTime(s:string){
+    var h=parseInt(s.split(":")[0]);
+    var m=parseInt(s.split(":")[1]);
+    return (h*60+m);
   }
 
   askForAppointment() {
-      var dt:Date=new Date(this.sch_date);
-      dt.setHours(parseInt(this.sch_hour.split(":")[0]))
-      this.userService.askforappointment(dt.getTime(),this.motif,this.duration).subscribe(()=>{
+
+    var _max=this.config.values.schedule.max_time;
+    if(this.convertStringTime(this.sch_end_hour)>this.convertStringTime(_max)) this.sch_end_hour=_max;
+
+
+    var dtStart=this.getFullDate(this.sch_date,this.sch_hour);
+    var dtEnd=this.getFullDate(this.sch_date,this.sch_end_hour);
+
+      var duration=(dtEnd.getTime()-dtStart.getTime())/60000;
+
+      this.close.emit({dtStart:dtStart.getTime(),motif:this.motif,duration:this.duration});
+
+      this.userService.askforappointment(dtStart.getTime(),this.motif,this.duration).subscribe(()=>{
         this.router.navigate(["main"]);
       });
+  }
+
+  calculEndHour(){
+    var _end=this.convertStringTime(this.sch_hour)+tirage(20)-10+this.defaultDuration*60;
+    var _max=this.config.values.schedule.max_time;
+    if(_end>this.convertStringTime(_max)) _end=this.convertStringTime(_max);
+
+    this.sch_end_hour=Math.trunc(_end / 60) + ":" + (_end % 60);
   }
 }

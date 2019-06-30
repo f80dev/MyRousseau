@@ -8,11 +8,11 @@
       "updateMode": "prefetch",
       "urls": [
         "/applis/favicon.ico",
-        "/applis/main.679987621baa998d97f3.js",
-        "/applis/polyfills.898576310992865ac2b8.js",
+        "/applis/main.4278df120a22c46e37b4.js",
+        "/applis/polyfills.5b5c514d83a60ce973bc.js",
         "/applis/privacy.html",
-        "/applis/runtime.06daa30a2963fa413676.js",
-        "/applis/styles.392f72f39b401edfa02d.css",
+        "/applis/runtime.26209474bfa8dc87a77c.js",
+        "/applis/styles.aaf86a5482a933518bce.css",
         "/applis/termofuse.html"
       ],
       "patterns": []
@@ -49,6 +49,7 @@
         "/applis/assets/img/splash_creche.webp",
         "/applis/assets/img/splash_hotel.jpg",
         "/applis/assets/img/splash_screen.webp",
+        "/applis/assets/img/tips.png",
         "/applis/assets/img/wait.gif"
       ],
       "patterns": []
@@ -68,7 +69,7 @@
     }
   ],
   "hashTable": {
-    "/applis/assets/config.json": "15910430de295eb0861e8782edc43bce869870ab",
+    "/applis/assets/config.json": "c0b6eb22ff87a71d0d9a710d9be1d364cf5b3621",
     "/applis/assets/config_hotel.json": "e1b88e209f10c9454ff9cc77039d6182a073b3e1",
     "/applis/assets/icons/icon - Copy.png": "334676648de940298d6d2be403b681d014604c2c",
     "/applis/assets/icons/icon-128x128.png": "20a40a5aed2d90eaaaab2aa6883d41e6631e60cb",
@@ -95,13 +96,14 @@
     "/applis/assets/img/splash_creche.webp": "ffd833ec28eaf16e9d1eb958f81a30d54584e4c4",
     "/applis/assets/img/splash_hotel.jpg": "4add7a544f6f73d2bb0755c31c0138e9a298e63a",
     "/applis/assets/img/splash_screen.webp": "ddb802d7917228dbe66593dbac2176ac9fa80081",
+    "/applis/assets/img/tips.png": "f7b9e7372227902dd4cc5e68d5a2239cb1c4ad18",
     "/applis/assets/img/wait.gif": "8631a7917c369b330020c52aa463452ce9426dbd",
     "/applis/favicon.ico": "8535c91170da784e0079876e4ce6dcfe0ec7adf8",
-    "/applis/main.679987621baa998d97f3.js": "7ee16ae63250233ef2f92713a4a9af4a9ea779df",
-    "/applis/polyfills.898576310992865ac2b8.js": "4c850befca5b780eb941f5897e76e8654e7c962d",
+    "/applis/main.4278df120a22c46e37b4.js": "f5306c273b1491c96cef9936c82bd1aeb54985f0",
+    "/applis/polyfills.5b5c514d83a60ce973bc.js": "4f7d0f63b906aa376eb9c7bc6f0abfae545593a0",
     "/applis/privacy.html": "973a92e7a6070c5bbdaf954961b8065316f6631b",
-    "/applis/runtime.06daa30a2963fa413676.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-    "/applis/styles.392f72f39b401edfa02d.css": "39a77cf957d9f6fe0a05d2ecd0bbfee5521b3f74",
+    "/applis/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/applis/styles.aaf86a5482a933518bce.css": "950e0aa4fdacf9679097fe59a78d1b69db0461a0",
     "/applis/termofuse.html": "13beeaead279629039e0c54ce192672c5fd7912a"
   },
   "navigationUrls": [

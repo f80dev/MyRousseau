@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {Router} from '@angular/router';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-next-appointment',
@@ -13,7 +14,7 @@ export class NextAppointmentComponent implements OnInit {
   @Input() count=1;
   @Input() new_button=true;
 
-  constructor(public router:Router,public userService:UserService) { }
+  constructor(public config:ConfigService,public router:Router,public userService:UserService) { }
 
   ngOnInit() {
 

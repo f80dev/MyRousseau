@@ -54,6 +54,7 @@ export class LightProfilComponent implements OnInit {
   selproduct(ref) {
     this.userService.addproduct(ref).subscribe((r:any)=>{
         this.userService.user=r;
+        this.userService.loadProducts();
     });
   }
 
@@ -67,7 +68,7 @@ export class LightProfilComponent implements OnInit {
 
   handleImage($event: WebcamImage) {
     this.userService.sendphoto({photo:$event.imageAsDataUrl,type:"product"}).subscribe(()=>{});
-    this.userService.user.products[0].photo=$event.imageAsDataUrl;
+    this.userService.user.load_products[0].photo=$event.imageAsDataUrl;
     this.takePicture=false;
   }
 

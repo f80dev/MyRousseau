@@ -1,6 +1,6 @@
 {
-  "appli_name":"My République Enfants",
-  "version":"0.2 beta",
+  "appli_name":"Ma République Enfants",
+  "version":"0.5.beta",
 
   "owner":{
     "licence":"propriétaire",
@@ -12,9 +12,6 @@
     "about":"République Enfants est une application développée par F80 pour le compte de la crêche du même nom"
   },
 
-  "admin":{
-    "email":"paul.dudule@gmail.com"
-  },
 
   "url_invite":"https://creche.appspot.com/appli/index.html",
   "logo":"./assets/icons/icon-384x384.png",
@@ -49,7 +46,7 @@
   "work":{
     "title":"Présence",
     "label_end":"Départ",
-    "label_start":"Arrivé à la crèche",
+    "label_start":"Arrivé",
     "label_newwork":"%product_name%",
     "short_url":"https://bit.ly/2IkZVox"
   },
@@ -61,6 +58,26 @@
     "font_size":"5vmin",
     "label_button":"Sélectionner",
     "max_product":1
+  },
+
+  "schedule":{
+    "title":"Horaire manuel",
+    "durations":[
+      {
+        "durationInMinute":480,
+        "label":"8h"
+      },
+      {
+        "durationInMinute":540,
+        "label":"9h"
+      },
+      {
+        "durationInMinute":600,
+        "label":"10h"
+      }
+    ],
+    "min_time":"08:30",
+    "max_time":"18:30"
   },
 
   "light_profil":{
@@ -106,9 +123,6 @@
     },
     "about":{
       "visible":true
-    },
-    "admin":{
-      "visible":true
     }
   },
   
@@ -140,6 +154,13 @@
       "icon":"account_balance",
       "href":"https://www.mairie10.paris.fr/mes-demarches/07-enfance-et-affaires-scolaires/3-demarches-liees-a-la-petite-enfance/4-informations-accompagnement-activites-pour-aprents-et-enfants-du-10e-570"
     },
+    {
+      "online":false,
+      "title":"Chaussettes",
+      "description":"Prendre une photo de son enfant avant de l'emmener",
+      "icon":"palette",
+      "href":"https://assets.bombas.com/image/fetch/f_auto,q_auto/https://cdn.shopify.com/s/files/1/1119/5850/products/pink-purple-teal-yellow-layflat-product_8eb190d3-1692-4209-ad4d-f5c230d8bfa9_1000x1000.jpg%3Fv%3D1545237583"
+    },
   {
       "title":"Conseils parents",
       "description":"Conseils aux parents",
@@ -153,13 +174,13 @@
       "href":"https://p7.storage.canalblog.com/71/88/1401137/115633696.jpg"
     },
     {
-      "title":"Recettes",
-      "description":"Recette pour 12 mois",
+      "title":"Nutrition",
+      "description":"Conseils nutrition par Sophie Maisonnier",
       "icon":"format_color_fill",
-      "href":"https://www.bledina.com/recettes/12-mois/",
-      "target":"blank"
+      "href":"https://cibisblog.com/"
     },
     {
+      "online":false,
       "title":"Les commissions",
       "description":"Le travail des commissions",
       "icon":"message",
@@ -195,7 +216,8 @@
 
 
   "admin":{
-    "visible":true,
+    "visible":false,
+    "email":"hhoareau@gmail.com",
     "href":""
   },
 

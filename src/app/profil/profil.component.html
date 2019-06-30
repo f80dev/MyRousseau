@@ -66,7 +66,10 @@
 </button>
 
 <div *ngIf="!takePicture">
-  <img class="avatar" id="imgPhoto" [src]="profil.photo">&nbsp;
+  <img class="avatar"
+       id="imgPhoto"
+       src="{{userService.user.photo}}">
+  &nbsp;
   <button  mat-raised-button mat-button (click)="takePicture=true;">Modifier la photo</button>
 </div>
 

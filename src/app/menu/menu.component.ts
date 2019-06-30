@@ -21,14 +21,17 @@ export class MenuComponent {
   menu_appli:any={};
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
+
     
   constructor(public config:ConfigService,public userService:UserService,private breakpointObserver: BreakpointObserver,public router:Router) {
     config.init((conf)=>{
       this.menus=[];
       conf.menus.forEach(m=>{
-        m.routerLink="/catalogue/"+encodeURIComponent(btoa(m.href));
-        if(m.description==null)m.description=m.title;
-        this.menus.push(m);
+        if(m.online==null || m.online){
+          m.routerLink="/catalogue/"+encodeURIComponent(btoa(m.href));
+          if(m.description==null)m.description=m.title;
+          this.menus.push(m);
+        }
       });
     });
 

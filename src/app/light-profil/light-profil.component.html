@@ -1,16 +1,21 @@
 <mat-card class="app-card">
   <mat-card-header class="app-card-header" style="margin-left:-20px;">
+
     <table style="width:100%;">
       <tr style="vertical-align: middle;">
       <td style="text-align: left;width:60px;">
         <img class="avatar"
-             *ngIf="userService.user.products!=null"
+             *ngIf="userService.user.load_products!=null"
              src="{{userService.user.photo}}">
       </td>
+
       <td style="text-align: left;padding:0px;margin:0px;">
         <div *ngIf="userService.user.products!=null && !takePicture" id="divProduct">
-          {{userService.user.firstname}} {{userService.user.lastname}}
+          {{userService.user.firstname}} {{userService.user.lastname}}<br>
         </div>
+        <span style="font-weight: normal" *ngIf="userService.user.load_products!=null">
+          forfait:{{userService.user.load_products[0]?.forfait}}h
+        </span>
 
         <app-product-picker *ngIf="userService.user.products==null"
                             width="100%"
@@ -18,6 +23,11 @@
         </app-product-picker>
 
         <br>
+        <app-tuto *ngIf="userService.user.products==null"
+                  text="Utiliser les flêches latérales pour retrouver votre bambin ">
+        </app-tuto>
+
+
 
         <webcam *ngIf="takePicture"
                 [height]="300" width="400"
@@ -34,7 +44,7 @@
       </td>
       <td id="lblPoints"
           style="text-align:right;font-size: 4.5vw;">
-        <div  *ngIf="userService.user.products!=null && config.values.loyalty.enabled">
+        <div  *ngIf="userService.user.load_products!=null && config.values.loyalty.enabled">
           {{userService.user.pts}}
           <span style="font-size: 2.5vw;">pts</span>&nbsp;
         </div>
@@ -42,12 +52,14 @@
     </tr></table>
   </mat-card-header>
 
+
+
   <mat-card-content class="app-card-content">
-    <div *ngIf="userService.user.products!=null && !takePicture"
+    <div *ngIf="userService.user.load_products!=null && !takePicture"
          [ngStyle]="{'position':'relative','text-align':'center','width':'100%','height':config.values.light_profil?.height_preview}">
       <img
            style="height:100%;object-fit: cover;"
-           src="{{userService.user.products[0]?.photo}}"
+           src="{{userService.user.load_products[0]?.photo}}"
            alt="">
 
       <!--<div *ngIf="userService.user.products!=null" style="position:absolute;left:0px;top:0px;width:8%;width:50px;">-->
@@ -63,11 +75,16 @@
 
     </div>
 
-    <div *ngIf="userService.user?.products!=null" style="width: 100%;text-align: center">
-      <strong>{{userService.user?.products[0]?.label}}</strong>
+    <div *ngIf="userService.user?.load_products!=null" style="width: 100%;text-align: center">
+      <strong>{{userService.user?.load_products[0]?.label}}</strong>
     </div>
 
     <br>
+
+    <app-tuto *ngIf="userService.user.products!=null"
+              text="Vous pouvez remplacer l'image pour une vraie photo">
+    </app-tuto>
+
     <button
             *ngIf="!takePicture" mat-button mat-raised-button
             (click)="takePhoto()">
@@ -81,7 +98,7 @@
       Déclencher
     </button>
 
-    <button *ngIf="userService.user?.products!=null && userService.user.products[0].services!=null"
+    <button *ngIf="userService.user?.load_products!=null && userService.user.load_products[0]?.services!=null"
             id="cmdServices"
             mat-button mat-raised-button
             (click)="linkServices()">Services associés

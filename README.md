@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Fonctionnement
+Cette application est un développement hautement customizable afin de simplifier
+la production de maquette
+
+Il repose sur un principe 
+ - d'utilisateur qui posséde des produits
+ - qui les utilisent
+ - aux produits sont rattachés des services
+ - il est possible de fixer des rendez vous aux utilisateurs
+ 

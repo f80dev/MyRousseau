@@ -34,11 +34,19 @@ export class UserService {
     }
   }
 
+  public loadProducts(){
+    this.http.get(api("getproducts","email="+this.user.email)).subscribe((resp:any)=>{
+      this.user.load_products=resp.items;
+    });
+
+  }
+
   public set(r:any){
     if(r==null)return;
     if(!r.hasOwnProperty("dtLastNotif"))r.dtLastNotif=1e9;
     r.notif=(r.dtLastNotif!=1e9)
     this.user=r;
+    this.loadProducts();
   }
 
   logout() {
@@ -95,12 +103,17 @@ export class UserService {
 
   getworks() {
     if(this.user.products!=null){
-      var productid=this.user.products[0].id;
+      var productid=this.user.products[0];
       return this.http.get(api("getworks","productid="+productid));
     }
   }
 
   sendphoto(param: { photo: string ,type:string}) {
     return this.http.post(api("sendphoto","email="+this.user.email),param);
+  }
+
+  delwork(w: any) {
+    w.owner=this.user.email;
+    return this.http.get(api("delwork","work_id="+w.id));
   }
 }

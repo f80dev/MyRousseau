@@ -18,7 +18,14 @@ import {
   MatCardModule,
   MatGridListModule,
   MatMenuModule,
-  MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTreeModule, MatChipsModule, MatSnackBarModule, MatCheckboxModule
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatExpansionModule,
+  MatTreeModule,
+  MatChipsModule,
+  MatSnackBarModule,
+  MatCheckboxModule,
+  MatDialog
 } from '@angular/material';
 
 import { ContactComponent } from './contact/contact.component';
@@ -48,6 +55,7 @@ import { AboutComponent } from './about/about.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import {MatDialogModule} from '@angular/material/dialog';
 import { environment } from '../environments/environment';
 import {LayoutModule} from '@angular/cdk/layout';
 import { PreferencesComponent } from './preferences/preferences.component';
@@ -58,6 +66,8 @@ import { ListMessagesComponent } from './list-messages/list-messages.component';
 import { ListWorksComponent } from './list-works/list-works.component';
 import { AddmessageComponent } from './addmessage/addmessage.component';
 import {WebcamModule} from 'ngx-webcam';
+import { TutoComponent } from './tuto/tuto.component';
+import { ModalInputComponent } from './modal-input/modal-input.component';
 
 @NgModule({
   declarations: [
@@ -88,10 +98,13 @@ import {WebcamModule} from 'ngx-webcam';
     AnonymousComponent,
     ListMessagesComponent,
     ListWorksComponent,
-    AddmessageComponent
+    AddmessageComponent,
+    TutoComponent,
+    ModalInputComponent
   ],
   imports: [
     MatCarouselModule,
+    MatDialogModule,
     BrowserModule,
     MatSnackBarModule,
     MatChipsModule,

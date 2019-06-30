@@ -10,6 +10,13 @@ export function direct_api(service:string ,param : string, encode : boolean = tr
   return(environment.domain+ "/" + service + "?" + param);
 }
 
+export function hashCode(s){
+  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+}
+
+export function tirage(max){
+  return Math.trunc(Math.random()*max);
+}
 
 export function openGeneral(item,domain)  {
   return new Promise((resolve,reject)=>{
