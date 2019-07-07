@@ -19,6 +19,8 @@ import {ContactComponent} from './contact/contact.component';
 import {AnonymousComponent} from './anonymous/anonymous.component';
 import {AddmessageComponent} from './addmessage/addmessage.component';
 import {ListWorksComponent} from './list-works/list-works.component';
+import {ProductComponent} from './product/product.component';
+import {ReferencesComponent} from './references/references.component';
 
 
 const routes: Routes = [
@@ -30,6 +32,7 @@ const routes: Routes = [
   { path: 'login',component: LoginComponent},
   { path: 'connectTo',redirectTo:"/api/connectTo"},
   { path: 'preferences',component: PreferencesComponent},
+  { path: 'references',component: ReferencesComponent},
   { path: 'login/:email/:password',component: LoginComponent},
   { path: 'login/:email',component: LoginComponent},
   { path: 'address',component: AddressComponent},
@@ -40,7 +43,8 @@ const routes: Routes = [
   { path: 'addmessages',component: AddmessageComponent},
   { path: 'catalogue/:url',component: CatalogueComponent},
   { path: 'main/:command',component: MainComponent},
-  { path: 'list-work/:command',component: ListWorksComponent},
+  { path: 'works/:command',component: ListWorksComponent},
+  { path: 'product/:product_id',component: ProductComponent},
   { path: 'works',component: ListWorksComponent},
   { path: 'catalogue',component: CatalogueComponent},
   { path: 'start',component: MainComponent},

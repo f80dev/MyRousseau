@@ -21,7 +21,7 @@ export class PreferencesComponent implements OnInit {
       dtLastNotif=new Date().getTime();
       if(this._pn.isSupported())this._pn.requestPermission();
     }
-    this.api.add(p.email,p.firstname,p.lastname,dtLastNotif).subscribe((r)=>{
+    this.api.add(p,dtLastNotif).subscribe((r)=>{
       this.userService.set(r);
     });
   }

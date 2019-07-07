@@ -33,7 +33,9 @@ export class MainComponent implements OnInit {
           this.route.queryParams.subscribe((params)=>{
             let command=params['command'];
             if(command=="mark")
-              this.router.navigate(["list-works"],{ queryParams: { command: command} })
+              setTimeout(()=>{
+                this.router.navigate(["works"],{ queryParams: { command: command} })
+              },1000)
           })
         }
       })

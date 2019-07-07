@@ -25,7 +25,7 @@ import {
   MatChipsModule,
   MatSnackBarModule,
   MatCheckboxModule,
-  MatDialog
+  MAT_DATE_FORMATS, MAT_DATE_LOCALE, DateAdapter
 } from '@angular/material';
 
 import { ContactComponent } from './contact/contact.component';
@@ -68,6 +68,22 @@ import { AddmessageComponent } from './addmessage/addmessage.component';
 import {WebcamModule} from 'ngx-webcam';
 import { TutoComponent } from './tuto/tuto.component';
 import { ModalInputComponent } from './modal-input/modal-input.component';
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import { ProductComponent } from './product/product.component';
+import { ReferencesComponent } from './references/references.component';
+import { NewReferenceComponent } from './new-reference/new-reference.component';
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MM YYYY',
+    dateA11yLabel: 'DD/MM/YYYY',
+    monthYearA11yLabel: 'MM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -100,7 +116,10 @@ import { ModalInputComponent } from './modal-input/modal-input.component';
     ListWorksComponent,
     AddmessageComponent,
     TutoComponent,
-    ModalInputComponent
+    ModalInputComponent,
+    ProductComponent,
+    ReferencesComponent,
+    NewReferenceComponent
   ],
   imports: [
     MatCarouselModule,
@@ -136,7 +155,13 @@ import { ModalInputComponent } from './modal-input/modal-input.component';
     MatTreeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [ApiService,UserService],
+  providers: [
+    ApiService,
+    UserService,
+    { provide: MAT_DATE_LOCALE, useValue: 'fr' },
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

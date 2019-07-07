@@ -53,8 +53,9 @@ export class LightProfilComponent implements OnInit {
 
   selproduct(ref) {
     this.userService.addproduct(ref).subscribe((r:any)=>{
+      this.userService.loadProducts(()=>{
         this.userService.user=r;
-        this.userService.loadProducts();
+      })
     });
   }
 
@@ -82,5 +83,9 @@ export class LightProfilComponent implements OnInit {
 
   triggerSnapshot() {
     this.trigger.next();
+  }
+
+  showproduct(id:string) {
+    this.router.navigate(["product/"+id]);
   }
 }

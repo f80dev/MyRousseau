@@ -76,6 +76,13 @@
         &nbsp;&nbsp;Récompenses
       </a>
 
+      <a *ngIf="config.values.menu.references?.visible" mat-list-item routerLink="/references"
+          id="cmdReference"
+          title="Adresses">
+        <mat-icon>cake</mat-icon>
+        &nbsp;&nbsp;Adresses
+      </a>
+
       <a *ngIf="config.values.menu.services.visible" mat-list-item routerLink="/services"
          id="cmdAllServices"
          title="Liste de l'ensemble des prestations / services proposées">

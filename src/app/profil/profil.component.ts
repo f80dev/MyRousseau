@@ -21,7 +21,7 @@ export class ProfilComponent implements OnInit {
   };
   private multipleWebcamsAvailable: boolean;
 
-  @Input("profil") profil:any={email:"",firstname:"",lastname:"",notif:false,share:false};
+  @Input("profil") profil:any={photo:"./assets/img/avatar.png",email:"",firstname:"",lastname:"",notif:false,share:false};
   @Output('onchange') onchange: EventEmitter<any>=new EventEmitter();
 
   constructor(public router:Router,public config:ConfigService,public userService:UserService) {
@@ -55,7 +55,7 @@ export class ProfilComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profil.photo=this.config.values.avatar;
+    this.profil.photo=this.config.values.user_profil.default_photo;
     WebcamUtil.getAvailableVideoInputs()
       .then((mediaDevices: MediaDeviceInfo[]) => {
         this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;

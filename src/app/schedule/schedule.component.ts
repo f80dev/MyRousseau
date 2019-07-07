@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AmazingTimePickerModule, AmazingTimePickerService} from 'amazing-time-picker';
+import {AmazingTimePickerService} from 'amazing-time-picker';
 import {tirage} from '../tools';
 import {ConfigService} from '../config.service';
 
@@ -52,12 +52,11 @@ export class ScheduleComponent implements OnInit {
   }
 
   getFullDate(_date:string=null,_time:string=null):Date{
-    if(_date!=null)
-      _date=_date.split("T")[0];
-    else
-      _date=new Date().toISOString().split("T")[0];
-
-    if(_time==null)_time=new Date().toISOString().split("T")[1];
+    if(_time==null){
+      _time=new Date().toISOString().split("T")[1];
+      if(new Date().getMinutes()<10)
+        _time=_time.substr(0,_time.length-2)+"0"+_time.substr(_time.length-1);
+    }
     var fullDate=_date+"T"+_time;
     if(fullDate.indexOf("+")==-1)fullDate+="+02:00";
     return new Date(fullDate);
@@ -70,21 +69,26 @@ export class ScheduleComponent implements OnInit {
   }
 
   askForAppointment() {
-
     var _max=this.config.values.schedule.max_time;
-    if(this.convertStringTime(this.sch_end_hour)>this.convertStringTime(_max)) this.sch_end_hour=_max;
+    if(this.convertStringTime(this.sch_end_hour)>this.convertStringTime(_max))
+      this.sch_end_hour=_max;
 
+    var d=new Date(this.sch_date);
+    d.setHours(Number(this.sch_hour.split(":")[0]));
+    d.setMinutes(Number(this.sch_hour.split(":")[1]));
+    var dtStart=new Date(d);
 
-    var dtStart=this.getFullDate(this.sch_date,this.sch_hour);
-    var dtEnd=this.getFullDate(this.sch_date,this.sch_end_hour);
+    d.setHours(Number(this.sch_end_hour.split(":")[0]));
+    d.setMinutes(Number(this.sch_end_hour.split(":")[1]));
+    var dtEnd=new Date(d);
 
-      var duration=(dtEnd.getTime()-dtStart.getTime())/60000;
+    var duration=(dtEnd.getTime()-dtStart.getTime())/60000;
 
-      this.close.emit({dtStart:dtStart.getTime(),motif:this.motif,duration:this.duration});
+      this.close.emit({dtStart:dtStart.getTime(),motif:this.motif,duration:duration});
 
-      this.userService.askforappointment(dtStart.getTime(),this.motif,this.duration).subscribe(()=>{
-        this.router.navigate(["main"]);
-      });
+      // this.userService.askforappointment(dtStart.getTime(),this.motif,this.duration).subscribe(()=>{
+      //   this.router.navigate(["main"]);
+      // });
   }
 
   calculEndHour(){

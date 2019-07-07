@@ -2,6 +2,7 @@ import {AfterContentInit, AfterViewInit, Component, EventEmitter, Input, OnInit,
 import {ApiService} from '../api.service';
 import {ConfigService} from '../config.service';
 import {UserService} from '../user.service';
+import {$$} from '../tools';
 
 @Component({
   selector: 'app-product-picker',
@@ -10,11 +11,13 @@ import {UserService} from '../user.service';
 })
 export class ProductPickerComponent implements OnInit {
   @Output('onclick') onclick: EventEmitter<any>=new EventEmitter();
-  @Input("width") width:string="100%";
   @Input("height") height:string="150px";
+  products: any[]=[];
+  width:string="250px";
 
-  constructor(public api:ApiService,public config:ConfigService,public userData:UserService) {
-    this.api.initProducts();
+  constructor(public api:ApiService,
+              public config:ConfigService,
+              public userData:UserService) {
   }
 
 
@@ -23,6 +26,9 @@ export class ProductPickerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.api.initProducts((r)=>{
+      this.products=r;
+    });
   }
 
 }

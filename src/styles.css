@@ -132,6 +132,7 @@ body { overflow: hidden; margin: 0; font-family: 'Roboto', sans-serif; }
 
 .input-style {
   margin:5px;
+  width:80%;
 }
 
 .menu-overflow-hidden {

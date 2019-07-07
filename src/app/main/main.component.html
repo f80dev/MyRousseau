@@ -8,7 +8,7 @@
     </td>
       <td>
         <app-list-messages></app-list-messages>
-        <app-list-works *ngIf="config.values.menu.list_works?.visible && userService.user.load_products!=null"></app-list-works>
+        <app-list-works *ngIf="config.values.menu.list_works?.visible && userService.user.products?.length>0!=null"></app-list-works>
         <app-gift  *ngIf="config.values.menu.gifts.visible"></app-gift>
       </td>
     </tr>
@@ -18,7 +18,7 @@
 <div *ngIf="!bigScreen">
   <app-welcome *ngIf="userService.user.connexions!=null && userService.user.connexions.length<3"></app-welcome>
   <app-list-messages></app-list-messages>
-  <app-list-works *ngIf="config.values.menu.list_works?.visible && userService.user?.load_products!=null" [max_items]="3"></app-list-works>
+  <app-list-works *ngIf="config.values.menu.list_works?.visible && userService.user?.products!=null" [max_items]="3"></app-list-works>
   <app-light-profil></app-light-profil>
   <app-next-appointment *ngIf="config.values.menu.next_appointment?.visible"></app-next-appointment>
 

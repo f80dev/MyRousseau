@@ -18,7 +18,7 @@ export class ShareComponent implements OnInit {
   constructor(public config:ConfigService,public snackBar:MatSnackBar,public userService:UserService,public router:Router) { }
 
   ngOnInit() {
-    this.url_appli=this.config.values.url_invite+"?from="+this.userService.user.id;
+    this.url_appli=this.config.values.url_invite+"?from="+this.userService.user.email;
   }
 
   sendInvitation() {

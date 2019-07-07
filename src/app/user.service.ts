@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {api} from './tools';
+import {$$, api} from './tools';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +34,10 @@ export class UserService {
     }
   }
 
-  public loadProducts(){
+  public loadProducts(func=null){
     this.http.get(api("getproducts","email="+this.user.email)).subscribe((resp:any)=>{
       this.user.load_products=resp.items;
+      if(func!=null)func(resp.items);
     });
 
   }
@@ -115,5 +116,13 @@ export class UserService {
   delwork(w: any) {
     w.owner=this.user.email;
     return this.http.get(api("delwork","work_id="+w.id));
+  }
+
+  addreference(ref: any) {
+    return this.http.post(api("addreference","user="+this.user.email),ref);
+  }
+
+  addvote(refid: string, note: number) {
+    return this.http.get(api("addvote","user="+this.user.email+"&refid="+refid+"&note="+note));
   }
 }

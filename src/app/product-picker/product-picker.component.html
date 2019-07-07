@@ -4,21 +4,19 @@
 <mat-carousel [autoplay]="false"
               [useKeyboard]="true"
               [loop]="true"
-              [useKeyboard]="true"
               [hideArrows]="false"
               [useMouseWheel]="true"
-              [proportion]="60" >
-  <mat-carousel-slide *ngFor="let product of api.products">
-    <img [src]="product.photo"
-         [ngStyle]="{'width': width,'object-fit': 'cover'}"
-         >
+              [proportion]="60">
+
+  <mat-carousel-slide *ngFor="let prod of products">
+    <img [src]="prod.photo" style="width:100%;object-fit: cover;">
     <div style="z-index:10;position: absolute;top:10px;left:15px;font-size: 1vw;">
       <span [ngStyle]="{'color':config.values.product_picker.title_color,'font-size':config.values.product_picker.font_size}">
-        {{product.label}}
+        {{prod.label}}
       </span>
     </div>
     <div style="z-index:10;position: absolute;top:75%;left:60%;">
-      <button mat-button mat-raised-button id="cmdSelProduct" (click)="onClick(product)">
+      <button mat-button mat-raised-button id="cmdSelProduct" (click)="onClick(prod)">
         {{config.values.product_picker.label_button}}
       </button>
     </div>

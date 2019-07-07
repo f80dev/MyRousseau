@@ -1,9 +1,9 @@
 {
   "appli_name":"Ma République Enfants",
-  "version":"0.5.beta",
+  "version":"0.13.beta",
 
   "owner":{
-    "licence":"propriétaire",
+    "licence":"ouverte",
     "company":"F80",
     "logo":"https://f80.fr/img/logoF80.png",
     "website":"http://f80.fr",
@@ -22,6 +22,7 @@
   "background_color":"orange",
 
   "authent":{
+    "shortname":"f80",
     "google":true,
     "linkedin":false,
     "facebook":true,
@@ -35,7 +36,13 @@
     "photo":false,
     "address":false,
     "share":false,
-    "notif":true
+    "notif":false,
+    "default_photo":"./assets/img/avatar.png",
+    "take_picture":false
+  },
+
+  "references":{
+    "categories":["magasin","alimentation","jouet","jardins"]
   },
 
   "header":{
@@ -48,7 +55,8 @@
     "label_end":"Départ",
     "label_start":"Arrivé",
     "label_newwork":"%product_name%",
-    "short_url":"https://bit.ly/2IkZVox"
+    "long_url":"https://creche.appspot.com/applis/works/mark",
+    "short_url":"http://bit.ly/2xlJW2G"
   },
 
   "product_picker":{
@@ -103,6 +111,9 @@
     "schedule":{
       "visible":false
     },
+    "references":{
+      "visible":true
+    },
     "list_messages":{
       "visible":true
     },
@@ -136,6 +147,13 @@
       "color":"red"
     },
     {
+      "title":"Bibliotheques",
+      "description":"Liste d'ouvrage sur la petite enfance",
+      "icon":"library_books",
+      "href":"./assets/html/books.html",
+      "color":"red"
+    },
+    {
       "title":"Contines",
       "description":"Liste de contines",
       "icon":"library_music",
@@ -155,7 +173,7 @@
       "href":"https://www.mairie10.paris.fr/mes-demarches/07-enfance-et-affaires-scolaires/3-demarches-liees-a-la-petite-enfance/4-informations-accompagnement-activites-pour-aprents-et-enfants-du-10e-570"
     },
     {
-      "online":false,
+      "online":true,
       "title":"Chaussettes",
       "description":"Prendre une photo de son enfant avant de l'emmener",
       "icon":"palette",
@@ -219,7 +237,7 @@
     "visible":false,
     "email":"hhoareau@gmail.com",
     "href":""
-  },
+  }
 
-  "avatar":"./assets/img/avatar.jpg"
+
 }

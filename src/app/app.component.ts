@@ -12,6 +12,9 @@ export class AppComponent {
   login: string="login";
 
   constructor(public api:ApiService,public userService:UserService,public router:Router,private route: ActivatedRoute){
+    this.api.initProducts((r)=>{
+      console.log("Produits initialisés");
+    });
   }
 
 }

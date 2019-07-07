@@ -11,8 +11,8 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  public add(user:string,firstname:string,lastname:string,dtlastnotif:number,modele:string=""){
-    return this.http.get(api("adduser","dtlastnotif="+dtlastnotif+"&email="+user+"&firstname="+firstname+"&lastname="+lastname+"&modele="+modele))
+  public add(user:any,dtLastNotif=0){
+    return this.http.post(api("adduser","dtLastNotif="+dtLastNotif),user)
   }
 
   public raz(){
@@ -30,19 +30,19 @@ export class ApiService {
   }
 
   public getusers(){
-    return this.http.get(api("getusers",""))
+    return this.http.get(api("getusers",""));
   }
 
-  public getproducts(){
-    return this.http.get(api("getproducts",""))
+  public getproducts(id=""){
+    return this.http.get(api("getproducts","id="+id));
   }
 
   public getappointments(){
-    return this.http.get(api("getappointments",""))
+    return this.http.get(api("getappointments",""));
   }
 
   public getservices(id:string=null){
-      return this.http.get(api("getservices","product="+id))
+      return this.http.get(api("getservices","product="+id));
   }
 
   public addgift(user:string,gift:any){
@@ -67,10 +67,14 @@ export class ApiService {
     return this.http.get(api("resend_code","email="+email));
   }
 
-  initProducts() {
-    this.getproducts().subscribe((r:any)=>{
-      this.products=r.items;
-    });
+  initProducts(func=null) {
+    if(this.products==null || this.products.length==0){
+      this.getproducts().subscribe((r:any)=>{
+        this.products=r.items;
+        if(func!=null)func(this.products);
+      });
+    } else
+      func(this.products);
   }
 
   startwork(product_id:string) {
@@ -78,4 +82,11 @@ export class ApiService {
   }
 
 
+  getresp(product_id: string) {
+    return this.http.get(api("getresp","product_id="+product_id));
+  }
+
+  getreferences(category:string) {
+    return this.http.get(api("getreferences","category="+category));
+  }
 }

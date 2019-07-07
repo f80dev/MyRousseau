@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   password="";
   showResendCode=false;
   handleLogin=null;
-  private showServiceTiers: boolean=true;
+  showServiceTiers: boolean=true;
 
   constructor(public deviceService: DeviceDetectorService,
               public userService:UserService,public config:ConfigService,
@@ -49,12 +49,13 @@ export class LoginComponent implements OnInit {
   }
 
   login(manual=false) {
+    if(manual)this.showServiceTiers=false;
     localStorage.setItem("email",this.email);
     this.api.login(this.email,this.password).subscribe((r:any)=>{
       if(!this.showPassword){
         if(r==null){
           if(manual)
-            this.router.navigate(['/newuser'],{ queryParams: { email: this.email} });
+            this.router.navigate(['/newuser'],{ queryParams: { email: this.email,photo:this.config.values.user_profil.default_photo} });
         }
         else
           this.showPassword=true;

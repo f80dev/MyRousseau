@@ -1,11 +1,12 @@
 <br>
-<mat-label >{{profil?.email}}</mat-label><br>
+<mat-label >Email: {{profil?.email}}</mat-label><br>
 <br><br>
 <div class="row">
   <div class="col">
     <mat-form-field class="input-style"
                     *ngIf="config.values.user_profil.firstname">
       <input [(ngModel)]="profil.firstname" matInput placeholder="Votre prénom"
+             autofocus
              id="txtFirstname"
              (change)="onchange.emit(profil)">
     </mat-form-field>
@@ -21,8 +22,7 @@
 </div>
 
 
-<mat-form-field class="input-style"
-                *ngIf="config.values.user_profil.phone">
+<mat-form-field class="input-style" *ngIf="config.values.user_profil.phone">
   <input [(ngModel)]="profil.phone" matInput placeholder="Votre numéro de téléphone"
          id="txtPhone"
          (change)="onchange.emit(profil)">
@@ -46,7 +46,7 @@
 </mat-checkbox>
 <br><br>
 
-<webcam *ngIf="takePicture"
+<webcam *ngIf="takePicture && config.values.user_profil.take_picture"
         height="100" width="200"
         [trigger]="triggerObservable"
         [videoOptions]="videoOptions"
@@ -58,21 +58,24 @@
 >
 </webcam>
 
-<button *ngIf="takePicture"
+<button *ngIf="takePicture && config.values.user_profil.take_picture"
         mat-raised-button mat-button
         id="cmdTakePicture"
         (click)="triggerSnapshot()">
   Déclencher
 </button>
 
-<div *ngIf="!takePicture">
+<div *ngIf="!takePicture && config.values.user_profil.take_picture">
   <img class="avatar"
        id="imgPhoto"
-       src="{{userService.user.photo}}">
+       src="{{profil.photo}}">
   &nbsp;
   <button  mat-raised-button mat-button (click)="takePicture=true;">Modifier la photo</button>
 </div>
 
 <br>
-<br>
-<button mat-raised-button mat-button (click)="deleteProduct()">Enfant</button>
+<button mat-raised-button mat-button
+        *ngIf="profil.products?.length>0"
+        (click)="deleteProduct()">
+  Enfant
+</button>

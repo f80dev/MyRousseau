@@ -11,35 +11,35 @@
 
       <h1>Se connecter</h1>
       <div *ngIf="showServiceTiers">
-      <button *ngIf="config.values.authent.google"
-              id="cmdGoogle"
-              title="Authentification via Google"
-              class="button-identity-provider"
-              mat-raised-button
-              (click)="loginService('contact')">
-        Google
-      </button>
-      <br>
+        <button *ngIf="config.values.authent.google"
+                id="cmdGoogle"
+                title="Authentification via Google"
+                class="button-identity-provider"
+                mat-raised-button
+                (click)="loginService('contact')">
+          via Google
+        </button>
+        <br>
 
-      <button *ngIf="config.values.authent?.facebook"
-              id="cmdFacebook"
-              title="Authentification via Facebook"
-              class="button-identity-provider"
-              mat-raised-button
-              (click)="loginService('facebook')">
-        Facebook
-      </button>
-      <br>
+        <button *ngIf="config.values.authent?.facebook"
+                id="cmdFacebook"
+                title="Authentification via Facebook"
+                class="button-identity-provider"
+                mat-raised-button
+                (click)="loginService('facebook')">
+          via Facebook
+        </button>
+        <br>
 
-      <!--<button class="button-identity-provider" mat-raised-button >Facebook</button><br>-->
-      <button *ngIf="config.values.authent?.linkedin"
-              class="button-identity-provider"
-              title="Authentification via linkedin"
-              mat-raised-button
-              id="cmdLinkedin"
-              (click)="loginService('linkedin')">
-        Linkedin
-      </button>
+        <!--<button class="button-identity-provider" mat-raised-button >Facebook</button><br>-->
+        <button *ngIf="config.values.authent?.linkedin"
+                class="button-identity-provider"
+                title="Authentification via linkedin"
+                mat-raised-button
+                id="cmdLinkedin"
+                (click)="loginService('linkedin')">
+          via Linkedin
+        </button>
       </div>
 
       <div *ngIf="config.values.authent?.email">
@@ -76,7 +76,16 @@
           </button>
         </mat-form-field>
 
+        <br>
+        <button *ngIf="email!=null && email.length>0 && email.split('@').length>1"
+                mat-raised-button
+                id="cmdLogin"
+                (click)="login(true)">
+          Login
+        </button>
+
         <div *ngIf="showResendCode">
+          <br>
           Votre code est incorrect, Il vous à été envoyé dans votre boite mail<br>
           <button mat-raised-button
                   id="cmdResendPassword"
@@ -86,13 +95,6 @@
           <br>
         </div>
 
-        <br>
-        <button *ngIf="email!=null && email.length>0 && email.split('@').length>1"
-                mat-raised-button
-                id="cmdLogin"
-                (click)="login(true)">
-          Login
-        </button>
 
       </div>
 

@@ -16,6 +16,7 @@ export class NewUserComponent implements OnInit {
   profil: any={firstname:"",lastname:"",dtLastModif:1e9};
   carPicture:string="";
   message: string = '';
+  photo: string="";
 
   constructor(public config:ConfigService,public api:ApiService,public route:ActivatedRoute,public router:Router) { }
 
@@ -23,6 +24,7 @@ export class NewUserComponent implements OnInit {
     if(this.email==""){
       this.route.queryParams.subscribe((params) => {
         this.email=params['email'] || "";
+        this.photo=params['photo'] || "./assets/img/avatar.png";
         this.profil.email=this.email;
       });
     }
@@ -41,13 +43,15 @@ export class NewUserComponent implements OnInit {
   }
 
   sendUser() {
-    this.api.add(this.email,this.profil.firstname,this.profil.lastname,this.profil.dtLastModif,this.modele).subscribe((r:any)=>{
+    this.message="Votre code d'accès vient d'être envoyé sur votre mail. Vérifier votre boite "+this.email;
+    this.api.add(this.profil).subscribe((r:any)=>{
       localStorage.setItem("email",r.email);
-      this.message="Votre code d'accès vient d'être envoyé sur votre mail. Vérifier votre boite "+this.email;
       setTimeout(()=>{
         this.router.navigate(["login"],{queryParams:{email:this.email}});
-      },2000);
-
+      },2500);
+    },(err)=>{
+      debugger
+      console.log("Error d'enregistrement");
     });
   }
 

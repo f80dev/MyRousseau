@@ -18,6 +18,16 @@ export function tirage(max){
   return Math.trunc(Math.random()*max);
 }
 
+export function $$(s:string,obj:any=null){
+  var lg=new Date().getHours()+":"+new Date().getMinutes()+" -> "+s;
+  if(obj!=null)
+    obj=JSON.stringify(obj);
+  else
+    obj="";
+  console.log(lg+" "+obj);
+  if(lg.indexOf("!!")>-1)alert(lg);
+}
+
 export function openGeneral(item,domain)  {
   return new Promise((resolve,reject)=>{
       let url = environment.domain + "/api/connectTo?service=" + item+"&domain="+domain;
