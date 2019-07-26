@@ -72,6 +72,11 @@ import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import { ProductComponent } from './product/product.component';
 import { ReferencesComponent } from './references/references.component';
 import { NewReferenceComponent } from './new-reference/new-reference.component';
+import {NgxLunrModule} from 'ngx-lunr';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NewItemComponent } from './new-item/new-item.component';
+import { ComposeMenuComponent } from './compose-menu/compose-menu.component';
+import { ScheduleMenuComponent } from './schedule-menu/schedule-menu.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -119,9 +124,13 @@ export const MY_FORMATS = {
     ModalInputComponent,
     ProductComponent,
     ReferencesComponent,
-    NewReferenceComponent
+    NewReferenceComponent,
+    NewItemComponent,
+    ComposeMenuComponent,
+    ScheduleMenuComponent
   ],
   imports: [
+    NgxLunrModule.forRoot(),
     MatCarouselModule,
     MatDialogModule,
     BrowserModule,
@@ -160,7 +169,7 @@ export const MY_FORMATS = {
     UserService,
     { provide: MAT_DATE_LOCALE, useValue: 'fr' },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
   bootstrap: [AppComponent]
 })

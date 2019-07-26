@@ -1,6 +1,6 @@
 {
   "appli_name":"Ma République Enfants",
-  "version":"0.13.beta",
+  "version":"0.14.beta",
 
   "owner":{
     "licence":"ouverte",
@@ -17,7 +17,7 @@
   "logo":"./assets/icons/icon-384x384.png",
   "splash":{
     "title":"République Enfants",
-    "screen":"./assets/img/splash_creche.webp"
+    "screen":"./assets/img/splash_creche.jpg"
   },
   "background_color":"orange",
 
@@ -42,7 +42,9 @@
   },
 
   "references":{
-    "categories":["magasin","alimentation","jouet","jardins"]
+    "#":"Fenêtre utilisée pour stocker des adresses par catégorie",
+    "title":"Nos meilleurs adresses",
+    "categories":["magasins","alimentation","jouets","lieux","loisir"]
   },
 
   "header":{
@@ -51,12 +53,16 @@
   },
 
   "work":{
-    "title":"Présence",
+    "title":"Présences",
     "label_end":"Départ",
-    "label_start":"Arrivé",
+    "label_start":"Arrivée",
     "label_newwork":"%product_name%",
     "long_url":"https://creche.appspot.com/applis/works/mark",
     "short_url":"http://bit.ly/2xlJW2G"
+  },
+
+  "compose_menu":{
+    "title":"Composer les menus"
   },
 
   "product_picker":{
@@ -93,6 +99,10 @@
   },
 
   "menu":{
+    "compose_menu":{
+      "visible":true
+    },
+
     "next_appointment":{
       "visible":false
     },
@@ -147,14 +157,22 @@
       "color":"red"
     },
     {
-      "title":"Bibliotheques",
+      "online":"false",
+      "title":"Menus",
+      "description":"Menus de la semaine",
+      "icon":"list",
+      "href":"https://p7.storage.canalblog.com/71/88/1401137/115633696.jpg"
+    },
+    {
+      "online":"false",
+      "title":"Bibliographie",
       "description":"Liste d'ouvrage sur la petite enfance",
       "icon":"library_books",
       "href":"./assets/html/books.html",
       "color":"red"
     },
     {
-      "title":"Contines",
+      "title":"Comptines",
       "description":"Liste de contines",
       "icon":"library_music",
       "href":"https://comptines.tv/"
@@ -173,23 +191,25 @@
       "href":"https://www.mairie10.paris.fr/mes-demarches/07-enfance-et-affaires-scolaires/3-demarches-liees-a-la-petite-enfance/4-informations-accompagnement-activites-pour-aprents-et-enfants-du-10e-570"
     },
     {
-      "online":true,
+      "online":false,
       "title":"Chaussettes",
       "description":"Prendre une photo de son enfant avant de l'emmener",
       "icon":"palette",
       "href":"https://assets.bombas.com/image/fetch/f_auto,q_auto/https://cdn.shopify.com/s/files/1/1119/5850/products/pink-purple-teal-yellow-layflat-product_8eb190d3-1692-4209-ad4d-f5c230d8bfa9_1000x1000.jpg%3Fv%3D1545237583"
     },
   {
+      "online":false,
       "title":"Conseils parents",
       "description":"Conseils aux parents",
       "icon":"account_circle",
       "href":"https://www.magicmaman.com/les-signes-de-fatigue-chez-le-bebe,3603829.asp"
     },
     {
-      "title":"Menus",
-      "description":"Menus de la semaine",
-      "icon":"list",
-      "href":"https://p7.storage.canalblog.com/71/88/1401137/115633696.jpg"
+      "online":true,
+      "title":"Conseils parents",
+      "description":"Conseils aux parents",
+      "icon":"account_circle",
+      "href":"$domain_server$/blog/index.html"
     },
     {
       "title":"Nutrition",
@@ -213,7 +233,7 @@
       "target":"blank"
     },
     {
-      "title":"Sortir",
+      "title":"Agenda culturelle",
       "description":"Sortir a Paris avec des petits",
       "icon":"videogame_asset",
       "href":"https://www.familinparis.fr/paris-pour-les-petits/#actualite"
@@ -222,9 +242,47 @@
       "title":"Vacances",
       "description":"Vacances scolaires",
       "icon":"chrome_reader_mode",
-      "href":"https://cdn.radiofrance.fr/s3/cruiser-production/2018/08/97d23c8a-1f1e-4467-a1b6-2129333aeb23/860_calendrier_2.jpg"
+      "href":"https://f2.quomodo.com/C7275825/uploads/4944/190708_155739.jpg"
     }
   ],
+
+  "item":{
+      "category":["entrée","plat végétarien","plat de carnivore","dessert"],
+      "items":[
+        {
+          "tags":"plat,poisson",
+          "title":"Brandade de morue",
+          "description":"Petite purée de pomme terre",
+          "commentaire":"",
+          "from":"hhoareau@gmail.com",
+          "recette":"https://www.marmiton.org/recettes/recette_brandade-de-morue_12736.aspx"
+        },
+        {
+          "tags":"plat,feculent",
+          "title":"Gratin de coquillette",
+          "description":"Un simple gratin",
+          "commentaire":"Un plat qui tient au corps pour le froid",
+          "from":"hhoareau@gmail.com",
+          "recette":"https://www.marmiton.org/recettes/recette_gratin-de-coquillettes-au-jambon_20986.aspx"
+        },
+        {
+          "tags":"entrée,agrumes,poisson",
+          "title":"Crevettes pamplemousse",
+          "description":"Morceau de crevette avec morceaux de pamplemousse",
+          "commentaire":"",
+          "from":"hhoareau@gmail.com",
+          "recette":"https://www.marmiton.org/recettes/recette_salade-crevettes-et-pamplemousse_15454.aspx"
+        },
+        {
+          "tags":"entrée,légumes",
+          "title":"Salade avocats-crevette",
+          "description":"Avocat en morceaux ..",
+          "commentaire":"",
+          "from":"hhoareau@gmail.com",
+          "recette":"https://www.marmiton.org/recettes/recette_coupe-fraicheur-d-avocat-crevette_17102.aspx"
+        }
+      ]
+  },
 
   "loyalty":{
     "enabled":false,
@@ -237,6 +295,14 @@
     "visible":false,
     "email":"hhoareau@gmail.com",
     "href":""
+  },
+
+  "creche":{
+    "dayoff":[
+      "02/08/2019:02/09/2019","02/08/2020:02/09/2020","01/01/2020","25/12/2019"
+    ],
+    "open":"08:30",
+    "close":"18:30"
   }
 
 

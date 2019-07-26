@@ -27,8 +27,11 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.userService.init(localStorage.getItem("email"),()=>{
       this.api.login(localStorage.getItem("email"),localStorage.getItem("password")).subscribe((r)=>{
-        if(r==null)
+        if(r==null){
+          this.userService.user={};
+          localStorage.removeItem("email");
           this.router.navigate(["anonymous"]);
+        }
         else{
           this.route.queryParams.subscribe((params)=>{
             let command=params['command'];

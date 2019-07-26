@@ -58,6 +58,8 @@ export function openGeneral(item,domain)  {
 
 
 
+
+
 export function getDelay(dtStart,lang="en",label_day="jours",serverNow=null){
   if(dtStart==undefined)return "";
   if(serverNow==null)serverNow=new Date().getTime();

@@ -1,24 +1,26 @@
-<h3>{{userData.user?.firstname}}, {{config.values.product_picker.title}}</h3>
+<h3 style="margin:0;padding:5px;">{{userData.user?.firstname}}, {{config.values.product_picker.title}}</h3>
 
 <!--https://github.com/gbrlsnchs/material2-carousel-->
 <mat-carousel [autoplay]="false"
               [useKeyboard]="true"
               [loop]="true"
+              style="height:500px;"
               [hideArrows]="false"
               [useMouseWheel]="true"
               [proportion]="60">
 
   <mat-carousel-slide *ngFor="let prod of products">
-    <img [src]="prod.photo" style="width:100%;object-fit: cover;">
+    <img [src]="prod.photo" style="width:80%;">
     <div style="z-index:10;position: absolute;top:10px;left:15px;font-size: 1vw;">
       <span [ngStyle]="{'color':config.values.product_picker.title_color,'font-size':config.values.product_picker.font_size}">
         {{prod.label}}
       </span>
     </div>
-    <div style="z-index:10;position: absolute;top:75%;left:60%;">
+    <div style="z-index:10;position: absolute;top:75%;left:65%;">
       <button mat-button mat-raised-button id="cmdSelProduct" (click)="onClick(prod)">
         {{config.values.product_picker.label_button}}
       </button>
     </div>
   </mat-carousel-slide>
+
 </mat-carousel>

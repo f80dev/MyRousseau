@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AmazingTimePickerService} from 'amazing-time-picker';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {tirage} from '../tools';
 import {ConfigService} from '../config.service';
 

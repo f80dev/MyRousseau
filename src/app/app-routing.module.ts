@@ -21,6 +21,7 @@ import {AddmessageComponent} from './addmessage/addmessage.component';
 import {ListWorksComponent} from './list-works/list-works.component';
 import {ProductComponent} from './product/product.component';
 import {ReferencesComponent} from './references/references.component';
+import {ComposeMenuComponent} from './compose-menu/compose-menu.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'main/:command',component: MainComponent},
   { path: 'works/:command',component: ListWorksComponent},
   { path: 'product/:product_id',component: ProductComponent},
+  { path: 'compose_menu',component: ComposeMenuComponent},
   { path: 'works',component: ListWorksComponent},
   { path: 'catalogue',component: CatalogueComponent},
   { path: 'start',component: MainComponent},

@@ -3,7 +3,8 @@
 
     <table style="width:100%;">
       <tr style="vertical-align: middle;">
-      <td style="text-align: left;width:60px;">
+      <td style="text-align: left;width:60px;" *ngIf="userService.user.products?.length>0">
+        <!--Image du produit-->
         <img class="avatar"
              *ngIf="userService.user.products?.length>0"
              src="{{userService.user.photo}}">
@@ -19,6 +20,7 @@
 
         <app-product-picker *ngIf="userService.user.products==null"
                             width="100%"
+                            style="height:500px;"
                             (onclick)="selproduct($event)">
         </app-product-picker>
 
@@ -53,10 +55,10 @@
   <mat-card-content class="app-card-content">
     <div *ngIf="userService.user.products?.length>0 && !takePicture"
          [ngStyle]="{'position':'relative','text-align':'center','width':'100%','height':config.values.light_profil?.height_preview}">
-      <img style="height:100%;object-fit: cover;"
-           src="{{userService.user.load_products[0]?.photo}}"
-           alt=""
-           (click)="showproduct(userService.user.products[0])">
+      <img *ngIf="userService.user.load_products!=null"
+            style="height:100%;object-fit: cover;"
+           src="{{userService.user.load_products[0].photo}}"
+           alt="">
 
       <!--<div *ngIf="userService.user.products!=null" style="position:absolute;left:0px;top:0px;width:8%;width:50px;">-->
         <!--<button id="cmdRemoveProduct" class="button-image-toolbar"-->
@@ -71,31 +73,42 @@
 
     </div>
 
-    <div *ngIf="userService.user.products?.length>0" style="width: 100%;text-align: center">
+    <div *ngIf="userService.user?.load_products!=null && userService.user.products?.length>0" style="width: 100%;text-align: center">
       <strong>{{userService.user?.load_products[0]?.label}}</strong>
     </div>
 
-    <br>
 
     <app-tuto *ngIf="userService.user.products!=null"
               text="Vous pouvez remplacer l'image pour une vraie photo">
     </app-tuto>
+    <br>
 
 
     <button *ngIf="!takePicture && userService.user.products!=null"
-            mat-button mat-raised-button
+            mat-icon-button mat-button mat-raised-button
+            style="margin:5px;"
             (click)="takePhoto()">
-      Photo
+      <mat-icon>camera</mat-icon>
     </button>
 
     <button *ngIf="takePicture"
-            mat-raised-button mat-button
+             mat-button
+            mat-raised-button
             id="cmdTakePicture"
-            (click)="triggerSnapshot()">
+            (click)="triggerSnapshot(true)">
       Déclencher
     </button>
+    &nbsp;
+    <button *ngIf="takePicture"
+            mat-raised-button
+             mat-button
+            id="cmdTakePicture"
+            (click)="triggerSnapshot(false)">
+      Annuler
+    </button>
 
-    <button *ngIf="userService.user.products?.length>0 && userService.user.load_products[0]?.services!=null"
+
+    <button *ngIf="userService.user.products?.length>0 && userService.user.load_products!=null && userService.user.load_products[0]?.services!=null"
             id="cmdServices"
             mat-button mat-raised-button
             (click)="linkServices()">Services associés

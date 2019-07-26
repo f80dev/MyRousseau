@@ -89,4 +89,25 @@ export class ApiService {
   getreferences(category:string) {
     return this.http.get(api("getreferences","category="+category));
   }
+
+  getItems(filter: string) {
+    return this.http.get(api("getitems","category="+filter));
+  }
+
+  getMenus(dtStart:number) {
+    return this.http.get(api("getmenus","dtStart="+dtStart));
+  }
+
+  nextmenudate(dtStart:number=null) {
+    return this.http.get(api("nextmenudate","dtStart="+dtStart));
+  }
+
+  isopen(dt:number,func:Function) {
+    this.http.get(api("isopen","dt="+dt)).subscribe((r:any)=>{
+      if(r.code==200)
+        func(true);
+      else
+        func(false);
+    });
+  }
 }

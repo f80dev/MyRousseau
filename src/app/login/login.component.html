@@ -5,7 +5,7 @@
       <div *ngIf="deviceService.isMobile()">
         <h2>{{config.values?.appli_name}}</h2>
         <img
-          style="max-height: 30vh;"
+          style="max-height: 20vh;"
           src="{{config.values.logo}}">
       </div>
 
@@ -48,7 +48,7 @@
           <input matInput type="email"
                  id="txtUsername"
                  title="Indiquer votre mail afin de recevoir le code de connexion dans votre boite"
-                 placeholder="Votre email" [(ngModel)]="email"
+                 placeholder="Par email" [(ngModel)]="email"
                  (keypress)="keypress($event)" class="input-style">
 
           <button mat-button *ngIf="email"
@@ -75,10 +75,9 @@
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
-
         <br>
         <button *ngIf="email!=null && email.length>0 && email.split('@').length>1"
-                mat-raised-button
+                mat-raised-button mat-button
                 id="cmdLogin"
                 (click)="login(true)">
           Login

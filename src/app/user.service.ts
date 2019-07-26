@@ -125,4 +125,16 @@ export class UserService {
   addvote(refid: string, note: number) {
     return this.http.get(api("addvote","user="+this.user.email+"&refid="+refid+"&note="+note));
   }
+
+  addItem(item: any) {
+    return this.http.post(api("additem","user="+this.user.email),item);
+  }
+
+  addtomenu(nextDate: number, id: any, item: any) {
+    return this.http.post(api("addtomenu","user="+this.user.email+"&dtStart="+nextDate),item);
+  }
+
+  deleteMenu(id: string) {
+    return this.http.get(api("deletemenu","user="+this.user.email+"&idmenu="+id));
+  }
 }

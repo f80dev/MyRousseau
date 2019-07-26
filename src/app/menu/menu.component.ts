@@ -24,9 +24,11 @@ export class MenuComponent {
 
     
   constructor(public config:ConfigService,public userService:UserService,private breakpointObserver: BreakpointObserver,public router:Router) {
+    //Construction du slide menu
     config.init((conf)=>{
       this.menus=[];
       conf.menus.forEach(m=>{
+        m.href=m.href.replace("$domain_server$",environment.domain);
         if(m.online==null || m.online){
           m.routerLink="/catalogue/"+encodeURIComponent(btoa(m.href));
           if(m.description==null)m.description=m.title;
@@ -51,6 +53,8 @@ export class MenuComponent {
   }
 
   logout() {
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
     this.userService.logout();
     this.router.navigate(["/login"]);
   }

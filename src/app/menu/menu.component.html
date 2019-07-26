@@ -69,6 +69,14 @@
         &nbsp;&nbsp;Message
       </a>
 
+      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.compose_menu?.visible" mat-list-item routerLink="/compose_menu"
+         id="cmdComposeMenu"
+         title="Diffuser un message a tous">
+        <mat-icon>cake</mat-icon>
+        &nbsp;&nbsp;Composer les menus
+      </a>
+
+
       <a *ngIf="userService.user!=null && userService.user.email!=null  && config.values.menu.gifts?.visible" mat-list-item routerLink="/gift"
           id="cmdGift"
           title="Liste des cadeaux / promotions">
