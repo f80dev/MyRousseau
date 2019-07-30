@@ -94,8 +94,8 @@ export class ApiService {
     return this.http.get(api("getitems","category="+filter));
   }
 
-  getMenus(dtStart:number) {
-    return this.http.get(api("getmenus","dtStart="+dtStart));
+  getMenus(dtStart:number,filter:string=null) {
+    return this.http.get(api("getmenus","dtStart="+dtStart+"&filter="+filter));
   }
 
   nextmenudate(dtStart:number=null) {
@@ -109,5 +109,9 @@ export class ApiService {
       else
         func(false);
     });
+  }
+
+  deleteitem(id: string) {
+    return this.http.get(api("deleteitem","item_id="+id));
   }
 }

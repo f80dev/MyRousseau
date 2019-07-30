@@ -77,6 +77,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { NewItemComponent } from './new-item/new-item.component';
 import { ComposeMenuComponent } from './compose-menu/compose-menu.component';
 import { ScheduleMenuComponent } from './schedule-menu/schedule-menu.component';
+import { ShowmenuComponent } from './showmenu/showmenu.component';
+import {LocService} from './loc.service';
 
 export const MY_FORMATS = {
   parse: {
@@ -127,7 +129,8 @@ export const MY_FORMATS = {
     NewReferenceComponent,
     NewItemComponent,
     ComposeMenuComponent,
-    ScheduleMenuComponent
+    ScheduleMenuComponent,
+    ShowmenuComponent
   ],
   imports: [
     NgxLunrModule.forRoot(),
@@ -166,6 +169,7 @@ export const MY_FORMATS = {
   ],
   providers: [
     ApiService,
+    LocService,
     UserService,
     { provide: MAT_DATE_LOCALE, useValue: 'fr' },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },

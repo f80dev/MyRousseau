@@ -69,11 +69,11 @@
         &nbsp;&nbsp;Message
       </a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.compose_menu?.visible" mat-list-item routerLink="/compose_menu"
-         id="cmdComposeMenu"
-         title="Diffuser un message a tous">
-        <mat-icon>cake</mat-icon>
-        &nbsp;&nbsp;Composer les menus
+      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.showmenu?.visible" mat-list-item routerLink="/showmenu"
+         id="cmdShowMenus"
+         title="Les menus des prochains jours">
+        <mat-icon>restaurant</mat-icon>
+        &nbsp;&nbsp;Les menus
       </a>
 
 
@@ -87,7 +87,7 @@
       <a *ngIf="config.values.menu.references?.visible" mat-list-item routerLink="/references"
           id="cmdReference"
           title="Adresses">
-        <mat-icon>cake</mat-icon>
+        <mat-icon>my_location</mat-icon>
         &nbsp;&nbsp;Adresses
       </a>
 

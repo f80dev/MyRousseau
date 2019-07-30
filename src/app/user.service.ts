@@ -39,7 +39,6 @@ export class UserService {
       this.user.load_products=resp.items;
       if(func!=null)func(resp.items);
     });
-
   }
 
   public set(r:any){
@@ -120,6 +119,10 @@ export class UserService {
 
   addreference(ref: any) {
     return this.http.post(api("addreference","user="+this.user.email),ref);
+  }
+
+  delreference(ref: any) {
+    return this.http.get(api("delreference","user="+this.user.email+"&refid="+ref.id));
   }
 
   addvote(refid: string, note: number) {

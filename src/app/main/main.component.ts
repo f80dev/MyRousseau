@@ -30,7 +30,6 @@ export class MainComponent implements OnInit {
         if(r==null){
           this.userService.user={};
           localStorage.removeItem("email");
-          this.router.navigate(["anonymous"]);
         }
         else{
           this.route.queryParams.subscribe((params)=>{

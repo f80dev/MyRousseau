@@ -1,6 +1,6 @@
 {
   "appli_name":"Ma République Enfants",
-  "version":"0.14.beta",
+  "version":"0.17.beta",
 
   "owner":{
     "licence":"ouverte",
@@ -103,6 +103,10 @@
       "visible":true
     },
 
+    "showmenu":{
+      "visible":true
+    },
+
     "next_appointment":{
       "visible":false
     },
@@ -157,14 +161,14 @@
       "color":"red"
     },
     {
-      "online":"false",
+      "online":false,
       "title":"Menus",
       "description":"Menus de la semaine",
       "icon":"list",
       "href":"https://p7.storage.canalblog.com/71/88/1401137/115633696.jpg"
     },
     {
-      "online":"false",
+      "online":false,
       "title":"Bibliographie",
       "description":"Liste d'ouvrage sur la petite enfance",
       "icon":"library_books",
@@ -197,25 +201,12 @@
       "icon":"palette",
       "href":"https://assets.bombas.com/image/fetch/f_auto,q_auto/https://cdn.shopify.com/s/files/1/1119/5850/products/pink-purple-teal-yellow-layflat-product_8eb190d3-1692-4209-ad4d-f5c230d8bfa9_1000x1000.jpg%3Fv%3D1545237583"
     },
-  {
-      "online":false,
-      "title":"Conseils parents",
-      "description":"Conseils aux parents",
-      "icon":"account_circle",
-      "href":"https://www.magicmaman.com/les-signes-de-fatigue-chez-le-bebe,3603829.asp"
-    },
     {
       "online":true,
-      "title":"Conseils parents",
+      "title":"Le blog",
       "description":"Conseils aux parents",
       "icon":"account_circle",
-      "href":"$domain_server$/blog/index.html"
-    },
-    {
-      "title":"Nutrition",
-      "description":"Conseils nutrition par Sophie Maisonnier",
-      "icon":"format_color_fill",
-      "href":"https://cibisblog.com/"
+      "href":"https://creche.appspot.com/blog/2019/07/bienvenue-dans-le-blog.html"
     },
     {
       "online":false,
@@ -233,7 +224,7 @@
       "target":"blank"
     },
     {
-      "title":"Agenda culturelle",
+      "title":"Agenda",
       "description":"Sortir a Paris avec des petits",
       "icon":"videogame_asset",
       "href":"https://www.familinparis.fr/paris-pour-les-petits/#actualite"
@@ -247,7 +238,7 @@
   ],
 
   "item":{
-      "category":["entrée","plat végétarien","plat de carnivore","dessert"],
+      "tags":["plat","poisson","féculent","dessert","entrée","agrumes","légumes"],
       "items":[
         {
           "tags":"plat,poisson",
@@ -258,7 +249,7 @@
           "recette":"https://www.marmiton.org/recettes/recette_brandade-de-morue_12736.aspx"
         },
         {
-          "tags":"plat,feculent",
+          "tags":"plat,féculent",
           "title":"Gratin de coquillette",
           "description":"Un simple gratin",
           "commentaire":"Un plat qui tient au corps pour le froid",
