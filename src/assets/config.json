@@ -62,7 +62,7 @@
   },
 
   "compose_menu":{
-    "title":"Composer les menus"
+    "title":"Menu"
   },
 
   "product_picker":{
@@ -156,7 +156,7 @@
       "title":"Premiers secours",
       "description":"Les premiers secours",
       "icon":"add_circle_outline",
-      "href":"https://www.vocationsante.fr/wp-content/uploads/2017/03/infographie.png",
+      "href":"https://creche.appspot.com/applis/assets/img/premiersecours.jpg",
       "color":"red"
     },
     {
