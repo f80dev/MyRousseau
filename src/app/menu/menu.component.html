@@ -55,7 +55,7 @@
         &nbsp;&nbsp;Rendez-vous
       </a>
 
-      <a *ngIf="userService.user!=null && userService.user.email!=null && config.values.menu.list_works?.visible" mat-list-item routerLink="/works"
+      <a *ngIf="userService.user!=null && userService.user?.email!=null && userService.user?.load_products!=null && userService.user?.load_products[0]!=null&& config.values.menu.list_works?.visible" mat-list-item routerLink="/works"
          id="cmdWorks"
          title="Toutes les présences enregistré">
         <mat-icon>people</mat-icon>

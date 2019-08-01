@@ -8,7 +8,7 @@
       "updateMode": "prefetch",
       "urls": [
         "/applis/favicon.ico",
-        "/applis/main.984bb7554aca66e8c17d.js",
+        "/applis/main.cadc298133dd19237d53.js",
         "/applis/polyfills.5b5c514d83a60ce973bc.js",
         "/applis/privacy.html",
         "/applis/runtime.26209474bfa8dc87a77c.js",
@@ -48,12 +48,16 @@
         "/applis/assets/img/logo-rousseau2.png",
         "/applis/assets/img/logo_creche.png",
         "/applis/assets/img/logo_selfapp.png",
+        "/applis/assets/img/premiersecours.jpg",
         "/applis/assets/img/qrcode_shorter.png",
         "/applis/assets/img/splash_creche.jpg",
         "/applis/assets/img/splash_hotel.jpg",
         "/applis/assets/img/splash_screen.webp",
         "/applis/assets/img/tips.png",
-        "/applis/assets/img/wait.gif"
+        "/applis/assets/img/wait.gif",
+        "/applis/assets/menus.json",
+        "/applis/assets/menus.xlsm",
+        "/applis/assets/~$menus.xlsm"
       ],
       "patterns": []
     }
@@ -72,7 +76,7 @@
     }
   ],
   "hashTable": {
-    "/applis/assets/config.json": "eca9b73342a89bd1c2e5f29024134e5a0b4eb8f7",
+    "/applis/assets/config.json": "8bb46751733c608a33fad431bb7d8e2416bc0a45",
     "/applis/assets/config_hotel.json": "e1b88e209f10c9454ff9cc77039d6182a073b3e1",
     "/applis/assets/html/books.html": "afdea479123a838f332edd88c2d3b0531db62f8f",
     "/applis/assets/icons/icon - Copy.png": "334676648de940298d6d2be403b681d014604c2c",
@@ -98,14 +102,18 @@
     "/applis/assets/img/logo-rousseau2.png": "eea6e34b5bd9f6d279930f92829a9f14c19397bc",
     "/applis/assets/img/logo_creche.png": "68a7570cdd73ab6e95716fb7942afbe93ec5338f",
     "/applis/assets/img/logo_selfapp.png": "b975dae853e3ca99ce9179194565b08ac500b3e0",
+    "/applis/assets/img/premiersecours.jpg": "f339e1b45f5eb85c0235cfabe18a165479137075",
     "/applis/assets/img/qrcode_shorter.png": "cd9e761360811d93cd827c45bb92a5840028eb61",
     "/applis/assets/img/splash_creche.jpg": "be3541291a0976e756429c2f95652b05d6ae89f8",
     "/applis/assets/img/splash_hotel.jpg": "4add7a544f6f73d2bb0755c31c0138e9a298e63a",
     "/applis/assets/img/splash_screen.webp": "ddb802d7917228dbe66593dbac2176ac9fa80081",
     "/applis/assets/img/tips.png": "f7b9e7372227902dd4cc5e68d5a2239cb1c4ad18",
     "/applis/assets/img/wait.gif": "8631a7917c369b330020c52aa463452ce9426dbd",
+    "/applis/assets/menus.json": "5fc4b191f6c46658fcbdef29fd798f6b636571c9",
+    "/applis/assets/menus.xlsm": "9e0d8d92d9b951ea43738df23a67f359f97e225e",
+    "/applis/assets/~$menus.xlsm": "df650bbb6b1bc0776d7434e056f9c4d6885eb19d",
     "/applis/favicon.ico": "8535c91170da784e0079876e4ce6dcfe0ec7adf8",
-    "/applis/main.984bb7554aca66e8c17d.js": "a0079717bceb3cc96ce58d88819b3d6f0490137d",
+    "/applis/main.cadc298133dd19237d53.js": "5c5f13515e3e6ee797df68872364eb2af848ed94",
     "/applis/polyfills.5b5c514d83a60ce973bc.js": "4f7d0f63b906aa376eb9c7bc6f0abfae545593a0",
     "/applis/privacy.html": "973a92e7a6070c5bbdaf954961b8065316f6631b",
     "/applis/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",

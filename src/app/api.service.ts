@@ -114,4 +114,8 @@ export class ApiService {
   deleteitem(id: string) {
     return this.http.get(api("deleteitem","item_id="+id));
   }
+
+  init() {
+    return this.http.get(api("init",""));
+  }
 }

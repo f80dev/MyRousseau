@@ -12,13 +12,15 @@ export class AdminComponent implements OnInit {
 
   users:any[]=[];
   gifts:any[]=[];
+  addresses: any[]=[];
+  menus: any[]=[];
 
   constructor(public userData:UserService,public api:ApiService,public rooter:Router) { }
 
   ngOnInit() {
-    this.api.getusers().subscribe((l:any)=>{
-      this.users=l.items;
-    });
+    this.api.getusers().subscribe((l:any)=>{this.users=l.items;});
+    this.api.getMenus(0).subscribe((l:any)=>{this.menus=l.items;});
+    this.api.getreferences(null).subscribe((l:any)=>{this.addresses=l.items;});
 
     this.gifts=[
       {message:"des pneus offert",picture:"https://staticjn.1001pneus.fr/images/profils/ProfilsGoogle/ENERGY_SAVER.png"},
@@ -33,6 +35,10 @@ export class AdminComponent implements OnInit {
     localStorage.removeItem("password");
     this.api.raz();
     location.href="/login";
+  }
+
+  init(){
+    this.api.init().subscribe(()=>{});
   }
 
   admin() {

@@ -1,6 +1,7 @@
 <br><br><br>
 
 <button mat-raised-button color="secondary" (click)="raz()">RAZ</button>
+<button mat-raised-button color="secondary" (click)="init()">Init</button>
 <button mat-raised-button color="secondary" (click)="admin()">Admin</button>
 <mat-expansion-panel>
   <mat-expansion-panel-header>
@@ -41,15 +42,46 @@
       Liste des cadeaux attribuables
     </mat-panel-description>
   </mat-expansion-panel-header>
-
-
     <mat-selection-list #sel_gift>
       <mat-list-option  *ngFor="let gift of gifts">
         <img mat-list-avatar src="{{gift.picture}}">
         <span mat-line>{{gift.message}}</span>
       </mat-list-option>
     </mat-selection-list>
+</mat-expansion-panel>
 
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Menus
+    </mat-panel-title>
+    <mat-panel-description>
+      Liste des plats disponibles
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+    <mat-selection-list #sel_gift>
+      <mat-list-option  *ngFor="let menu of menus">
+        <span mat-line>{{menu.title}}</span>
+      </mat-list-option>
+    </mat-selection-list>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Adresses
+    </mat-panel-title>
+    <mat-panel-description>
+      Liste des plats adresses disponibles
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+    <mat-selection-list #sel_gift>
+      <mat-list-option  *ngFor="let address of addresses">
+        <span mat-line>{{address.description}}</span>
+      </mat-list-option>
+    </mat-selection-list>
 </mat-expansion-panel>
 
 
