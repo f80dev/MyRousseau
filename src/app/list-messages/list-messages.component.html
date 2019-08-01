@@ -1,0 +1,14 @@
+<mat-card *ngIf="messages?.length>0" class="app-card">
+  <mat-card-header class="app-card-header">
+    Messages pour tous
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let message of messages" (click)="onRead(message)">
+        {{message.text}}
+        <span class="fill-remaining-space"></span>
+        <span style="font-size: small"> by {{message.from}}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,51 @@
+<br>
+<mat-form-field>
+  <mat-label>Catégorie</mat-label>
+  <mat-select style="font-size: large" [(ngModel)]="ref.category">
+    <mat-option *ngFor="let cat of categories" [value]="cat">
+      {{cat}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+
+<mat-form-field class="input-style">
+<input [(ngModel)]="ref.title" matInput placeholder="Titre" maxlength="20"
+       id="txtTitle">
+</mat-form-field>
+<br>
+
+<mat-form-field class="input-style">
+<input [(ngModel)]="ref.comment" matInput placeholder="Commentaire"
+       maxlength="200"
+       id="txtComment">
+</mat-form-field>
+<br>
+
+<mat-form-field class="input-style">
+<input [(ngModel)]="ref.address" matInput placeholder="Adresse"
+       maxlength="50"
+       id="txtAddress"
+       (blur)="checkAddress()"
+       >
+</mat-form-field>
+<br>
+
+<mat-form-field class="input-style">
+<input [(ngModel)]="ref.url" matInput placeholder="Lien internet"
+       maxlength="100"
+       id="txtUrl">
+</mat-form-field>
+
+<br>
+<button mat-raised-button mat-button
+        id="cmdValide"
+        *ngIf="ref.title.length>0"
+        color="primary"
+        (click)="onchange.emit(ref)">Envoyer
+</button>
+<button mat-raised-button mat-button
+        id="cmdCancel"
+        color="primary"
+        (click)="onchange.emit()">Annuler
+</button>

@@ -1,0 +1,18 @@
+<mat-card class="app-card">
+  <mat-card-header>
+    {{product.label}}
+  </mat-card-header>
+  <mat-card-content>
+    <img [src]="product.photo" ngStyle="width:70%;margin-left:15%;">
+    <br>
+    <div *ngIf="users.length>0">
+      Responsables :<br>
+      <ul>
+        <li *ngFor="let user of users">{{user.email}}</li>
+      </ul>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>
+

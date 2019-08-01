@@ -1,0 +1,62 @@
+<mat-card class="app-card">
+  <mat-card-header>
+
+    Diffuser un message
+      <span class="fill-remaining-space"></span>
+      <button mat-raised-button
+              id="cmdValide"
+              title="La validation entraine l'envoi de la demande de rendez-vous au concessionnaire qui en cas d'impossilibté recontacte le client"
+              *ngIf="message.text?.length>0"
+              color="primary"
+              (click)="addmessage()">Envoyer
+      </button>
+  </mat-card-header>
+  <mat-card-content class="app-card-content">
+
+    <app-tuto text="Vous pouvez partager un message qui restera visible pendant la période indiqué"></app-tuto>
+
+    <mat-form-field style="width:80%" class="input-style">
+      <input id="txtMotif"
+             matInput  [(ngModel)]="message.text" placeholder="votre message">
+    </mat-form-field>
+    <br><br><br>
+
+    <mat-form-field class="input-style" style="width:140px">
+      <input matInput
+             style="width:150px"
+             id="datePicker"
+             [matDatepicker]="picker"
+             [(ngModel)]="message.date"
+             placeholder="Date de début">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>&nbsp;&nbsp;
+    à&nbsp;
+    <input class="time-picker"
+           id="lstTimePicker"
+           [(ngModel)]="message.hour"
+           style="width: 75px;"
+           atp-time-picker
+           onlyHour="false"
+           start='09:30'
+           end="17:30"
+           local="fr"
+           value="15:00"/>
+
+    <br>affiché pendant:&nbsp;
+    <mat-select id="lstDuration"
+                placeholder="Durée"
+                [(ngModel)]="message.duration"
+                style="width: 150px;">
+      <mat-option [value]="1" active>1h</mat-option>
+      <mat-option [value]="24">La journée</mat-option>
+      <mat-option [value]="150">La semaine</mat-option>
+      <mat-option [value]="3500">Le mois</mat-option>
+    </mat-select>
+
+    <br>
+
+
+
+  </mat-card-content>
+</mat-card>

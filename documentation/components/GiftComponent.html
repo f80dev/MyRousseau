@@ -1,0 +1,901 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>RepubliqueEnfants documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">RepubliqueEnfants documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>GiftComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/gift/gift.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-gift</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./gift.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./gift.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#api">api</a>
+                            </li>
+                            <li>
+                                <a href="#gifts">gifts</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#snackBar">snackBar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userService">userService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                <a href="#useGift">useGift</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dtEnd">dtEnd</a>
+                            </li>
+                            <li>
+                                <a href="#dtStart">dtStart</a>
+                            </li>
+                            <li>
+                                <a href="#icon_view">icon_view</a>
+                            </li>
+                            <li>
+                                <a href="#userFilter">userFilter</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_notificationService: <a href="../injectables/PushNotificationsService.html">PushNotificationsService</a>, snackBar: MatSnackBar, api: <a href="../injectables/ApiService.html">ApiService</a>, userService: <a href="../injectables/UserService.html">UserService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/gift/gift.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_notificationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PushNotificationsService.html" target="_self" >PushNotificationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>api</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtEnd"></a>
+                        <b>dtEnd</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/gift/gift.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtStart"></a>
+                        <b>dtStart</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/gift/gift.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="icon_view"></a>
+                        <b>icon_view</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/gift/gift.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userFilter"></a>
+                        <b>userFilter</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/gift/gift.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/gift/gift.component.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                        <b>
+                            refresh
+                        </b>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refresh()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/gift/gift.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="useGift"></a>
+                    <span class="name">
+                        <b>
+                            useGift
+                        </b>
+                        <a href="#useGift"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>useGift(evt, gift)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/gift/gift.component.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>evt</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>gift</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="api"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            api</b>
+                            <a href="#api"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/gift/gift.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gifts"></a>
+                        <span class="name">
+                            <b>
+                            gifts</b>
+                            <a href="#gifts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/gift/gift.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="snackBar"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            snackBar</b>
+                            <a href="#snackBar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatSnackBar</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/gift/gift.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            userService</b>
+                            <a href="#userService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/gift/gift.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnInit} from &#x27;@angular/core&#x27;;
+import {ApiService} from &#x27;../api.service&#x27;;
+import {UserService} from &#x27;../user.service&#x27;;
+import {MatSnackBar} from &#x27;@angular/material&#x27;;
+import {PushNotificationsService} from &#x27;../push-notifications.service&#x27;;
+
+@Component({
+  selector: &#x27;app-gift&#x27;,
+  templateUrl: &#x27;./gift.component.html&#x27;,
+  styleUrls: [&#x27;./gift.component.css&#x27;]
+})
+export class GiftComponent implements OnInit {
+
+  gifts:any[]&#x3D;[];
+  @Input() dtStart&#x3D;0;
+  @Input() dtEnd&#x3D;0;
+  @Input() userFilter&#x3D;&quot;&quot;;
+  @Input() icon_view: boolean&#x3D;false;
+
+  constructor(private _notificationService: PushNotificationsService,public snackBar: MatSnackBar,public api:ApiService,public userService:UserService) { }
+
+  ngOnInit() {
+    this.refresh();
+  }
+
+  refresh(){
+    this.api.getgifts(localStorage.getItem(&quot;email&quot;),3).subscribe((r:any)&#x3D;&gt;{
+      this.gifts&#x3D;[];
+      r.items.forEach((i)&#x3D;&gt;{
+        if((i.dtStart&gt;&#x3D;this.dtStart || this.dtStart&#x3D;&#x3D;0) &amp;&amp; (i.dtEnd&gt;&#x3D;this.dtEnd || this.dtEnd&#x3D;&#x3D;0)){
+          if(this.userService.user.dtLastNotif&lt;i.dtCreate){
+            this._notificationService.generateNotification([{
+              &quot;title&quot;:&quot;Promotion&quot;,
+              &quot;alertContent&quot;:i.message,
+              &quot;icon&quot;:i.picture,
+              &quot;tag&quot;:&quot;promotion&quot;
+            }]);
+          }
+          this.gifts.push(i);
+        }
+      });
+    })
+  }
+
+  useGift(evt,gift) {
+
+    this.snackBar.open(gift.manual,&quot;&quot;,{duration:5000});
+
+    setTimeout(()&#x3D;&gt;{
+      this.userService.addgift(gift.id).subscribe(()&#x3D;&gt;{
+        this.refresh();
+      });
+    },2000);
+
+    let elt:any&#x3D;evt.target.parentElement.parentElement;
+
+    while(elt.className.indexOf(&quot;flip-card-inner&quot;)&#x3D;&#x3D;-1)
+      elt&#x3D;elt.parentElement;
+
+    elt.className+&#x3D;&quot; flip-card-reback&quot;;
+    //
+    // elt.parentElement.parentElement.parentElement.addEventListener(&quot;mouseleave&quot;,()&#x3D;&gt;{
+    //   elt.parentElement.parentElement.parentElement.parentElement.className&#x3D;&quot;flip-card-inner&quot;;
+    // });
+
+    // elt.parentElement.parentElement.parentElement.parentElement.addEventListener(&quot;tap&quot;,()&#x3D;&gt;{
+    //   elt.parentElement.parentElement.parentElement.parentElement.className&#x3D;&quot;flip-card-inner&quot;;
+    // });
+
+    // setTimeout(()&#x3D;&gt;{
+    //   elt.parentElement.parentElement.parentElement.parentElement.className&#x3D;&quot;flip-card-inner&quot;;
+    // },6000);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card *ngIf&#x3D;&quot;gifts?.length&gt;0&quot; class&#x3D;&quot;app-card&quot;&gt;
+  &lt;mat-card-header style&#x3D;&quot;margin-bottom: 10px;&quot;&gt;
+      Promotions / Cadeaux
+  &lt;/mat-card-header&gt;
+
+  &lt;mat-card-content class&#x3D;&quot;&quot;&gt;
+
+    &lt;div *ngIf&#x3D;&quot;!icon_view&quot; fxLayout&#x3D;&quot;row wrap&quot;&gt;
+        &lt;div class&#x3D;&quot;flip-card&quot; *ngFor&#x3D;&quot;let gift of gifts&quot; style&#x3D;&quot;margin-bottom:8px;position:relative;height:400px;width:100%;overflow: hidden;&quot;&gt;
+          &lt;div class&#x3D;&quot;flip-card-inner&quot;&gt;
+            &lt;div class&#x3D;&quot;flip-card-front&quot;&gt;
+              &lt;img src&#x3D;&quot;{{gift.picture}}&quot; style&#x3D;&quot;width:100%;height:100%;object-fit:cover;&quot;&gt;
+              &lt;div [ngStyle]&#x3D;&quot;{&#x27;position&#x27;:&#x27;absolute&#x27;,&#x27;text-align&#x27;:&#x27;center&#x27;,&#x27;left&#x27;:&#x27;20%&#x27;,&#x27;top&#x27;:&#x27;15%&#x27;,&#x27;width&#x27;:&#x27;60%&#x27;,&#x27;font-size&#x27;:&#x27;2.5vmax&#x27;,&#x27;color&#x27;:gift.messageColor}&quot;&gt;
+                {{gift.message}}
+              &lt;/div&gt;
+              &lt;button mat-raised-button
+                      style&#x3D;&quot;position:absolute;left:30%;top:70%;width:40%;font-size:1.5vmax;&quot;
+                      name&#x3D;&quot;cmdValide&quot;
+                      (click)&#x3D;&quot;useGift($event,gift)&quot;&gt;
+                J&#x27;en profite
+              &lt;/button&gt;
+
+              &lt;div help&#x3D;&quot;Pour chaque offre, on indique en temps réel le temps restant&quot;
+                    name&#x3D;&quot;lblGiftDuration&quot;
+                   [ngStyle]&#x3D;&quot;{&#x27;position&#x27;:&#x27;absolute&#x27;,&#x27;text-align&#x27;:&#x27;center&#x27;,&#x27;left&#x27;:&#x27;35%&#x27;,&#x27;top&#x27;:&#x27;82%&#x27;,&#x27;width&#x27;:&#x27;30%&#x27;,&#x27;font-size&#x27;:&#x27;1.3vmax&#x27;,&#x27;color&#x27;:gift.messageColor}&quot;&gt;
+                Il reste&amp;nbsp;&lt;app-timer [end]&#x3D;&quot;gift.dtEnd&quot;&gt;&lt;/app-timer&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;flip-card-back&quot;&gt;
+              &lt;div style&#x3D;&quot;vertical-align: middle;text-align: center;&quot;&gt;
+                {{gift.manual}}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;mat-selection-list #sel_gift *ngIf&#x3D;&quot;icon_view&quot;&gt;
+      &lt;mat-list-option  *ngFor&#x3D;&quot;let gift of gifts&quot;&gt;
+        &lt;img mat-list-avatar src&#x3D;&quot;{{gift.icon}}&quot;&gt;
+        &lt;span mat-line&gt;{{gift.message}}&lt;/span&gt;
+      &lt;/mat-list-option&gt;
+    &lt;/mat-selection-list&gt;
+
+    &lt;mat-card-actions&gt;
+    &lt;/mat-card-actions&gt;
+  &lt;/mat-card-content&gt;
+&lt;/mat-card&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./gift.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">mat-card {
+  overflow: hidden;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card *ngIf="gifts?.length>0" class="app-card">  <mat-card-header style="margin-bottom: 10px;">      Promotions / Cadeaux  </mat-card-header>  <mat-card-content class="">    <div *ngIf="!icon_view" fxLayout="row wrap">        <div class="flip-card" *ngFor="let gift of gifts" style="margin-bottom:8px;position:relative;height:400px;width:100%;overflow: hidden;">          <div class="flip-card-inner">            <div class="flip-card-front">              <img src="{{gift.picture}}" style="width:100%;height:100%;object-fit:cover;">              <div [ngStyle]="{\'position\':\'absolute\',\'text-align\':\'center\',\'left\':\'20%\',\'top\':\'15%\',\'width\':\'60%\',\'font-size\':\'2.5vmax\',\'color\':gift.messageColor}">                {{gift.message}}              </div>              <button mat-raised-button                      style="position:absolute;left:30%;top:70%;width:40%;font-size:1.5vmax;"                      name="cmdValide"                      (click)="useGift($event,gift)">                J\'en profite              </button>              <div help="Pour chaque offre, on indique en temps réel le temps restant"                    name="lblGiftDuration"                   [ngStyle]="{\'position\':\'absolute\',\'text-align\':\'center\',\'left\':\'35%\',\'top\':\'82%\',\'width\':\'30%\',\'font-size\':\'1.3vmax\',\'color\':gift.messageColor}">                Il reste&nbsp;<app-timer [end]="gift.dtEnd"></app-timer>              </div>            </div>            <div class="flip-card-back">              <div style="vertical-align: middle;text-align: center;">                {{gift.manual}}              </div>            </div>          </div>        </div>    </div>    <mat-selection-list #sel_gift *ngIf="icon_view">      <mat-list-option  *ngFor="let gift of gifts">        <img mat-list-avatar src="{{gift.icon}}">        <span mat-line>{{gift.message}}</span>      </mat-list-option>    </mat-selection-list>    <mat-card-actions>    </mat-card-actions>  </mat-card-content></mat-card></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddmessageComponent', 'selector': 'app-addmessage'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AnonymousComponent', 'selector': 'app-anonymous'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CarPickerComponent', 'selector': 'app-car-picker'},{'name': 'CatalogueComponent', 'selector': 'app-catalogue'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'GiftComponent', 'selector': 'app-gift'},{'name': 'LightProfilComponent', 'selector': 'app-light-profil'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'ListWorksComponent', 'selector': 'app-list-works'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalInputComponent', 'selector': 'app-modal-input'},{'name': 'NewReferenceComponent', 'selector': 'app-new-reference'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NextAppointmentComponent', 'selector': 'app-next-appointment'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PreferencesComponent', 'selector': 'app-preferences'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductPickerComponent', 'selector': 'app-product-picker'},{'name': 'ProfilComponent', 'selector': 'app-profil'},{'name': 'ReferencesComponent', 'selector': 'app-references'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'ShareComponent', 'selector': 'app-share'},{'name': 'TimerComponent', 'selector': 'app-timer'},{'name': 'TutoComponent', 'selector': 'app-tuto'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'GiftComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GiftComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<mat-card class="app-card">
+  <mat-card-header>
+    <mat-toolbar style="margin:0px;padding: 0px;height:30px;background: none;">
+      <span class="card-title app-card-header">
+          {{config.values.work.title}}
+          <span *ngIf="userData.user?.load_products!=null && userData.user?.load_products[0]?.dtStartWork>0">
+              depuis <app-timer [end]="userData.user?.load_products[0]?.dtStartWork"></app-timer>
+            </span>
+      </span>
+      <span class="fill-remaining-space"></span>
+
+      <div *ngIf="userData.user.products!=null && userData.user?.load_products!=null">
+
+          <div *ngIf="userData.user.load_products[0]?.dtStartWork>0">
+            <button mat-button
+                    (click)="onEnd()"
+                    mat-raised-button>
+              {{config.values.work.label_end}}
+            </button>
+          </div>
+
+          <button mat-button mat-raised-button
+                  (click)="onStart()"
+                  *ngIf="userData.user?.load_products[0]?.dtStartWork==null || userData.user?.load_products[0]?.dtStartWork==0">
+            {{config.values.work.label_start}}
+          </button>
+      </div>
+    </mat-toolbar>
+  </mat-card-header>
+
+
+  <mat-card-content>
+    <app-tuto text="Utilisez 'Arrivé' pour déclencher le chrono, 'Départ' pour l'arrêter. La période est automatiquement ajouté"></app-tuto>
+
+    <mat-list *ngIf="works?.length>0">
+      <mat-list-item *ngFor="let work of works" style="font-size:medium;">
+
+        <h4 style="padding:0px;">{{work.label}}&nbsp;</h4>
+        de {{work.dtStart | date:["HH:mm"]}} à {{work.dtEnd | date:"HH:mm"}}
+        <span *ngIf="(now-work.dtStart)>18*60*60000">&nbsp;le {{work.dtStart | date:['d']}}</span>
+        <span class="fill-remaining-space"></span>
+        <button mat-raised-button mat-icon-button (click)="delete(work)">
+          <mat-icon style="font-size: medium;">delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+    <br>
+
+    <app-schedule *ngIf="showManual" [needMotif]="false"
+                  title=""
+                  lang="fr"
+                  [defaultDuration]="userData.user.load_products[0]?.forfait"
+                  (close)="onInsert($event)"
+                  (cancel)="showManual=false">
+    </app-schedule>
+
+  </mat-card-content>
+  <mat-card-footer style="padding:10px;text-align: right;">
+      <span *ngIf="totalDuration!=null && totalDuration.length>0">
+        &nbsp;&nbsp;&nbsp;Total pour ce mois : {{totalDuration}}
+      </span>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-button mat-raised-button
+              (click)="showManual=true"
+              *ngIf="!showManual && (userData.user.load_products==null || userData.user.load_products[0]?.dtStartWork==null ||userData.user?.load_products[0]?.dtStartWork==0)">
+        Manuel
+      </button>&nbsp;&nbsp;
+
+  </mat-card-footer>
+</mat-card>

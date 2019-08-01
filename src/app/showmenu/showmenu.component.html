@@ -1,0 +1,19 @@
+<br>
+<div style="width:100%;text-align: center;">
+  <button mat-raised-button mat-button (click)="showMenu()">
+    Composer les menus
+  </button>
+  &nbsp;
+  <button mat-raised-button mat-button (click)="showBlog()">
+    Nutrition
+  </button>
+</div>
+
+  <br>
+
+  <app-schedule-menu [can_delete]="false"
+                     limit="10"
+                     title="Les prochains menu">
+  </app-schedule-menu>
+
+

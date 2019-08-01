@@ -1,0 +1,49 @@
+<br>
+
+<mat-form-field class="input-style">
+  <input [(ngModel)]="item.title" matInput placeholder="Titre" maxlength="20"
+         id="txtTitle">
+</mat-form-field>
+<br>
+
+<mat-form-field class="input-style">
+  <mat-label>Catégorie</mat-label>
+  <mat-select style="font-size: medium" [(ngModel)]="item.category" multiple>
+    <mat-option *ngFor="let cat of categories" [value]="cat">
+      {{cat}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="input-style">
+  <input [(ngModel)]="item.description" matInput placeholder="Description"
+         maxlength="200"
+         id="txtDescription">
+</mat-form-field>
+<br>
+
+
+<mat-form-field class="input-style">
+  <input [(ngModel)]="item.url_recette" matInput placeholder="Lien internet de la recette"
+         maxlength="100"
+         id="txtUrl">
+</mat-form-field>
+
+
+<span class="fill-remaining-space"></span>
+<button mat-raised-button mat-button
+        id="cmdValide"
+        *ngIf="item.title.length>0"
+        color="primary"
+        (click)="onchange.emit(item)">Envoyer
+</button>
+&nbsp;
+<button mat-raised-button mat-button
+        id="cmdCancel"
+        *ngIf="item.title.length>0"
+        color="primary"
+        (click)="onchange.emit()">Annuler
+</button>
+

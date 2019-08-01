@@ -1,0 +1,95 @@
+<mat-card class="app-card">
+  <mat-card-header>
+    {{config.values.compose_menu?.title}} du &nbsp;
+
+    <input matInput
+           style="width:45px;margin:0px;padding:0px;"
+           id="datePicker"
+           [matDatepicker]="picker"
+           [(ngModel)]="nextDate"
+    >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker startView="month" [startAt]="nowDate" #picker></mat-datepicker>
+
+
+    <!--<strong *ngIf="nextDate!=null">{{nextDate | date:'dd/MM'}}</strong>-->
+
+    <div style="font-size: x-large;display:inline-block;">
+      <mat-icon (click)="nextDay(-1)">arrow_left</mat-icon>&nbsp;<mat-icon (click)="nextDay(+1)">arrow_right</mat-icon>
+    </div>
+
+  </mat-card-header>
+
+  <mat-card-content class="app-card-content">
+
+    <table>
+      <tr style="vertical-align: text-top;">
+      <td style="font-size:small;">
+        Entrée:<br>
+        Plat:
+      </td>
+      <td style="font-size:small;">
+        {{menu.entree?.title}}<br>
+        {{menu.plat?.title}}
+      </td>
+      <td style="text-align: right;">
+        <button *ngIf="nextDate.getTime()>nowDate.getTime() && menu.plat?.title?.length>0" mat-raised-button mat-icon-button (click)="addToMenu()">
+          <mat-icon>checkmark</mat-icon>
+        </button>
+      </td>
+    </tr></table>
+    <br>
+
+
+    <app-new-item (onchange)="add_item($event)" *ngIf="showAdd">
+    </app-new-item>
+
+    <div *ngIf="categories?.length>0 && !showAdd">
+      <mat-form-field style="display:inline-block;width:30%;">
+        <mat-select style="font-size: small;" [(ngModel)]="filter1" (selectionChange)="refresh()">
+          <mat-option *ngFor="let cat of categories" [value]="cat">
+            {{cat}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field style="color:black;display:inline-block;width:30%;">
+        <mat-select style="font-size: small" [(ngModel)]="filter2" (selectionChange)="refresh()">
+          <mat-option  *ngFor="let cat of categories" [value]="cat">
+            {{cat}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;&nbsp;
+
+      <button mat-button *ngIf="userService.user.id!=null" mat-raised-button (click)="showAdd=true">
+        Ajouter
+      </button>
+
+      <mat-list dense>
+        <mat-list-item style="margin:0;padding:0;" *ngFor="let it of items">
+          <button mat-icon-button mat-raised-button (click)="addToCurrentMenu(it)"><mat-icon>playlist_add</mat-icon></button>
+          <button mat-icon-button mat-raised-button *ngIf="userService.user.email==config.values.admin.email" (click)="deleteItem(it)"><mat-icon>delete</mat-icon></button>
+          <h4 mat-line>
+            {{it.title}}
+            <span *ngIf="it.recette?.length>0"><a href="{{it.recette}}" target="_blank" style="font-size: small;">(Recette)</a></span>
+          </h4>
+            <p mat-line title="{{it.description}}">
+              {{it.description}}
+              <a *ngIf="it.url?.lenght>0" href="{{it.url}}">Recette</a>
+            </p>
+
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+  </mat-card-content>
+  <br>
+
+</mat-card>
+
+<app-schedule-menu [start]="viewDate"
+                   [filter]="userService.user.id"
+                   title="Vos prochains menus"
+                   #lst_menus>
+</app-schedule-menu>

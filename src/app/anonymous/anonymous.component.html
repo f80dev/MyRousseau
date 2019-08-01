@@ -1,0 +1,16 @@
+<div style="width:100%;text-align: center">
+  <img src="{{config.values.splash?.screen}}"
+       style="height:100%;display:inline;">
+</div>
+
+<div style="position:absolute;left:0;top:5%;width: 100%;text-align: center;">
+  <h1 style="color:white;font-weight: lighter;">{{config.values.appli_name}}</h1>
+  <button
+    mat-flat-button
+    id="cmdLogin"
+    style="margin-top:2vh;display:inline-block;font-size: xx-large;font-weight: lighter;padding:20px;background-color: #3f51b5;color:white;"
+    (click)="open_login()">
+    &nbsp;&nbsp;Login&nbsp;&nbsp;
+  </button>
+
+</div>

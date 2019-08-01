@@ -1,0 +1,24 @@
+<mat-card class="app-card">
+  <mat-card-header>
+    <h3>{{title}}</h3>
+  </mat-card-header>
+  <mat-list>
+    <mat-list-item *ngFor="let menu of menus">
+      <mat-icon *ngIf="can_delete || menu.preparateur.id==userService.user.id"
+                mat-list-icon (click)="deleteMenu(menu)">
+        delete
+      </mat-icon>
+
+      <h4 mat-line>
+        {{menu.dtStart | date:"dd/MM"}}
+      </h4>
+      <p mat-line>
+      <span *ngFor="let it of menu.items" (click)="openRecette(it.recette)">
+        {{it.title}}
+        <br>
+      </span>
+        <br>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
