@@ -94,12 +94,12 @@ export class ApiService {
     return this.http.get(api("getitems","category="+filter));
   }
 
-  getMenus(dtStart:number,filter:string=null,limit=20) {
-    return this.http.get(api("getmenus","dtStart="+dtStart+"&filter="+filter+"&limit="+limit));
+  getMenus(dtStart:number,groupe:string,filter:string=null,limit=20) {
+    return this.http.get(api("getmenus","dtStart="+dtStart+"&groupe="+groupe+"&filter="+filter+"&limit="+limit));
   }
 
-  nextmenudate(dtStart:number=null) {
-    return this.http.get(api("nextmenudate","dtStart="+dtStart));
+  nextmenudate(dtStart:number=null,groupe:string="") {
+    return this.http.get(api("nextmenudate","dtStart="+dtStart+"&groupe="+groupe));
   }
 
   isopen(dt:number,func:Function) {

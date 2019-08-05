@@ -9,7 +9,7 @@
       </span>
       <span class="fill-remaining-space"></span>
 
-      <div *ngIf="userData.user.products!=null && userData.user?.load_products!=null">
+      <div *ngIf="userData.user?.load_products!=null">
 
           <div *ngIf="userData.user.load_products[0]?.dtStartWork>0">
             <button mat-button

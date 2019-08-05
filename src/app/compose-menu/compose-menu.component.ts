@@ -3,7 +3,7 @@ import {ConfigService} from '../config.service';
 import {ApiService} from '../api.service';
 import {UserService} from '../user.service';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import {MatDatepickerInputEvent, MatDialog} from '@angular/material';
 import {NewItemComponent} from '../new-item/new-item.component';
 import {DatePipe} from '@angular/common';
 
@@ -37,11 +37,13 @@ export class ComposeMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api.nextmenudate().subscribe((r:any)=>{
-      this.nextDate=new Date(Number(r.nextDate));
-      //this.schedule_title_menu="Les prochaines menus à partir du "+new DatePipe("en-US").transform(this.viewDate,"dd/MM");
-      this.refresh();
-    })
+    if(this.userService.user.load_products!=null){
+      this.api.nextmenudate(null,this.userService.user.load_products[0].groupe).subscribe((r:any)=>{
+        this.nextDate=new Date(Number(r.nextDate));
+        //this.schedule_title_menu="Les prochaines menus à partir du "+new DatePipe("en-US").transform(this.viewDate,"dd/MM");
+        this.refresh();
+      })
+    }
   }
 
   nextDay(step:number){
@@ -53,7 +55,7 @@ export class ComposeMenuComponent implements OnInit {
       if(r){
         this.lst_menus.refresh();
 
-        this.api.getMenus(this.nextDate.getTime(),null,1).subscribe((m:any)=>{
+        this.api.getMenus(this.nextDate.getTime(),this.userService.user.load_products[0].groupe,null,1).subscribe((m:any)=>{
           if(m.items.length>0){
             this.menu.entree=m.items[0].items[0];
             this.menu.plat=m.items[0].items[1];
@@ -62,13 +64,22 @@ export class ComposeMenuComponent implements OnInit {
           }
         })
 
-      } else
-        this.nextDay(1);
+      } else {
+        if(step!=0)
+          this.nextDay(step);
+        else
+          this.nextDay(1);
+      }
+
     });
 
-
-
   }
+
+  changeDate(evt:MatDatepickerInputEvent<Date>){
+    this.nextDate=new Date(evt.value.toISOString());
+    this.nextDay(0);
+  }
+
 
   refresh(){
     this.api.getItems(this.filter1+","+this.filter2).subscribe((r:any)=>{
@@ -104,13 +115,18 @@ export class ComposeMenuComponent implements OnInit {
   addToMenu(){
     this.nextDate.setHours(11);
     this.nextDate.setMinutes(30);
-    this.userService.addtomenu(this.nextDate.getTime(),this.userService.user.id,this.menu).subscribe((r:any)=>{
-      this.nextDate=new Date(Number(r.nextDate));
-      this.razCurrentMenu();
-      setTimeout(()=>{
-        this.nextDay(1);
-        this.lst_menus.refresh();
-      },1500);
+    this.userService.addtomenu(
+      this.nextDate.getTime(),
+      this.userService.user.load_products[0].groupe,
+      this.userService.user.id,
+      this.menu)
+      .subscribe((r:any)=>{
+        this.nextDate=new Date(Number(r.nextDate));
+        this.razCurrentMenu();
+        setTimeout(()=>{
+          this.nextDay(1);
+          this.lst_menus.refresh();
+        },1500);
     });
   }
 

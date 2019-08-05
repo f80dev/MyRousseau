@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.api.getusers().subscribe((l:any)=>{this.users=l.items;});
-    this.api.getMenus(0).subscribe((l:any)=>{this.menus=l.items;});
+    this.api.getMenus(0,null).subscribe((l:any)=>{this.menus=l.items;});
     this.api.getreferences(null).subscribe((l:any)=>{this.addresses=l.items;});
 
     this.gifts=[

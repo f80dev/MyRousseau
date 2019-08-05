@@ -12,6 +12,7 @@ export class ScheduleMenuComponent implements OnInit {
   menus:any[]=[];
   @Input("start") dtStart=new Date();
   @Input("filter") filter=null;
+  @Input("groupe") groupe=null;
   @Input("can_delete") can_delete=true;
   @Input("title") title="";
   @Input("limit") limit=10;
@@ -28,7 +29,7 @@ export class ScheduleMenuComponent implements OnInit {
     var dt=this.dtStart;
     dt.setHours(11);
     dt.setMinutes(30);
-    this.api.getMenus(dt.getTime(),this.filter).subscribe((r:any)=>{
+    this.api.getMenus(dt.getTime(),this.groupe,this.filter).subscribe((r:any)=>{
       this.menus=r.items;
       if(this.menus.length>this.limit)
         this.menus=this.menus.slice(0,this.limit);

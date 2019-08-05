@@ -1,32 +1,45 @@
 <mat-card class="app-card">
   <mat-card-header>
-    {{config.values.compose_menu?.title}} du &nbsp;
+          <mat-form-field style="width:120px;">
+            <input matInput
+                   [min]="nowDate"
+                   placeholder="{{config.values.compose_menu?.title}} du"
+                   id="datePicker"
+                   [ngModel]="nextDate"
+                   [matDatepicker]="picker"
+                   (dateInput)="changeDate($event)"
+            >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker startView="month" [startAt]="nowDate" #picker></mat-datepicker>
+          </mat-form-field>
 
-    <input matInput
-           style="width:45px;margin:0px;padding:0px;"
-           id="datePicker"
-           [matDatepicker]="picker"
-           [(ngModel)]="nextDate"
-    >
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker startView="month" [startAt]="nowDate" #picker></mat-datepicker>
+    <div style="margin-left:30px;font-size: x-large;display:inline-block;">
+      <button mat-raised-button mat-icon-button (click)="nextDay(-1)">
+        <mat-icon>arrow_left</mat-icon>
+      </button>
+      &nbsp;
+      <button mat-raised-button mat-icon-button (click)="nextDay(+1)">
+        <mat-icon >arrow_right</mat-icon>
+      </button>
+
+    </div>
+
+
+
 
 
     <!--<strong *ngIf="nextDate!=null">{{nextDate | date:'dd/MM'}}</strong>-->
 
-    <div style="font-size: x-large;display:inline-block;">
-      <mat-icon (click)="nextDay(-1)">arrow_left</mat-icon>&nbsp;<mat-icon (click)="nextDay(+1)">arrow_right</mat-icon>
-    </div>
 
   </mat-card-header>
 
   <mat-card-content class="app-card-content">
 
     <table>
-      <tr style="vertical-align: text-top;">
+      <tr style="width:100%;vertical-align: text-top;margin:0px;padding:0px;">
       <td style="font-size:small;">
-        Entrée:<br>
-        Plat:
+        <strong>Entrée:</strong><br>
+        <strong>Plat:</strong>
       </td>
       <td style="font-size:small;">
         {{menu.entree?.title}}<br>
@@ -63,14 +76,14 @@
       &nbsp;&nbsp;
 
       <button mat-button *ngIf="userService.user.id!=null" mat-raised-button (click)="showAdd=true">
-        Ajouter
+        Nouveau
       </button>
 
       <mat-list dense>
-        <mat-list-item style="margin:0;padding:0;" *ngFor="let it of items">
-          <button mat-icon-button mat-raised-button (click)="addToCurrentMenu(it)"><mat-icon>playlist_add</mat-icon></button>
+        <mat-list-item style="margin:0px;padding:0px;" *ngFor="let it of items">
+          <mat-icon mat-list-icon (click)="addToCurrentMenu(it)">add</mat-icon>
           <button mat-icon-button mat-raised-button *ngIf="userService.user.email==config.values.admin.email" (click)="deleteItem(it)"><mat-icon>delete</mat-icon></button>
-          <h4 mat-line>
+          <h4 mat-line (click)="addToCurrentMenu(it)">
             {{it.title}}
             <span *ngIf="it.recette?.length>0"><a href="{{it.recette}}" target="_blank" style="font-size: small;">(Recette)</a></span>
           </h4>

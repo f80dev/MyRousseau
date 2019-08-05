@@ -133,8 +133,8 @@ export class UserService {
     return this.http.post(api("additem","user="+this.user.email),item);
   }
 
-  addtomenu(nextDate: number, id: any, item: any) {
-    return this.http.post(api("addtomenu","user="+this.user.email+"&dtStart="+nextDate),item);
+  addtomenu(nextDate: number, groupe:string,id: any, item: any) {
+    return this.http.post(api("addtomenu","user="+this.user.email+"&dtStart="+nextDate+"&groupe="+groupe),item);
   }
 
   deleteMenu(id: string) {
