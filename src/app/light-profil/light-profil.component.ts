@@ -20,7 +20,7 @@ export class LightProfilComponent implements OnInit {
     // width: {ideal: 1024},
     // height: {ideal: 576}
   };
-  private multipleWebcamsAvailable: boolean;
+  webcamsAvailable=0;
 
   constructor(public api:ApiService,public config:ConfigService,
               public userService:UserService,public router:Router) {
@@ -63,7 +63,11 @@ export class LightProfilComponent implements OnInit {
   ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
       .then((mediaDevices: MediaDeviceInfo[]) => {
-        this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
+        debugger
+        if(mediaDevices==null)
+          this.webcamsAvailable =0;
+        else
+          this.webcamsAvailable = mediaDevices.length;
       });
   }
 

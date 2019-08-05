@@ -83,8 +83,7 @@
     </app-tuto>
     <br>
 
-
-    <button *ngIf="!takePicture && userService.user.products!=null"
+    <button *ngIf="!takePicture && userService.user.products!=null && webcamsAvailable>0"
             mat-icon-button mat-button mat-raised-button
             style="margin:5px;"
             (click)="takePhoto()">
@@ -98,7 +97,7 @@
             (click)="triggerSnapshot(true)">
       Déclencher
     </button>
-    &nbsp;
+    &nbsp;&nbsp;
     <button *ngIf="takePicture"
             mat-raised-button
              mat-button
