@@ -69,7 +69,7 @@
         &nbsp;&nbsp;Message
       </a>
 
-      <a *ngIf="userService.user?.email!=null && config.values.menu.showmenu?.visible && userService.user?.products!=null"
+      <a *ngIf="userService.user?.email!=null && config.values.menu.showmenu?.visible"
          mat-list-item routerLink="/showmenu"
          id="cmdShowMenus"
          title="Les menus des prochains jours">

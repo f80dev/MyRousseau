@@ -18,6 +18,41 @@ export function tirage(max){
   return Math.trunc(Math.random()*max);
 }
 
+
+export function resizeBase64Img(base64, maxsize,quality,func) {
+
+  if(base64==null || base64==""){
+    $$("Probleme d'image vide");
+    func();
+  }
+
+  var canvas = document.createElement("canvas");
+  var img=new Image();
+  img.onload=function(){
+    var ratio=1;
+    if(maxsize!=null)ratio=maxsize/Math.max(img.width,img.height);
+
+    if(ratio<=1){
+      canvas.width =img.width*ratio;
+      canvas.height =img.height*ratio;
+      var context = canvas.getContext("2d");
+      context.drawImage(img, 0, 0,canvas.width,canvas.height);
+      var rc=canvas.toDataURL("image/jpeg", quality);
+    }
+    else
+      rc=base64;
+
+    func(rc);
+  };
+
+  img.src=base64;
+}
+
+export function waiting(form:any,visible=true){
+  if(!form.hasOwnProperty("waiting"))
+    form.waiting=visible;
+}
+
 export function $$(s:string,obj:any=null){
   var lg=new Date().getHours()+":"+new Date().getMinutes()+" -> "+s;
   if(obj!=null)

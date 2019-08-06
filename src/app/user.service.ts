@@ -35,10 +35,12 @@ export class UserService {
   }
 
   public loadProducts(func=null){
-    this.http.get(api("getproducts","email="+this.user.email)).subscribe((resp:any)=>{
-      this.user.load_products=resp.items;
-      if(func!=null)func(resp.items);
-    });
+    if(this.user.email!=null){
+      this.http.get(api("getproducts","email="+this.user.email)).subscribe((resp:any)=>{
+        this.user.load_products=resp.items;
+        if(func!=null)func(resp.items);
+      });
+    }
   }
 
   public set(r:any){

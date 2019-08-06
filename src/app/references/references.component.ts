@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../api.service';
 import {UserService} from '../user.service';
 import {ConfigService} from '../config.service';
+import {LocService} from '../loc.service';
 
 @Component({
   selector: 'app-references',
@@ -15,7 +16,7 @@ export class ReferencesComponent implements OnInit {
   filter="";
   showAdd=false;
 
-  constructor(public config:ConfigService,public api:ApiService,public userService:UserService) { }
+  constructor(public loc:LocService,public config:ConfigService,public api:ApiService,public userService:UserService) { }
 
   ngOnInit() {
     this.refresh();
@@ -61,7 +62,13 @@ export class ReferencesComponent implements OnInit {
   }
 
   openMap(ref: any) {
-    window.open("https://www.google.com/maps/@"+ref.lat+","+ref.lng+",22z","_blank");
+    if(ref.lat==0 && ref.lng==0){
+      this.loc.getAddress(ref.address,(res)=>{
+        window.open("https://www.google.com/maps/@"+res[0].lat+","+res[0].lon+",16z","_blank");
+      });
+    } else {
+      window.open("https://www.google.com/maps/@"+ref.lat+","+ref.lng+",16z","_blank");
+    }
   }
 
   openUrl(url: any) {

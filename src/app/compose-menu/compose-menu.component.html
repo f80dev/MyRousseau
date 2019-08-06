@@ -83,13 +83,11 @@
         <mat-list-item style="margin:0px;padding:0px;" *ngFor="let it of items">
           <mat-icon mat-list-icon (click)="addToCurrentMenu(it)">add</mat-icon>
           <button mat-icon-button mat-raised-button *ngIf="userService.user.email==config.values.admin.email" (click)="deleteItem(it)"><mat-icon>delete</mat-icon></button>
-          <h4 mat-line (click)="addToCurrentMenu(it)">
+          <h4 mat-line (click)="openRecette(it)">
             {{it.title}}
-            <span *ngIf="it.recette?.length>0"><a href="{{it.recette}}" target="_blank" style="font-size: small;">(Recette)</a></span>
           </h4>
-            <p mat-line title="{{it.description}}">
+            <p mat-line title="{{it.description}}" style="cursor: pointer;">
               {{it.description}}
-              <a *ngIf="it.url?.lenght>0" href="{{it.url}}">Recette</a>
             </p>
 
         </mat-list-item>

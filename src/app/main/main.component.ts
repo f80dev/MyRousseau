@@ -13,6 +13,7 @@ import {ConfigService} from '../config.service';
 })
 export class MainComponent implements OnInit {
 
+  waiting=false;
   public user:any={};
   bigScreen=true;
 
@@ -25,8 +26,10 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.waiting=true;
     this.userService.init(localStorage.getItem("email"),()=>{
       this.api.login(localStorage.getItem("email"),localStorage.getItem("password")).subscribe((r)=>{
+        this.waiting=false;
         if(r==null){
           this.userService.user={};
           localStorage.removeItem("email");

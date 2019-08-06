@@ -1,6 +1,6 @@
 {
   "appli_name":"My République Enfants",
-  "version":"0.19.beta",
+  "version":"0.191.beta",
 
   "owner":{
     "licence":"ouverte",
@@ -67,7 +67,7 @@
 
   "product_picker":{
     "mode":"select",
-    "title":"vous avez la responsabilité de ?",
+    "title":"vous avez la responsabilité de ",
     "title_color":"black",
     "font_size":"5vmin",
     "label_button":"Sélectionner",
@@ -219,8 +219,7 @@
       "title":"Cafés",
       "description":"Les cafés avec espace pour les enfants",
       "icon":"insert_emoticon",
-      "href":"https://www.elle.fr/Loisirs/Sorties/Dossiers/cafe-pour-enfants-cafe-poussette",
-      "target":"blank"
+      "href":"https://www.mariefrance.fr/cuisine/mes-bonnes-adresses/maman-cafes-poussette-a-tester-a-paris-398292.html"
     },
     {
       "title":"Agenda",

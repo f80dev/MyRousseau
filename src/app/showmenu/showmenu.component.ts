@@ -12,6 +12,7 @@ export class ShowmenuComponent implements OnInit {
   constructor(public router:Router,public userService:UserService) { }
 
   ngOnInit() {
+    this.userService.loadProducts();
   }
 
 

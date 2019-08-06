@@ -5,6 +5,7 @@ import {ConfigService} from '../config.service';
 import {ApiService} from '../api.service';
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 import {Observable, Subject} from 'rxjs';
+import {resizeBase64Img} from '../tools';
 
 @Component({
   selector: 'app-light-profil',
@@ -13,6 +14,7 @@ import {Observable, Subject} from 'rxjs';
 })
 export class LightProfilComponent implements OnInit {
   takePicture: boolean=false;
+  waiting=false;
   private trigger: Subject<void> = new Subject<void>();
   private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
 
@@ -52,23 +54,29 @@ export class LightProfilComponent implements OnInit {
   }
 
   selproduct(ref) {
+    this.waiting=true;
     this.userService.addproduct(ref).subscribe((r:any)=>{
       this.userService.user=r;
       this.userService.loadProducts(()=>{
-
+        this.waiting=false;
       })
     });
   }
 
-  ngOnInit(): void {
+  initAvailableCameras(){
     WebcamUtil.getAvailableVideoInputs()
       .then((mediaDevices: MediaDeviceInfo[]) => {
-        debugger
         if(mediaDevices==null)
           this.webcamsAvailable =0;
         else
           this.webcamsAvailable = mediaDevices.length;
       });
+  }
+
+  ngOnInit(): void {
+   setTimeout(()=>{
+     this.initAvailableCameras();
+   },500);
   }
 
 
@@ -95,5 +103,19 @@ export class LightProfilComponent implements OnInit {
 
   showproduct(id:string) {
     this.router.navigate(["product/"+id]);
+  }
+
+  onFileSelected() {
+    const inputNode: any = document.querySelector('#file');
+    if (typeof (FileReader) !== 'undefined') {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        resizeBase64Img(e.target.result,400,0.5,(img)=>{
+          this.userService.user.load_products[0].photo = img;
+          this.userService.sendphoto({photo:img,type:"product"}).subscribe(()=>{});
+        });
+      };
+      reader.readAsDataURL(inputNode.files[0]);
+    }
   }
 }

@@ -18,7 +18,9 @@
           forfait:{{userService.user.load_products[0]?.forfait}}h
         </span>
 
-        <app-product-picker *ngIf="userService.user.products==null"
+        <mat-spinner *ngIf="waiting"></mat-spinner>
+
+        <app-product-picker *ngIf="userService.user.products==null && !waiting"
                             width="100%"
                             style="height:500px;"
                             (onclick)="selproduct($event)">
@@ -83,12 +85,20 @@
     </app-tuto>
     <br>
 
-    <button *ngIf="!takePicture && userService.user.products!=null && webcamsAvailable>0"
-            mat-icon-button mat-button mat-raised-button
-            style="margin:5px;"
-            (click)="takePhoto()">
-      <mat-icon>camera</mat-icon>
-    </button>
+    <div *ngIf="userService.user.products!=null">
+      <button *ngIf="!takePicture && webcamsAvailable>0"
+              mat-icon-button mat-button mat-raised-button
+              style="margin:5px;"
+              (click)="takePhoto()">
+        <mat-icon>camera</mat-icon>
+      </button>
+
+      <button *ngIf="!takePicture" mat-icon-button mat-raised-button (click)="fileInput.click()">
+        <mat-icon>images</mat-icon>
+      </button>
+      <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+
+    </div>
 
     <button *ngIf="takePicture"
              mat-button

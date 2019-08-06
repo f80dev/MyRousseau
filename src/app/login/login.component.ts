@@ -24,6 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnInit {
   showPassword=false;
   email="";
+  waiting=false;
   password="";
   showResendCode=false;
   handleLogin=null;
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
   login(manual=false) {
     if(manual)this.showServiceTiers=false;
     localStorage.setItem("email",this.email);
+    this.waiting=true;
     this.api.login(this.email,this.password).subscribe((r:any)=>{
       if(!this.showPassword){
         if(r==null){

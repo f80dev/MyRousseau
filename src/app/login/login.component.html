@@ -76,6 +76,8 @@
           </button>
         </mat-form-field>
         <br>
+        <mat-spinner *ngIf="waiting"></mat-spinner>
+
         <button *ngIf="email!=null && email.length>0 && email.split('@').length>1"
                 mat-raised-button mat-button
                 id="cmdLogin"

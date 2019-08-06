@@ -25,7 +25,7 @@ import {
   MatChipsModule,
   MatSnackBarModule,
   MatCheckboxModule,
-  MAT_DATE_FORMATS, MAT_DATE_LOCALE, DateAdapter
+  MAT_DATE_FORMATS, MAT_DATE_LOCALE, DateAdapter, MatProgressSpinnerModule
 } from '@angular/material';
 
 import { ContactComponent } from './contact/contact.component';
@@ -73,7 +73,6 @@ import { ProductComponent } from './product/product.component';
 import { ReferencesComponent } from './references/references.component';
 import { NewReferenceComponent } from './new-reference/new-reference.component';
 import {NgxLunrModule} from 'ngx-lunr';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { NewItemComponent } from './new-item/new-item.component';
 import { ComposeMenuComponent } from './compose-menu/compose-menu.component';
 import { ScheduleMenuComponent } from './schedule-menu/schedule-menu.component';
@@ -148,6 +147,7 @@ export const MY_FORMATS = {
     HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
     MatSidenavModule,
     DeviceDetectorModule.forRoot(),
     MatIconModule,

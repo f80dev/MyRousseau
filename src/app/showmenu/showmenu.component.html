@@ -1,23 +1,29 @@
+<div *ngIf="userService.user?.load_products==null || userService.user?.load_products[0]==null"
+     style="text-align: center;margin:10%;">
+  <h3>Retrouver tous les menus pour votre enfant, une fois celui-ci renseigné</h3>
+</div>
 
+<div *ngIf="userService.user?.load_products!=null && userService.user?.load_products[0]!=null"
+     style="text-align: left;width:100%;">
   <br>
-  <div style="width:100%;text-align: center;">
+  &nbsp;
     <button mat-raised-button mat-button (click)="showMenu()">
       Composer les menus
     </button>
     &nbsp;
     <button mat-raised-button mat-button (click)="showBlog()">
-      Nutrition
+      Conseils Nutrition
     </button>
-  </div>
 
-  <br>
+  <br><br>
 
   <app-schedule-menu [can_delete]="false"
-                     *ngIf="userService.user?.load_products!=null && userService.user?.load_products[0]!=null"
                      [groupe]="userService.user?.load_products[0].groupe"
                      limit="10"
                      title="Les prochains menu">
   </app-schedule-menu>
+</div>
+
 
 
 

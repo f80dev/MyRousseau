@@ -140,4 +140,11 @@ export class ComposeMenuComponent implements OnInit {
   razCurrentMenu() {
     this.menu={entree:{title:""},plat:{title:""}};
   }
+
+  openRecette(it:any){
+    if(it.recette==null || it.recette.length==0){
+      it.recette="https://www.marmiton.org/recettes/recherche.aspx?type=all&aqt="+it.title.replace(" ","+");
+    }
+    window.open(it.recette,"_blank");
+  }
 }
