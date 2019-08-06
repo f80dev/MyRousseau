@@ -1,6 +1,6 @@
 {
   "appli_name":"My République Enfants",
-  "version":"0.191.beta",
+  "version":"0.2.beta",
 
   "owner":{
     "licence":"ouverte",
@@ -241,7 +241,6 @@
     "invite":10
   },
 
-
   "admin":{
     "visible":false,
     "email":"hhoareau@gmail.com",
@@ -255,6 +254,5 @@
     "open":"08:30",
     "close":"18:30"
   }
-
 
 }

@@ -23,6 +23,11 @@
   <app-list-works *ngIf="config.values.menu.list_works?.visible && userService.user?.load_products!=null && userService.user?.load_products[0]!=null" [max_items]="3"></app-list-works>
   <app-light-profil></app-light-profil>
   <app-next-appointment *ngIf="config.values.menu.next_appointment?.visible"></app-next-appointment>
-
   <app-gift *ngIf="config.values.menu?.gifts?.visible"></app-gift>
+  <app-schedule-menu *ngIf="userService.user?.load_products!=null && userService.user?.load_products[0]!=null"
+                     [can_delete]="false"
+                     [groupe]="userService.user?.load_products[0].groupe"
+                     limit="10"
+                     title="Les prochains menu">
+  </app-schedule-menu>
 </div>

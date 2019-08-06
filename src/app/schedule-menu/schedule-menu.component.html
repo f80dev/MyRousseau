@@ -6,8 +6,9 @@
     <mat-list-item *ngFor="let menu of menus" style="margin-top: 10px;">
       <h3 mat-line>
         <strong>{{menu.dtStart | date:"dd/MM"}}</strong>
-          <mat-icon *ngIf="can_delete || menu.preparateur.id==userService.user.id"
+          <mat-icon *ngIf="can_delete && menu.preparateur.id==userService.user.id"
                     style="display: inline;font-size: medium;"
+                    title="Vous permet de supprimer le menu (si vous en êtes l'auteur)"
                     (click)="deleteMenu(menu)">
             delete
           </mat-icon>

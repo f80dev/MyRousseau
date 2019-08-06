@@ -21,31 +21,18 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-list>
-        <mat-list-item *ngFor="let ref of references">
-          <mat-icon mat-list-icon (click)="openMap(ref)">
-            my_location
-          </mat-icon>
-          &nbsp;
-          <p>
-            <span (click)="openUrl(ref.url)">{{ref.text}}</span><br>
+      <mat-list dense >
+        <mat-list-item style="margin: 0px;padding:0px;" *ngFor="let ref of references">
+          <mat-icon matListIcon (click)="openMap(ref)">my_location</mat-icon>
+          <mat-icon matListIcon
+                    *ngIf="userService.user?.id==ref.owner || userService.user?.email==config.values.admin.email" (click)="del_reference(ref)">delete</mat-icon>
+          <p matLine title="{{ref.comment}}" (click)="openUrl(ref.url)">
+            {{ref.text}}<br>
             <small>{{ref.comment}}</small>
-
-            <br>
           </p>
-          <span class="fill-remaining-space"></span>
-          <button mat-raised-button mat-icon-button (click)="like(ref.id,1)">{{0+ref.likes?.length}}</button>
-          /
-          <button mat-raised-button mat-icon-button (click)="like(ref.id,-1)">{{0+ref.dislikes?.length}}</button>
 
-          &nbsp;
-          <button mat-icon-button mat-raised-button
-                  *ngIf="userService.user?.id==ref.owner || userService.user?.email==config.values.admin.email" (click)="del_reference(ref)">
-            <mat-icon>
-              delete
-            </mat-icon>
-          </button>
-
+            <span style="cursor: pointer;" (click)="like(ref.id,1)">{{0+ref.likes?.length}}</span>/
+            <span style="cursor: pointer;" (click)="like(ref.id,-1)">{{0+ref.dislikes?.length}}</span>
         </mat-list-item>
       </mat-list>
     </div>

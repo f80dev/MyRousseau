@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("email",this.email);
     this.waiting=true;
     this.api.login(this.email,this.password).subscribe((r:any)=>{
+      this.waiting=false;
       if(!this.showPassword){
         if(r==null){
           if(manual)
@@ -73,7 +74,7 @@ export class LoginComponent implements OnInit {
           }
         }
       }
-    })
+    },()=>{this.waiting=false;})
   }
 
   clearEmail() {
